@@ -1,8 +1,0 @@
-
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^router\.cameronlattz\.com$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.router\.cameronlattz\.com$
-RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
-RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
-RewriteRule ^/?$ "http\:\/\/cameronlattz\.dynu\.com\:8080" [R=301,L]
-
