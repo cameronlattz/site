@@ -1,0 +1,13 @@
+#vhsLogo {
+    position: absolute;
+    top: 0px;
+}
+#grid {
+	width: 100%;
+	height: 100%;
+}
+#grid line {
+    stroke-dasharray: 10000;
+    stroke-dashoffset: 10000;
+    animation: dash 5s linear forwards;
+}

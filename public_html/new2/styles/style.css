@@ -1,0 +1,58 @@
+/* main */
+body {
+	margin: 0;
+}
+.background-container {
+	position: sticky;
+	top: 0px;
+	width: 100%;
+	height: 34%;
+	z-index: 1;
+}
+.container {
+	position: relative;
+	height: 300%;
+	width: 100%;
+}
+.content-container {
+	position: relative;
+	z-index: 1;
+	top: -34%;
+}
+.noise-container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/bg.png");
+}
+
+/* header */
+#containerHeader {
+	height: 100%;
+}
+#backgroundContainerHeader {
+	background-color: #f6f6f6;
+	height: 100%;
+}
+#contentContainerHeader {
+	top: -100%;
+}
+
+/* 80s */
+#backgroundContainer80s {
+	background-color: #202624;
+}
+#cutOut{
+	position: absolute;
+	bottom: 15%;
+	right: 0px;
+}
+
+/* 90s */
+#backgroundContainer90s {
+	background-color: #ff0;
+}
