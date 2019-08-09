@@ -1,0 +1,478 @@
+<html>
+<head>
+<style>
+#xbox {position:absolute; top:0px; right:1px; z-index:5}
+#xbox img {margin-left:1px; margin-right:-1px; margin-top:1px; border-left:2px solid #000; border-bottom:2px solid #000; cursor:pointer}
+#nbox {position:absolute; top:1px; left:1px; border:1px solid #222}
+#ebox {position:absolute; top:200px; left:300px; margin:5px; border:1px solid #222; background:#fff; padding:2px}
+#cbar {position:absolute; z-index:4; top:0px; left:2px; opacity:0.9}
+#cbar a {width:300px; height:50px; display:table-cell; text-align:center; padding:15px; background:#ddd; border:2px solid #333; font-weight:bold; opacity:0.7}
+#cbar a:hover {background:#fff; border:5px solid #eee; border-bottom:1px solid #333; padding:12px; padding-bottom:13px}
+#cbar .current {background:#eee; border:2px solid #777; border-bottom:2px solid transparent}
+#bodyid {position:absolute; top:54px; left:0px; width:99%; height:100%; border:2px solid #777; border-top:2px solid transparent; border-right:0px; text-align:center}
+#bodyid b {display:block; width:500px; background-color:#fff; text-align:left; margin:20px auto 20px auto; padding:5px; border:2px solid #333; font-weight:normal; opacity:0.5}
+#bodyid b:hover {opacity:0.8}
+#cbox {position:absolute; bottom:150px; left:400px; margin:5px; border:1px solid #222; background:#fff; padding:2px}
+#g1box {position:absolute; bottom:100px; left:50px; border:1px solid #222; background:#fff; padding:2px; text-align:center}
+#g2box {position:absolute; bottom:100px; right:50px; border:1px solid #222; background:#fff; padding:2px; text-align:center}
+select {width:200px; height:25px}
+#bgbox a {float:right; margin-right:200px; text-decoration:none; color:#333;}
+#bgbox a:hover {color:#666; text-decoration:underline}
+#bgbox input {margin-top:-25px;}
+input {height:25px; width:200px; float:right; margin-top:1px;}
+#bodyid b .l {float:left;}
+#bodyid b .x {position:relative; top:3px; margin-bottom:-1px; float:right}
+input.q {height:30px; width:10px}
+input.s {width:150px}
+#ebox span {line-height:28px}
+body {font-size:20px; opacity:0.99}
+#n2 {display:inline; float:right; margin-top:5px;}
+#n2 input, #n2 select {margin:2px; height:25px; width:200px;}
+#cus {position:absolute; z-index:-1; top:0px; left:0px; width:100%; height:100%; background:#ddd; border:2px solid #222; opacity:0.7;}
+#n2 #fi {width:175px;}
+#n2 a.bgcc {color:#333; padding-right:3px}
+#n2 a.bgcc:hover {color:#555; text-decoration:none;}
+#d1,#d2,#d3 {position:absolute; top:20px; width:100%; height:610px; padding:5px; font-size:24px;}
+#d0 {position:absolute; top:20px; visibility:visible; text-align:left; padding-left:15px; overflow:auto;}
+#d1,#d2,#d3 {visibility:hidden;}
+#d0 a img {border:0px}
+#d0 a {border:3px solid #111; width:300px; height:182px; display:inline-block; margin:5px; border-spacing:5px; opacity:0.5}
+#d0 a:hover {border:3px solid #444; opacity:0.9}
+#d0 .d0l {position:fixed; top:300px; left:20px;}
+#d0 .d0r {position:fixed; top:300px; right:20px;}
+</style>
+<script>
+var oldbgbox='';
+var ul='';
+function readr() {
+	oldbgbox=document.getElementById('bgbox').innerHTML;
+	varza=window.location.toString();
+	if (varza.split('?')[1]) {
+	varza=varza.split('?start=')[1].split(';');
+	document.g.b.value=varza[0].split('*')[2];
+	if (document.g.b.value==0) {bgchoose(0); document.g.b2.value=varza[0].split('*')[1];}
+
+	//switch for logo
+	document.g.l.value=varza[1];
+	//switch for button style
+	document.g.bs.value=varza[2];
+	document.g.tc.value=varza[3];
+	document.g.fb.value=varza[4];
+	document.g.se.value=varza[5];
+	document.g.sbtc.value=varza[6];
+	document.g.sbbc.value=varza[7];
+	document.g.sbbgc.value=varza[8];
+	if (varza[9]=='0') {document.g.g1c.checked=false}
+	if (varza[9]=='1') {document.g.g1c.checked=true}
+	document.g.g1sel.value=findgadsrc(varza[10]);
+	if (varza[11]=='0') {document.g.g2c.checked=false}
+	if (varza[11]=='1') {document.g.g2c.checked=true}
+	document.g.g2sel.value=findgadsrc(varza[13]);
+	if (varza[15]=='0') {document.g.cc.checked=false}
+	if (varza[15]=='1') {document.g.cc.checked=true}
+	if (!varza[14].split('%20')[1]) {document.g.sbf.value=varza[14].split('%20')[0];}
+	if (varza[14].split('%20')[1]) {
+		document.g.sbf.value=varza[14].split('%20')[0];
+		for (u=1; varza[14].split('%20')[u]; u++) {document.g.sbf.value=document.g.sbf.value+' '+varza[14].split('%20')[u];}
+	}
+	if (varza[15]=='1') {document.g.se.value=0;}
+	if (varza[16]=='0') {document.g.so.checked=false;}
+	if (varza[16]=='1') {document.g.so.checked=true;}
+	if (varza[17]=='0') {document.g.aon.checked=false;}
+	if (varza[17]=='1') {document.g.aon.checked=true;}
+	gad1i=varza[18];
+	gad2i=varza[19];
+	gad3i=varza[20];
+	}
+	if (!varza.split('?')[1]) {reseter(4);}
+}
+function coff() {
+	parent.document.getElementById('customi').src='';
+	parent.document.getElementById('customi').style.display='none';
+	parent.document.getElementById('sf').focus();
+}
+function reseter(rvar) {
+	switch(rvar) {
+	case 0:
+		document.getElementById('bgbox').innerHTML=oldbgbox;
+		document.g.b.value=1;
+		document.g.l.value=1;
+		document.g.bs.value=0;
+		document.g.tc.value='#111111';
+		document.g.fb.value='Arial';
+		document.g.so.checked=true;
+		break;
+	case 2:
+		document.g.g1c.checked=false;
+		document.g.g1sel.value=2;
+		document.g.g2c.checked=false;
+		document.g.g2sel.value=1;
+		break;
+	case 3:
+		document.g.se.value=-1;
+		document.g.sbtc.value='#666666'
+		document.g.sbbc.value='#bbbbbb';
+		document.g.sbbgc.value='#f9f9f9';
+		document.g.sbf.value='Arial';
+		document.g.aon.checked=true;
+		break;
+	case 4:
+		reseter(0); reseter(1); reseter(2); reseter(3);
+		break;
+	}
+}
+function customizer() {
+	proceed=0;
+	var varzb=new Array();
+	if (document.g.b.value==0) {
+		if (document.g.b2.value=='' || document.g.b2.value=='null') {
+			alert('Please select a background image.');
+		}
+		if (document.g.b2.value!='' && document.g.b2.value!='null') {
+			if (document.g.b2.value.split('#')[1]) {varzb[0]='color*'+document.g.b2.value;}
+			if (!document.g.b2.value.split('#')[1]) {varzb[0]='no-repeat*'+document.g.b2.value;}
+			varzb[0]=varzb[0]+'*0';
+		}
+		proceed=1;
+	}
+	if (proceed==0) {
+		//switch for background
+		if (document.g.b.value==1) {varzb[0]='#fff 0% 100% repeat-x*pictures/backgrounds/grad.png';}
+		if (document.g.b.value==2) {varzb[0]='no-repeat*pictures/backgrounds/background.jpg';}
+		if (document.g.b.value==3) {varzb[0]='no-repeat*pictures/backgrounds/homer.gif';}
+		if (document.g.b.value==4) {varzb[0]='no-repeat*pictures/backgrounds/futurama.png';}
+		varzb[0]=varzb[0]+'*'+document.g.b.value;
+	}
+		/* copy the line above...the code is in this format (X being the number you put in the HTML in the body section below):
+		
+		if (document.g.b.value==X) {varzb[0]='css styling of background*url of background';} for example:
+		if (document.g.b.value==5) {varzb[0]='no-repeat*pictures/backgrounds/wallpaper5.jpg';}
+		
+		more information on CSS styling here...(NOTE: BACKGROUND ATTACHMENT AND LEFT/CENTER/RIGHT/TOP/MIDDLE/BOTTOM NOT SUPPORTED)
+			http://www.w3schools.com/css/pr_background.asp
+		*/
+		
+		//if (document.g.b.value>0) {varzb[0]=varzb[0]+'*'+document.g.b.value;}
+		varzb[1]=document.g.l.value; //logo (bool)
+		varzb[2]=document.g.bs.value; //button style (bool)
+		varzb[3]=document.g.tc.value; //body text color (string)
+		varzb[4]=document.g.fb.value; //font (string)
+		varzb[5]=document.g.se.value; //search engine (int)
+		varzb[6]=document.g.sbtc.value; //search box text color (string)
+		varzb[7]=document.g.sbbc.value; //search box border color (string)
+		varzb[8]=document.g.sbbgc.value; //search box background color (string)
+		if (document.g.g1c.checked==false) {varzb[9]=0} //
+		if (document.g.g1c.checked==true) {varzb[9]=1} //gadget 1 display (bool)
+		varzb[10]=findgadsrc(document.g.g1sel.value); //gadget 1 title AND source (string)
+		if (document.g.g2c.checked==false) {varzb[11]=0} //
+		if (document.g.g2c.checked==true) {varzb[11]=1} //gadget 2 display (bool)  12 ON READER
+		varzb[12]=findgadsrc(document.g.g2sel.value); //gadget 2 title AND source (string)  13 ON READER
+		if (document.g.cc.checked==false) {varzb[13]=0} //
+		if (document.g.cc.checked==true) {varzb[13]=1} //calendar display (bool)  15 ON READER
+		varzb[14]=document.g.sbf.value; //search box font (string)  16 ON READER
+		//if (document.g.se.value==0) {varzb[15]=1;} //???
+		//if (document.g.se.value!=0) {varzb[15]=0;} //???  17 ON READER
+		//varzb[16]=document.g.sbtc.value; //???  18 ON READER
+		varzb[15]=ul; //last search engine used (int)  17 ON READER
+		if (document.g.so.checked==false) {varzb[16]=0;} //
+		if (document.g.so.checked==true) {varzb[16]=1;} //slogan display (bool)  18 ON READER
+		if (document.g.aon.checked==false) {varzb[17]=0;} //
+		if (document.g.aon.checked==true) {varzb[17]=1;} //use autocomplete (bool)  19 ON READER
+		varzb[18]=gad1i; //settings visibility  20 ON READER
+		varzb[19]=gad2i; //gadget 1 visibility  21 ON READER
+		varzb[20]=gad3i; //gadget 2 visibility  22 ON READER
+		varz2=varzb[0];
+		for (var i=1; i < varzb.length; i++) {
+			varz2=varz2+';'+varzb[i];
+		}
+		setCookie('centisearch',varz2,365);
+		parent.window.setter();
+		//if (varzb[5]==0) {parent.window.useset()}
+}
+function findgadsrc(gadsrcv) {
+	gadn=Math.round(gadsrcv);
+	if (gadn<999) {
+		switch (gadn) {
+			case 1:
+				return 'News;1.open.gmodules.com/gadgets/ifr?v=8d15a0b9bb6ffb107afba3e7fb563629&up_summaries=300&container=open&up_entries=10&view=home&mid=1&lang=all&url=http%3A%2F%2Figwidgets.com%2Flig%2Fgw%2Ff%2Fislk%2F89%2Fslkm%2Fik%2Fs%2F1329844%2F87%2Fcharles447%2Fgoogle-news.xml&up_subject=Google+News&country=ALL&source=file%3A%2F%2F%2FC%3A%2FDocuments%2520and%2520Settings%2FAdministrator%2FMy%2520Documents%2FDownloads%2Ffirefoxbl4k%2Ffirefox.html&parent=file%3A%2F%2F%2FC%3A%2FDocuments%2520and%2520Settings%2FAdministrator%2FMy%2520Documents%2FDownloads%2Ffirefoxbl4k%2Ffirefox.html&libs=core%3Acore.io%3Arpc#rpctoken=857137094';
+				break;
+			case 2:
+				zip=33547;
+				if ((document.g.g1c.checked==true && document.g.g1sel.value==2) || (document.g.g2c.checked==true && document.g.g2sel.value==2)) zip=prompt('Enter your zip code:');
+				return 'Weather;www.gmodules.com/ig/ifr?url=http://timcwebman.googlepages.com/weather.xml&up_zipCode='+zip+'&up_units=0&up_template=GENX&up_direction=H&synd=open&w=320&h=180&title=Weather+by+Weather.com&border=%23ffffff%7C3px%2C1px+solid+%23999999&source=http%3A%2F%2Fwww.gmodules.com%2Fig%2Fcreator%3Fsynd%3Dopen%26url%3Dhttp%253A%252F%252Ftimcwebman.googlepages.com%252Fweather.xml%26lang%3Den';
+				break;
+			case 3:
+				return 'TV;www.cammap.net/tvlive/livetvint.xml&up_kanaal=CNN&up_autoplay=No&synd=open&w=320&h=303&title=Online+TV+channels&border=%23ffffff%7C3px%2C1px+solid+%23999999&source=http%3A%2F%2Fwww.gmodules.com%2Fig%2Fcreator%3Fsynd%3Dopen%26url%3Dhttp%253A%252F%252Fwww.cammap.net%252Ftvlive%252Flivetvint.xml%26lang%3Den';
+				break;
+			case 4:
+				return 'Notes;www.labpixies.com/campaigns/notes/notes.xml&up_lp_note_0=none&up_lp_note_1=none&up_lp_note_2=none&up_lp_note_3=none&up_lp_note_4=none&up_lp_note_5=none&up_lp_note_6=none&up_last_note=&up_k1=&up_k2=&up_k3=&synd=open&w=320&h=257&title=&lang=all&country=ALL&border=%23ffffff%7C3px%2C1px+solid+%23999999&source=http%3A%2F%2Fwww.gmodules.com%2Fig%2Fcreator%3Fsynd%3Dopen%26url%3Dhttp%253A%252F%252Fwww.labpixies.com%252Fcampaigns%252Fnotes%252Fnotes.xml%26lang%3Den';
+				break;
+			case 5:
+				return 'Stocks;www.gmodules.com/ig/ifr?url=http://hosting.gmodules.com/ig/gadgets/file/113570023379904426818/StockCharts.xml&amp;up_Symbol=GLD&amp;up_Duration=1y&amp;up_cs=SummerTime&amp;synd=open&amp;w=266&amp;h=204&amp;title=Stock+Charts&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js';
+				break;
+		}
+	}
+	else {
+		gads=gadsrcv.split(';');
+		switch (gads[0]) {
+			case 'News': return 1; break;
+			case 'Weather':	return 2; break;
+			case 'TV': return 3; break;
+			case 'Notes': return 4;	break;
+			case 'Stocks': return 5; break;
+		}
+	}
+}
+function setCookie(c_name,value,expiredays) {
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+expiredays);
+	document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+}
+function bgchoose(bgcvar) {
+	if (bgcvar==0) {document.getElementById('bgbox').innerHTML='<a href="javascript:bgchoose(1)" class="bgcc"><<</a><input type="text" name="b2" id="fi">';}
+	if (bgcvar==1) {document.getElementById('bgbox').innerHTML=oldbgbox;}
+}
+function cswitch(csvar) {
+	for (c=0; c<4; c++) {
+		document.getElementById('d'+c).style.visibility='hidden';
+		document.getElementById('cbar').getElementsByTagName('a')[c].className='c';
+	}
+	document.getElementById('d'+csvar).style.visibility='visible';
+	document.getElementById('cbar').getElementsByTagName('a')[csvar].className='current';
+}
+function quickset(qvar) {
+	switch(qvar) {
+	case 1:
+		document.getElementById('bgbox').innerHTML=oldbgbox;
+		document.g.b.value=1;
+		document.g.l.value=1;
+		document.g.bs.value=0;
+		document.g.tc.value='#111111';
+		document.g.fb.value='Arial';
+		document.g.g1c.checked=false;
+		document.g.g1sel.value=2;
+		document.g.g2c.checked=false;
+		document.g.g2sel.value=1;
+		document.g.se.value=-1;
+		document.g.sbtc.value='#666666'
+		document.g.sbbc.value='#bbbbbb';
+		document.g.sbbgc.value='#f9f9f9';
+		document.g.sbf.value='Arial';
+		break;
+	case 2:
+		document.getElementById('bgbox').innerHTML=oldbgbox;
+		document.g.b.value=2;
+		document.g.l.value=1;
+		document.g.bs.value=0;
+		document.g.tc.value='#111111';
+		document.g.fb.value='Arial';
+		document.g.g1c.checked=false;
+		document.g.g1sel.value=2;
+		document.g.g2c.checked=false;
+		document.g.g2sel.value=1;
+		document.g.se.value=-1;
+		document.g.sbtc.value='#666666'
+		document.g.sbbc.value='#bbbbbb';
+		document.g.sbbgc.value='#f9f9f9';
+		document.g.sbf.value='Arial';
+		break;
+	case 3:
+		document.getElementById('bgbox').innerHTML=oldbgbox;
+		document.g.b.value=4;
+		document.g.l.value=1;
+		document.g.bs.value=0;
+		document.g.tc.value='#111111';
+		document.g.fb.value='Georgia';
+		document.g.g1c.checked=true;
+		document.g.g1sel.value=1;
+		document.g.g2c.checked=false;
+		document.g.g2sel.value=2;
+		document.g.se.value=-1;
+		document.g.sbtc.value='#666666'
+		document.g.sbbc.value='#bbbbbb';
+		document.g.sbbgc.value='#f9f9f9';
+		document.g.sbf.value='Tahoma';
+		break;
+	case 4:
+		document.getElementById('bgbox').innerHTML=oldbgbox;
+		document.g.b.value=3;
+		document.g.l.value=1;
+		document.g.bs.value=0;
+		document.g.tc.value='#111111';
+		document.g.fb.value='Verdana';
+		document.g.g1c.checked=false;
+		document.g.g1sel.value=2;
+		document.g.g2c.checked=true;
+		document.g.g2sel.value=1;
+		document.g.se.value=-1;
+		document.g.sbtc.value='#666666'
+		document.g.sbbc.value='#bbbbbb';
+		document.g.sbbgc.value='#f9f9f9';
+		document.g.sbf.value='Eurostile';
+		break;
+	}
+	customizer();
+}
+</script>
+</head>
+<body onload="readr()">
+<form name="g" action="javascript:customizer()">
+<div id="xbox"><img src="../pictures/firefox/x1.jpg" name="xi" onmouseover="document.xi.src='../pictures/firefox/x2.jpg'" onmouseout="document.xi.src='../pictures/firefox/x1.jpg'" onclick="coff()"></div>
+<div id="cbar"><a onclick="cswitch(0)" class="current">Presets</a><a onclick="cswitch(1)">Body</a><a onclick="cswitch(2)">Search</a><a onclick="cswitch(3)">Gadgets</a></div>
+<div id="bodyid">
+<div id="d0">
+<a href="javascript:quickset(1)"><img src="../pictures/styles/plain.jpg"></a>
+<a href="javascript:quickset(2)"><img src="../pictures/styles/black.jpg"></a>
+<a href="javascript:quickset(3)"><img src="../pictures/styles/futurama.jpg"></a>
+<a href="javascript:quickset(4)"><img src="../pictures/styles/simpson.jpg"></a>
+</div>
+<div id="d1">
+<span id="n1">
+<b>
+Background:<span id="bgbox"><select name="b" class="x">
+<option value=0 onclick="bgchoose(0)">Custom URL...</option>
+<option value=0 onclick="bgchoose(0)">Custom color...</option>
+
+<option value=1 selected>White fade</option>
+<option value=2>Firefox BL4K</option>
+<option value=3>Homer</option>
+<option value=4>Planet Express</option>
+
+
+</select></span></b></span>
+<b>Logo:<select name="l" class="x">
+<option value=1 selected>Original</option>
+<option value=2>Stained metal</option>
+</select></b>
+<b>Button style:<select name="bs" class="x">
+<option value=0 selected>Browser default</option>
+</select></b>
+<b>Text color:<input type="text" name="tc"></b>
+<b>Font:<input type="text" name="fb"></b>
+<b>Slogan:<input type="checkbox" name="so" class="q"></b>
+<b><input type="button" value="Revert to default" onclick="reseter(0)" class="l"> &nbsp; <input type="submit" value="Save changes"></b>
+</div>
+<div id="d2">
+<b>Start-up search engine:
+<select name="se" class="x">
+<option value=0>Last search used</option>
+<option disabled>-----Search engines-----</option>
+<option value=-1 selected>Google</option>
+<option value=-11>Yahoo</option>
+<option value=-21>Ask</option>
+<option value=-31>Bing</option>
+<option disabled>------Information------</option>
+<option value=1>Wikipedia</option>
+<option value=2>IMDB</option>
+<option value=3>Dictionary</option>
+<option value=4>Answers.com</option>
+<option value=5>WordReference</option>
+<option value=6>Urban Dictionary</option>
+<option value=7>WebMD</option>
+<option disabled>---------News---------</option>
+<option value=11>CNN</option>
+<option value=12>MSNBC</option>
+<option value=13>ESPN</option>
+<option value=14>New York Times</option>
+<option value=15>CNET</option>
+<option value=16>BBC</option>
+<option value=17>Reuters</option>
+<option disabled>--------Videos--------</option>
+<option value=21>YouTube</option>
+<option value=22>Hulu</option>
+<option value=23>Veoh</option>
+<option value=24>Megavideo</option>
+<option value=25>DailyMotion</option>
+<option value=26>Metacafe</option>
+<option value=27>Watch-Movies</option>
+<option disabled>-------Pictures-------</option>
+<option value=31>Photobucket</option>
+<option value=32>Flickr</option>
+<option value=33>deviantART</option>
+<option value=34>pixsy</option>
+<option value=35>picasa</option>
+<option value=36>SmugMug</option>
+<option value=37>snapixel</option>
+<option disabled>--------Games---------</option>
+<option value=41>CNN</option>
+<option value=42>MSNBC</option>
+<option value=43>Veoh</option>
+<option value=44>Megavideo</option>
+<option value=45>DailyMotion</option>
+<option value=46>Metacafe</option>
+<option value=47>Watch-Movies</option>
+<option disabled>-------Torrents-------</option>
+<option value=51>CNN</option>
+<option value=52>MSNBC</option>
+<option value=53>Veoh</option>
+<option value=54>Megavideo</option>
+<option value=55>DailyMotion</option>
+<option value=56>Metacafe</option>
+<option value=57>Watch-Movies</option>
+<option disabled>------Downloads-------</option>
+<option value=61>CNN</option>
+<option value=62>MSNBC</option>
+<option value=63>Veoh</option>
+<option value=64>Megavideo</option>
+<option value=65>DailyMotion</option>
+<option value=66>Metacafe</option>
+<option value=67>Watch-Movies</option>
+<option disabled>-------Shopping-------</option>
+<option value=71>CNN</option>
+<option value=72>MSNBC</option>
+<option value=73>Veoh</option>
+<option value=74>Megavideo</option>
+<option value=75>DailyMotion</option>
+<option value=76>Metacafe</option>
+<option value=77>Watch-Movies</option>
+<option disabled>----Miscellaneous-----</option>
+<option value=11>CNN</option>
+<option value=12>MSNBC</option>
+<option value=13>Veoh</option>
+<option value=14>Megavideo</option>
+<option value=15>DailyMotion</option>
+<option value=16>Metacafe</option>
+<option value=17>Watch-Movies</option>
+</select></b>
+<b>Search box text color:<input type="text" name="sbtc"></b>
+<b>Search box border color:<input type="text" name="sbbc"></b>
+<b>Search box bg color:<input type="text" name="sbbgc"></b>
+<b>Search box font:<input type="text" name="sbf"></b>
+<b>AutoSuggest:<input type="checkbox" name="aon" class="q"></b>
+<b><input type="button" value="Revert to default" onclick="reseter(3)" class="l"> &nbsp; <input type="submit" value="Save changes"></b>
+</div>
+<div id="d3">
+<b>
+Left gadget:
+<select name="g1sel" class="x">
+<option value=0>Add new</option>
+<option value=1>News</option>
+<option value=2 selected>Weather</option>
+<option value=3>TV</option>
+<option value=4>Sticky notes</option>
+<option value=5>Stocks</option>
+</select><br>
+Show left gadget: <input type="checkbox" name="g1c" checked class="q">
+</b>
+<b>
+Right gadget:
+<select name="g2sel" class="x">
+<option value=0>Add new</option>
+<option value=1 selected>News</option>
+<option value=2>Weather</option>
+<option value=3>TV</option>
+<option value=4>Sticky notes</option>
+<option value=5>Stocks</option>
+</select><br>
+Show right gadget: <input type="checkbox" name="g2c" checked class="q"><br>
+</b>
+<b>
+Show the calendar: <input type="checkbox" name="cc" checked class="q"></b>
+<b><input type="button" value="Revert to default" onclick="reseter(2)" class="l"> &nbsp; <input type="submit" value="Save changes"></b>
+</div>
+</div>
+<div id="cus">
+</div>
+</form>
+</body>
+</html>

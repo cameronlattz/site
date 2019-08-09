@@ -1,0 +1,7 @@
+p {text-indent:25px; font-size:18px; line-height:20.92px; margin:0px; padding:0px; margin-bottom:20.92px}
+h1 {text-align:center; font-size:24px; margin-bottom:39px; margin-top:81px; margin-left:-100px}
+.paper {border:2px solid #ccc; background:url('linedpaper.jpg'); margin:10%; margin-top:25px; margin-bottom:25px; width:80%; padding:5px; margin-top:0px;}
+.top {background:url('toppaper.jpg'); margin-top:-5px; margin-left:-5px; margin-right:-5px; height:131px; padding:0px;}
+.lines {display:none; margin-left:90px; margin-top:-131px; margin-bottom:0px; width:7px; background:url('lines.png');}
+.text {margin-top:-135px; margin-left:100px; margin-right:20px}
+div#notes {display:none;}

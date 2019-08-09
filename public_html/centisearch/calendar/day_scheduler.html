@@ -1,0 +1,267 @@
+<html>
+<head>
+    <title>Reminder list</title>
+<link rel="shortcut icon" href="../Pictures/black_firefox.ico">
+<link rel="stylesheet" href="calendar.css">
+	
+	<script language="javascript" src="cengine.js"></script>
+	<script language="javascript" src="other_scripts.js"></script>
+	<script language="javascript">
+	<!--
+		
+		var rlen = 0;
+		var rdate = "";
+		var rlist = 0;
+		var remind = "";
+		var newlist = "";
+		var item = "";
+		
+		var todelete = new Array();
+		var temp = new Array();
+		var copy = new Array();
+		
+		date = location.search;
+		date = date.substring(1,location.search.length);
+		date = date.split("&");
+		
+		var hdrcol = "#aaaaaa";
+		var hdrsize = "2";
+		var hdrfont = "verdana,arial,helvetica";
+		
+		var timesize = "3";
+		var timefont = "verdana,arial,helvetica";
+		var timesday = "#ff0000";
+		
+		var daysize = "2";
+		var dayfont = "verdana,arial,helvetica";
+		var dayschedule = "";
+
+		
+<!-- Header Info -->
+		datestamp = "<div align='right'>";
+		datestamp += "<table bgcolor='" + hdrcol + "' width='100%' border='0' cellpadding='1' cellspacing='0'>";
+		datestamp += "<tr>";
+		datestamp += "<td valign='middle'><font face='" + hdrfont + "' size='" + hdrsize + "'>&nbsp; &nbsp; Daily Scheduler</font></td>";
+		datestamp += "<td align='right'>";
+		
+		//Check if the day scheduler is for the current date
+		if(date[1] == dt) {
+			datestamp += "<font face='" + timefont + "' size='" + timesize + "'><b>" + date[0] + " <font color='" + timesday + "'>" + date[1] + "</font></b></font>&nbsp;&nbsp;";
+		} else {
+			datestamp += "<font face='" + timefont + "' size='" + timesize + "'><b>" + date[0] + " " + date[1] + "</b></font>&nbsp;&nbsp;";
+		}
+		
+		datestamp += "</td>";
+		datestamp += "</tr>";
+		datestamp += "</table>";
+		datestamp += "</div>";
+<!-- Header Info -->
+
+
+<!-- Check for preset reminders -->
+		//no cookie is set
+		if(!document.cookie || document.cookie == null) {
+			dayschedule = "<tr><td valign='top' align='center'><font face='" + dayfont + "' size='" + daysize + "'>There are no reminders set</font></td></tr>";
+		} else {
+			rdate = date[0]+date[1];
+			remind = getCookie(rdate);
+			
+			//if there is a cookie but none for that date
+			if(remind == "" || remind == null) {
+				dayschedule = "<tr><td valign='top' align='center'><font face='" + dayfont + "' size='" + daysize + "'>There are no reminders set</font></td></tr>";
+			//there is a cookie for that date
+			} else {
+				//find number of reminders and set variable
+				if(remind.indexOf("|")) {
+					remind = remind.split("|");
+					rlen = remind.length;
+				} else {
+					rlen = 1;
+				}
+				
+				var displaytext = "";
+				var currenttext = "";
+				
+				//write out reminders on page
+				for(var i = 0;i < rlen; i++) {
+				
+					currenttext = remind[i];
+					
+					//if the reminder is a long string without spaces, add break after every 20 characters
+					if((currenttext.length - 1) > 25 && currenttext.indexOf(" ") < 0) {
+						
+						for(var x = 0; x <= currenttext.length; x++) {
+							
+							if(x != 0 && (x % 20) == 0) {
+								displaytext += "<br>" + currenttext.substring(x,x+1);
+							} else {
+								displaytext += currenttext.substring(x,x+1);
+							}
+						}
+					} else {
+						displaytext = currenttext;
+					}
+					
+					dayschedule += "<tr>";
+					dayschedule += "<td valign='top'><font face='" + dayfont + "' size='" + daysize + "'>";
+					dayschedule += (i + 1) + ". ";
+					dayschedule += "</font></td>";
+					dayschedule += "<td valign='top' width='100%'><font face='" + dayfont + "' size='" + daysize + "'>";
+					dayschedule += "<a href='javascript:editRemind(\"" + i + "\");'>" + displaytext + "</a>";
+					dayschedule += "</font></td>";
+					dayschedule += "<td align='center'><input type='checkbox' name='ckbox" + i + "' value=''></td>";
+					dayschedule += "</tr>";
+				}
+			}
+		}
+<!-- Check for preset reminders -->
+
+
+<!-- Edit Reminder Check -->
+		function editRemind(editable) {
+			
+			document.location = "edit_reminder.html?" + date[0] + "&" + date[1] + "&" + editable;
+		}
+<!-- Edit Reminder Check -->
+
+
+<!-- Delete Function -->
+		//if more than one checkbox is selected... while statement????
+		function deleteRemind() {
+			if(rlen == 0) {
+				alert("There is nothing to delete.");
+			} else {
+			
+				remind = getCookie(rdate);
+				rlist = remind.split("|");
+				
+				//Get the exact reminders to delete
+				var j = 0;
+				for(var i = 0; i < rlen; i++) {
+					if(eval("document.forms[0].ckbox" + i + ".checked")) {
+						todelete[j] = i;
+						j++;
+					}
+				}
+				
+				//if nothing is selected to be deleted
+				if(todelete.length == 0) {
+					alert("Nothing is checked");
+				} else {
+					
+					//go through list and mark each spot for deletion
+					for(var i = 0; i < todelete.length; i++) {
+						var x = 0;
+						for (j = 0; j < rlist.length; j++) {
+							if(todelete[i] == j) {
+								temp[x] = "del";
+							} else
+								if(temp[x] != "del") {
+									temp[x] = rlist[j];
+								}
+							x++;
+						}
+					}
+					
+					//recompile the list without the marked spots
+					var x = 0;
+					for(var i = 0; i < temp.length; i++) {
+						if(temp[i] != "del") { 
+							copy[x] = temp[i];
+							x++;
+						}
+					}
+					
+					//use recompiled list, add delimiters, string in one variable
+					if(copy.length > 0) {
+						newlist = copy[0];
+						for(var i = 1; i < copy.length; i++) {
+							newlist += "|" + copy[i];
+						}
+					} else {
+						newlist = "";
+					}
+					
+					//write out the new info to the cookie
+					var expiration = new Date();
+					var twoweeks = expiration.getTime() + (14 * 24 * 60 * 60 * 1000);
+					expiration.setTime(twoweeks);
+					
+					setCookie(date[0] + date[1],newlist,expiration);
+				}
+			}
+			//reset document
+			document.forms[0].reset();
+			//refresh document
+			document.location = "day_scheduler.html?" + date[0] + "&" + date[1];
+			//show results on calendar
+			window.opener.location = "calendar.html";
+		}
+<!-- Delete Function -->
+	
+		function open_window(url,width, height, resize, scroll) {
+	child = window.open(url,"newwindow", "width=" + width + ",height=" + height + ",resizable=" + resize + ",scrollbars=" + scroll + "");
+}
+	
+	//-->
+	</script>
+</head>
+<body>
+	
+<form>
+<script language="javascript">
+<!--
+	document.write(datestamp);
+//-->
+</script>
+
+<div align="center">
+<table bgcolor="#ffffff" width="100%" border="0" cellpadding="0" cellspacing="3">
+<tr>
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1">
+	<script language="javascript">
+	<!--
+		document.write("&nbsp; <a href='new_reminder.html?" + date[0] + "&" + date[1] + "'>new reminder</a>");
+	//-->
+	</script>
+	</font></td>
+	
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1">
+	<a href="javascript://" onclick="javascript:self.close();">close</a>
+	</font></td>
+</tr><tr>
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1">
+	&nbsp; <a href="javascript:deleteRemind();">delete reminder(s)</a></font></td>
+	
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1">&nbsp;</font></td>
+</tr>
+</table>
+<img src="spacer.gif" width=1 height=4 alt="" border="0"><br>
+<table bgcolor="#eeeeee" width="100%" border="0" cellpadding="3" cellspacing="0">
+<tr>
+	<td valign="top" align="center"><font face="verdana,arial,helvetica" size="2">
+<!-- Text Starts Here -->
+	
+	<table bgcolor="#000000" width="100%" border="0" cellpadding="1" cellspacing="0">
+	<tr>
+		<td valign="top" align="center">
+		<table bgcolor="#eeeeee" width="100%" border="0" cellpadding="3" cellspacing="0">
+			<script language="javascript">
+			<!--
+				document.write(dayschedule);
+			//-->
+			</script>
+		</table>
+		</td>
+	</tr>
+	</table>
+	
+<!-- Text Ends Here -->
+	</font></td>
+</tr>
+</table>
+
+</form>
+</div>
+</body>
+</html>

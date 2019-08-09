@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+  <trackList>
+    <track>
+			<creator> 1 </creator><title>Reanimated   (4:20)</title>
+			<location>Reanimated.mp3</location>
+		</track>
+		<track>
+			<creator> 2 </creator><title>Encounters (2:29)</title>
+			<location>Encounters.mp3</location>
+		</track>
+		<track>
+			<creator> 3 </creator><title>Pompous   (2:22)</title>
+			<location>Pompous.mp3</location>
+		</track>
+		<track>
+			<creator> 4 </creator><title>Calicadence   (3:51)</title>
+			<location>Calicadence.mp3</location>
+		</track>
+		<track>
+			<creator> 5 </creator><title>Sapid   (3:51)</title>
+			<location>Sapid.mp3</location>
+		</track>
+		<track>
+			<creator> 6 </creator><title>Belabor   (4:20)</title>
+			<location>Belabor.mp3</location>
+		</track>
+		<track>
+			<creator> 7 </creator><title>Classic   (5:04)</title>
+			<location>Classic.mp3</location>
+		</track>
+		<track>
+			<creator> 8 </creator><title>Recherche   (3:13)</title>
+			<location>Recherche.mp3</location>
+		</track>
+		<track>
+			<creator> 9 </creator><title>Doldrums   (0:54)</title>
+			<location>Doldrums.mp3</location>
+		</track>
+		<track>
+			<creator>10</creator><title>Verboten   (4:00)</title>
+			<location>Verboten.mp3</location>
+		</track>
+		<track>
+			<creator>11</creator><title>Desistive   (3:30)</title>
+			<location>Desistive.mp3</location>
+		</track>
+	</trackList>
+</playlist>

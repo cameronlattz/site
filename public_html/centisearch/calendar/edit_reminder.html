@@ -1,0 +1,175 @@
+<html>
+<head>
+    <title>Edit a reminder</title>
+<link rel="shortcut icon" href="../Pictures/black_firefox.ico">
+	
+	<script language="javascript" src="cengine.js"></script>
+	<script language="javascript" src="other_scripts.js"></script>
+	<script language="javascript">
+	<!--
+	
+		date = location.search;
+		date = date.substring(1,location.search.length);
+		date = date.split("&");
+		
+		var remind = 0;
+		var rlist = "";
+		var rvalue = "";
+		var rdate = date[0] + date[1];
+		var currenttext = "";
+		var display_ctext = "";
+		
+		var hdrcol = "#aaaaaa";
+		var hdrsize = "2";
+		var hdrfont = "verdana,arial,helvetica";
+		
+		var timesize = "3";
+		var timefont = "verdana,arial,helvetica";
+		var timesday = "#ff0000";
+		
+<!-- Header Info -->
+		datestamp = "<div align='right'>";
+		datestamp += "<table bgcolor='" + hdrcol + "' width='100%' border='0' cellpadding='1' cellspacing='0'>";
+		datestamp += "<tr>";
+		datestamp += "<td valign='middle'><font face='" + hdrfont + "' size='" + hdrsize + "'>&nbsp; &nbsp; Edit Reminder</font></td>";
+		datestamp += "<td align='right'>";
+		
+		if(date[1] == dt) {
+			datestamp += "<font face='" + timefont + "' size='" + timesize + "'><b>" + date[0] + " <font color='" + timesday + "'>" + date[1] + "</font></b></font>&nbsp;&nbsp;";
+		} else {
+			datestamp += "<font face='" + timefont + "' size='" + timesize + "'><b>" + date[0] + " " + date[1] + "</b></font>&nbsp;&nbsp;";
+		}
+		
+		datestamp += "</td>";
+		datestamp += "</tr>";
+		datestamp += "</table>";
+		datestamp += "</div>";
+<!-- Header Info -->
+		
+		remind = getCookie(rdate);
+		rlist = remind.split("|");
+		
+		currenttext = rlist[date[2]];
+		
+		//if the reminder is a long string without spaces, add break after every 20 characters
+		if((currenttext.length - 1) > 25 && currenttext.indexOf(" ") < 0) {
+		
+			for(var x = 0; x <= currenttext.length; x++) {
+				
+				if(x != 0 && (x % 20) == 0) {
+					display_ctext += "<br>" + currenttext.substring(x,x+1);
+				} else {
+					display_ctext += currenttext.substring(x,x+1);
+				}
+			}
+		} else {
+			display_ctext = currenttext;
+		}
+		
+<!-- Display the current text -->
+		function prePop() {
+			if(document.edittext.txtbox.value == "") {
+				document.edittext.txtbox.value = currenttext;
+			}
+		}
+<!-- Display the current text -->
+		
+<!-- Set the Reminder -->
+		function setRemind() {
+			
+			//textbox is empty
+			if(document.edittext.txtbox.value == "") {
+				alert("Reminder is empty");
+				document.edittext.txtbox.focus();
+			//textbox has a reminder
+			} else {
+				rvalue = document.edittext.txtbox.value;
+				
+				rlist = getCookie(rdate);
+				rlist = rlist.split("|");
+				
+				//set the cookie
+				var expiration = new Date();
+				var twoweeks = expiration.getTime() + (14 * 24 * 60 * 60 * 1000);
+				expiration.setTime(twoweeks);
+				
+				//If there is only one reminder
+				if(rlist.length == 1) {
+					setCookie(rdate, rvalue, expiration);
+				} else {
+					//replace the old reminder with the new one
+					rlist[date[3]] = rvalue;
+					
+					//create the delimited string
+					edited = rlist[0];
+					for(var i = 1; i < rlist.length; i++) {
+						edited += "|" + rlist[i];
+					}
+					
+					setCookie(rdate, edited, expiration);
+				}
+				
+				//go back to day scheduler
+				document.location = "day_scheduler.html?" + date[0] + "&" + date[1];
+			}
+		}
+<!-- Set the Reminder -->
+
+	//-->
+	</script>
+	
+</head>
+
+<body onload="document.edittext.txtbox.focus();" bgcolor="#ffffff" text="#" link="#" alink="#" vlink="#" topmargin="1" leftmargin="1" marginwidth="1" marginheight="1">
+<script language="javascript">
+<!--
+	document.write(datestamp);
+//-->
+</script>
+<img src="spacer.gif" width=1 height=4 alt="" border="0"><br>
+<font face="verdana,arial,helvetica" size="2">
+<!-- Text Starts Here -->
+
+<table bgcolor="#ffffff" width="100%" border="0" cellpadding="0" cellspacing="3">
+<tr>
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1">
+	<script language="javascript">
+	<!--
+		document.write("&nbsp; <a href='day_scheduler.html?" + date[0] + "&" + date[1] + "'>daily scheduler</a>");
+	//-->
+	</script>
+	</font></td>
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1"><a href="javascript://" onclick="javascript:self.close();">close</a></font></td>
+</tr>
+</table>
+
+<div align="center">
+<form name="edittext">
+<table>
+<tr>
+	<td><font face="verdana,arial,helvetica" size="2">
+	current reminder text:<br>
+	<script language="javascript">
+	<!--
+		document.write("<b>" + display_ctext + "</b>");
+	//-->
+	</script>
+	</font></td>
+</tr><tr>
+	<td><img src="spacer.gif" width=1 height=4 alt="" border="0"></td>
+</tr><tr>
+	<td><font face="verdana,arial,helvetica" size="2">
+	new reminder text: <font size="1">[ <a href="#" onclick="javacript:prePop();">current text</a> ]</font><br>
+	<textarea name="txtbox" cols="28" rows="5" wrap="physical"></textarea>
+	</font></td>
+</tr><tr>
+	<td align="center"><font face="verdana,arial,helvetica" size="2"><a href="javascript:setRemind();">set reminder</a></font></td>
+</tr>
+</table>
+</form>
+</div>
+<!-- Text Ends Here -->
+</font>
+
+</body>
+</html>

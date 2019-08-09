@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Add a reminder</title>
+<link rel="shortcut icon" href="../Pictures/black_firefox.ico">
+<link rel="stylesheet" href="calendar.css">
+	
+	<script language="javascript" src="cengine.js"></script>
+	<script language="javascript" src="other_scripts.js"></script>
+	<script language="javascript">
+	<!--
+	
+		date = location.search;
+		date = date.substring(1,location.search.length);
+		date = date.split("&");
+		
+		var hdrcol = "#aaaaaa";
+		var hdrsize = "2";
+		var hdrfont = "verdana,arial,helvetica";
+		
+		var timesize = "3";
+		var timefont = "verdana,arial,helvetica";
+		var timesday = "#ff0000";
+		
+<!-- Header Info -->
+		datestamp = "<div align='right'>";
+		datestamp += "<table bgcolor='" + hdrcol + "' width='100%' border='0' cellpadding='1' cellspacing='0'>";
+		datestamp += "<tr>";
+		datestamp += "<td valign='middle'><font face='" + hdrfont + "' size='" + hdrsize + "'>&nbsp; &nbsp; New Reminder</font></td>";
+		datestamp += "<td align='right'>";
+		
+		if(date[1] == dt) {
+			datestamp += "<font face='" + timefont + "' size='" + timesize + "'><b>" + date[0] + " <font color='" + timesday + "'>" + date[1] + "</font></b></font>&nbsp;&nbsp;";
+		} else {
+			datestamp += "<font face='" + timefont + "' size='" + timesize + "'><b>" + date[0] + " " + date[1] + "</b></font>&nbsp;&nbsp;";
+		}
+		
+		datestamp += "</td>";
+		datestamp += "</tr>";
+		datestamp += "</table>";
+		datestamp += "</div>";
+<!-- Header Info -->
+		
+		function setRemind() {
+			var rdate = date[0] + date[1];
+			var rvalue = "";
+			
+			//textbox is empty
+			if(document.newtext.txtbox.value == "") {
+				alert("Reminder is empty");
+				document.newtext.txtbox.focus();
+			//textbox has a reminder
+			} else {
+				rvalue = document.newtext.txtbox.value;
+				
+				//set the cookie
+				var expiration = new Date();
+				var twoweeks = expiration.getTime() + (14 * 24 * 60 * 60 * 1000);
+				expiration.setTime(twoweeks);
+				
+				//if a new cookie
+				if(getCookie(rdate) == "" || getCookie(rdate) == null) {
+					setCookie(rdate, rvalue, expiration);
+				//if an existing cookie, append new reminder
+				} else {
+					oldvalue = getCookie(rdate);
+					oldvalue += "|" + rvalue;
+					setCookie(rdate, oldvalue, expiration);
+				}
+				
+				//go back to day scheduler
+				document.location = "day_scheduler.html?" + date[0] + "&" + date[1];
+				//show results on calendar
+				window.opener.location = "calendar.html";
+			}
+		}
+	
+	//-->
+	</script>
+	
+</head>
+
+<body onload="document.newtext.txtbox.focus();" bgcolor="#ffffff" text="#" link="#" alink="#" vlink="#" topmargin="1" leftmargin="1" marginwidth="1" marginheight="1">
+<script language="javascript">
+<!--
+	document.write(datestamp);
+//-->
+</script>
+<img src="spacer.gif" width=1 height=4 alt="" border="0"><br>
+<font face="verdana,arial,helvetica" size="2">
+<!-- Text Starts Here -->
+<table bgcolor="#ffffff" width="100%" border="0" cellpadding="0" cellspacing="3">
+<tr>
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1">
+	<script language="javascript">
+	<!--
+		document.write("&nbsp; <a href='day_scheduler.html?" + date[0] + "&" + date[1] + "'>daily scheduler</a>");
+	//-->
+	</script>
+	</font></td>
+	<td valign="middle"><font face="verdana,arial,helvetica" size="1"><a href="javascript://" onclick="javascript:self.close();">close</a></font></td>
+</tr>
+</table>
+
+<div align="center">
+<form name="newtext">
+<table>
+<tr>
+	<td><font face="verdana,arial,helvetica" size="2">
+	reminder text:<br>
+	<textarea name="txtbox" cols="28" rows="5" wrap="physical"></textarea>
+	</font></td>
+</tr><tr>
+	<td align="center"><font face="verdana,arial,helvetica" size="2"><a href="javascript:setRemind();">set reminder</a></font></td>
+</tr>
+</table>
+</form>
+</div>
+<!-- Text Ends Here -->
+</font>
+</body>
+</html>

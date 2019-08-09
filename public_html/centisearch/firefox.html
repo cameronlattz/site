@@ -1,0 +1,195 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>CentiSearch</title>
+<link rel="shortcut icon" href="pictures/black_firefox.ico">
+<link rel="stylesheet" type="text/css" href="other/style.css">
+<link rel="stylesheet" type="text/css" href="other/firefox.css">
+<script language="JavaScript" src="other/script.js"></script>
+<style>
+#g0 {display:block; padding-left:1px; border:1px solid #aaa; color:#333}
+#g1,#g2 {display:none}
+</style>
+</head>
+<body onload="LoadFuncs()">
+<div id="navul">
+<ul>
+<li><a onClick="switcher(-1)"><img src="pictures/logos/googletd.png" class="mdown"></a></li>
+<li><a onClick="switcher(-11)"><img src="pictures/logos/yahootd.png" class="mup"></a></li>
+<li><a onClick="switcher(-21)"><img src="pictures/logos/asktd.png" class="mup"></a></li>
+<li><a onClick="switcher(-31)"><img src="pictures/logos/livetd.png" class="mup"></a></li>
+    <li><a onClick="switcher(1)" onmouseover="mopen('m1')" onmouseout="mclosetime()">
+	<img src="pictures/logos/wikitd.png" class="mup"></a>
+        <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(2)"><img src="pictures/logos/imdb.png"></a>
+			<a onClick="switcher(3)"><img src="pictures/logos/dictionary.png"></a>
+			<a onClick="switcher(4)"><img src="pictures/logos/answers.png"></a>
+			<a onClick="switcher(5)"><img src="pictures/logos/wordreference.png"></a>
+			<a onClick="switcher(6)"><img src="pictures/logos/urbandictionary.png"></a>
+			<a onClick="switcher(7)"><img src="pictures/logos/webmd.png">
+        </div>
+    </li><li><a onClick="switcher(11)" onmouseover="mopen('m2')" onmouseout="mclosetime()">
+		<img src="pictures/logos/news.png" class="mup"></a>
+        <div id="m2" onmouseover="mcancelclosetime()"  onmouseout="mclosetime()">
+			<a onClick="switcher(12)"><img src="pictures/logos/msnbc.png"></a>
+			<a onClick="switcher(13)"><img src="pictures/logos/espn.png"></a>
+			<a onClick="switcher(14)"><img src="pictures/logos/nytimes.png"></a>
+			<a onClick="switcher(15)"><img src="pictures/logos/cnet.png"></a>
+			<a onClick="switcher(16)"><img src="pictures/logos/bbc.png"></a>
+			<a onClick="switcher(17)"><img src="pictures/logos/reuters.png"></a>
+        </div>
+    </li><li><a onClick="switcher(21)" onmouseover="mopen('m3')" onmouseout="mclosetime()">
+		<img src="pictures/logos/videos.png" class="mup"></a>
+		<div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(22)"><img src="pictures/logos/hulu.png"></a>
+			<a onClick="switcher(23)"><img src="pictures/logos/veoh.png"></a>
+			<a onClick="switcher(24)"><img src="pictures/logos/megavideo.png"></a>
+			<a onClick="switcher(25)"><img src="pictures/logos/dailymotion.png"></a>
+			<a onClick="switcher(26)"><img src="pictures/logos/metacafe.png"></a>
+			<a onClick="switcher(27)"><img src="pictures/logos/watchmovies.png"></a>
+		</div>
+	</li><li><a onClick="switcher(31)" onmouseover="mopen('m4')" onmouseout="mclosetime()">
+		<img src="pictures/logos/pictures.png" class="mup"></a>
+		<div id="m4" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(32)"><img src="pictures/logos/flickr.png"></a>
+			<a onClick="switcher(33)"><img src="pictures/logos/deviantart.png"></a>
+			<a onClick="switcher(34)"><img src="pictures/logos/pixsy.png"></a>
+			<a onClick="switcher(35)"><img src="pictures/logos/picasa.png"></a>
+			<a onClick="switcher(36)"><img src="pictures/logos/smugmug.png"></a>
+			<a onClick="switcher(37)"><img src="pictures/logos/snapixel.png"></a>
+		</div>
+	</li><li><a onClick="switcher(41)" onmouseover="mopen('m5')" onmouseout="mclosetime()">
+		<img src="pictures/logos/games.png" class="mup"></a>
+		<div id="m5" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(42)"><img src="pictures/logos/miniclip.png"></a>
+			<a onClick="switcher(43)"><img src="pictures/logos/shockwave.png"></a>
+			<a onClick="switcher(44)"><img src="pictures/logos/pogo.png"></a>
+			<a onClick="switcher(45)"><img src="pictures/logos/addictinggames.png"></a>
+			<a onClick="switcher(46)"><img src="pictures/logos/msngames.png"></a>
+			<a onClick="switcher(47)"><img src="pictures/logos/yahoogames.png"></a>
+		</div>
+	</li><li><a onClick="switcher(51)" onmouseover="mopen('m6')" onmouseout="mclosetime()">
+		<img src="pictures/logos/torrents.png" class="mup"></a>
+		<div id="m6" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(52)"><img src="pictures/logos/btjunkie.png"></a>
+			<a onClick="switcher(53)"><img src="pictures/logos/torrentreactor.png"></a>
+			<a onClick="switcher(54)"><img src="pictures/logos/isohunt.png"></a>
+			<a onClick="switcher(55)"><img src="pictures/logos/mininova.png"></a>
+			<a onClick="switcher(56)"><img src="pictures/logos/vertor.png"></a>
+			<a onClick="switcher(57)"><img src="pictures/logos/torrentroot.png"></a>
+		</div>
+	</li><li><a onClick="switcher(61)" onmouseover="mopen('m7')" onmouseout="mclosetime()">
+		<img src="pictures/logos/downloads.png" class="mup"></a>
+		<div id="m7" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(62)"><img src="pictures/logos/rapidshare.png"></a>
+			<a onClick="switcher(63)"><img src="pictures/logos/googlemp3.png"></a>
+			<a onClick="switcher(64)"><img src="pictures/logos/filehippo.png"></a>
+			<a onClick="switcher(65)"><img src="pictures/logos/sourceforge.png"></a>
+			<a onClick="switcher(66)"><img src="pictures/logos/tucows.png"></a>
+			<a onClick="switcher(67)"><img src="pictures/logos/zdnet.png"></a>
+		</div>
+	</li><li><a onClick="switcher(71)" onmouseover="mopen('m9')" onmouseout="mclosetime()">
+		<img src="pictures/logos/shopping.png" class="mup"></a>
+		<div id="m9" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(72)"><img src="pictures/logos/amazon.png"></a>
+			<a onClick="switcher(73)"><img src="pictures/logos/overstock.png"></a>
+			<a onClick="switcher(74)"><img src="pictures/logos/newegg.png"></a>
+			<a onClick="switcher(75)"><img src="pictures/logos/dealtime.png"></a>
+			<a onClick="switcher(76)"><img src="pictures/logos/pricegrabber.png"></a>
+			<a onClick="switcher(77)"><img src="pictures/logos/stubhub.png"></a>
+		</div>
+	</li><li><a onClick="switcher(81)" onmouseover="mopen('m8')" onmouseout="mclosetime()">
+		<img src="pictures/logos/misc.png" class="mup"></a>
+		<div id="m8" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			<a onClick="switcher(82)"><img src="pictures/logos/ebaums.png"></a>
+			<a onClick="switcher(83)"><img src="pictures/logos/stumbleupon.png"></a>
+			<a onClick="switcher(84)"><img src="pictures/logos/digg.png"></a>
+			<a onClick="switcher(85)"><img src="pictures/logos/delicious.png"></a>
+			<a onClick="switcher(86)"><img src="pictures/logos/twitter.png"></a>
+			<a onClick="switcher(87)"><img src="pictures/logos/lastfm.png"></a>
+			<a onClick="switcher(88)"><img src="pictures/logos/playlist.png"></a>
+			<a onClick="switcher(89)"><img src="pictures/logos/songmeanings.png"></a>
+			<a onClick="switcher(90)"><img src="pictures/logos/guitar.png"></a>
+			<a onClick="switcher(91)"><img src="pictures/logos/ign.png"></a>
+			<a onClick="switcher(92)"><img src="pictures/logos/blogger.png"></a>
+			<a onClick="switcher(93)"><img src="pictures/logos/weather.png"></a>
+			<a onClick="switcher(94)"><img src="pictures/logos/movies.png"></a>
+			<a onClick="switcher(95)"><img src="pictures/logos/whitepages.png"></a>
+			<a onClick="switcher(96)"><img src="pictures/logos/mapquest.png"></a>
+		</div>
+	</li>
+</ul>
+</div>
+<form action="http://www.google.com/search" name="f">
+<div id="frame">
+	<div id="titlesec">
+		<img alt="CentiSearch" src="pictures/firefox/title2.png" height="100px" width="315px" class="title" id="logo" usemap=#titlemap>
+		<div id="globesec">
+			<a href="black.html" onMouseOver="swap()" onMouseOut="swap()"><img src="pictures/firefox/fox1.png" name="globe" width=120 height=116 border=0 alt="Firefox Logo"></a>
+		</div>
+	</div>
+	<div id="searchboxes" style="background:'/pictures/firefox/searchbgf.png'">
+		<div id="searchbox1">
+			<img src="pictures/firefox/blank.gif" width=15 height=1 class="i"><a href="http://google.com" class="cur"><img src="pictures/logos/google.png"></a><a onclick="switcher(-2)"><img src="pictures/logos/googleimgs.png"></a><a onclick="switcher(-3)"><img src="pictures/logos/googlevids.png"></a><a onclick="switcher(-4)"><img src="pictures/logos/googlemaps.png"></a><a onclick="switcher(-5)"><img src="pictures/logos/googlenews.png"></a><a onclick="switcher(-6)"><img src="pictures/logos/googleshop.png"></a><a onclick="switcher(-7)"><img src="pictures/logos/googlefinance.png"></a>
+		</div>
+		<div id="searchbox2">
+			<input type="text" maxlength="256" size="50" id="sf" name="q" class="search"><br><input value="Web search" class="sub" type="submit">File type:<select name="q"><option value="">All</option><option value="filetype:3GP">3GP</option><option value="filetype:7Z">7Z</option><option value="filetype:AVI">AVI</option><option value="filetype:BAT">BAT</option><option value="filetype:BMP">BMP</option><option value="filetype:COM">COM</option><option value="filetype:CSV">CSV</option><option value="filetype:DAT">DAT</option><option value="filetype:DOC">DOC</option><option value="filetype:DOCX">DOCX</option><option value="filetype:DLL">DLL</option><option value="filetype:EXE">EXE</option><option value="filetype:FLV">FLV</option><option value="filetype:GIF">GIF</option><option value="filetype:ISO">ISO</option><option value="filetype:JPG">JPG</option><option value="filetype:LOG">LOG</option><option value="filetype:MID">MID</option><option value="filetype:MIDI">MIDI</option><option value="filetype:MOV">MOV</option><option value="filetype:MP3">MP3</option><option value="filetype:MP4">MP4</option><option value="filetype:MPG">MPG</option><option value="filetype:MSI">MSI</option><option value="filetype:PDF">PDF</option><option value="filetype:PNG">PNG</option><option value="filetype:PPS">PPS</option><option value="filetype:PPT">PPT</option><option value="filetype:PSD">PSD</option><option value="filetype:RAR">RAR</option><option value="filetype:RM">RM</option><option value="filetype:RTF">RTF</option><option value="filetype:RSS">RSS</option><option value="filetype:SVG">SVG</option><option value="filetype:SWF">SWF</option><option value="filetype:TIF">TIF</option><option value="filetype:TXT">TXT</option><option value="filetype:XLS">XLS</option><option value="filetype:XLSX">XLSX</option><option value="filetype:XML">XML</option><option value="filetype:WAV">WAV</option><option value="filetype:WKS">WKS</option><option value="filetype:WPD">WPD</option><option value="filetype:WPS">WPS</option><option value="filetype:WMA">WMA</option><option value="filetype:WMV">WMV</option><option value="filetype:ZIP">ZIP</option></select> Date:<select name="tbs"><option value="" selected>All time</option><option value="rcnt:1">Recent</option><option value="qdr:d">Past day</option><option value="qdr:w">Past week</option><option value="qdr:y">Past year</option></select>
+		</div>
+	</div>
+</div>
+</form>
+<div id="jumper">
+	<iframe src="other/droplinks.html" width="100%" frameborder=0 align=center height=% scrolling=no name="droplinks">
+		Loading jump menus...
+	</iframe>
+</div>
+<div id="g0">
+	<span class="titles" id="t1" style="margin-left:-1px">Settings<a onclick="gadshow(0)">X</a></span>
+	<span id="t1s">
+		<a onclick="customize()">Customize</a>
+		<a onclick="onlinehelp()">Help</a>
+	</span>
+</div>
+<div id="searchfadesec">
+<style>
+#searchbox2 #sf {color:#333}
+#searchbox2 #sf {color:#333;font-family:Arial;border:1px solid #888;background:#f9f9f9;}</style>
+</style>
+</div>
+<table id="infosec">
+	<tr>
+		<td>
+			<div id="clockbox">
+			<div id="txt">Initializing clock...<br>Please wait...</div>
+			</div>
+			<div id="calendarbox" height=101 width=306>
+				Loading calendar...
+			</div>
+		</td>
+	</tr>
+</table>
+<div id="g1">
+<span class="titles" id="t2">Weather<a onclick="gadshow(1)">X</a></span>
+<span id="t2s">
+<iframe width="99%" height="99%" id="gad1" border=0></iframe>
+</span>
+</div>
+<div id="g2">
+<span class="titles" id="t3">News<a onclick="gadshow(2)">X</a></span>
+<span id="t3s">
+<iframe width="99%" height="99%" id="gad2"></iframe>
+</span>
+</div>
+<div id="g3">
+<span class="titles" id="t4">Updates<a onclick="gadshow(3)">X</a></span>
+<span id="t4s" style="display:block;">
+</span>
+</div>
+<iframe id="customi" name="customi" width="98%" height="95%"></iframe>
+<iframe id="ads"></iframe>
+<MAP name="titlemap">
+	<AREA href="other/hidden.html" alt="Hidden Stuff" shape="rect" coords="102,-10,120,50">
+	<AREA href="http://www.centisearch.com/about/" alt="centisearch.com/about" shape="rect" coords="-10,-10,225,50">
+</MAP>
+</body>
+</html>

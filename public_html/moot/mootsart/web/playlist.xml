@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+  <trackList>
+    <track>
+			<creator> 1 </creator><title>Canon in D - Pachelbel (5:28)</title>
+			<location>canonind1-2.mp3</location>
+		</track>
+		<track>
+			<creator> 2 </creator><title>Marriage of Figaro - Mozart (4:35)</title>
+			<location>figaro1.mp3</location>
+		</track>
+		<track>
+			<creator> 3 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 4 </creator><title>Viva la Vida - Coldplay (3:56)</title>
+			<location>vivalavida1-4.mp3</location>
+		</track>
+		<track>
+			<creator> 5 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 6 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 7 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 8 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 9 </creator><title>9th Symphony, 4th Movement - Beethoven (9:12)</title>
+			<location>beethoven9th-5.mp3</location>
+		</track>
+		<track>
+			<creator> 10 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 11 </creator><title>A Little Night Music - Mozart (5:42)</title>
+			<location>nightmusic1-1.mp3</location>
+		</track>
+		<track>
+			<creator> 12 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 13 </creator><title>Fur Elise - Beethoven (2:25)</title>
+			<location>furelise.mp3</location>
+		</track>
+		<track>
+			<creator> 14 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 15 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 16 </creator><title>O, Fortuna - Carl Orff (2:35)</title>
+			<location>ofortuna1-2.mp3</location>
+		</track>
+		<track>
+			<creator> 17 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 18 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 19 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 20 </creator><title>Lux Aeterna - Clint Mansell (5:18)</title>
+			<location>luxaeterna1-5.mp3</location>
+		</track>
+	</trackList>
+</playlist>

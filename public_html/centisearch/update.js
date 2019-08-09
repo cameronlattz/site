@@ -1,0 +1,2 @@
+n=0.40;
+con='<b>In this update:</b><br>-New searches added<br>-Gadgets added<br><br><b>File size:</b><br>-1.5mb (up 200kb)<br><br><center><a href="#" style="font-size:18px">Download update</a><br><a href="#">How to update</a></center>';

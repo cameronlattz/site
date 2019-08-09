@@ -1,0 +1,36 @@
+<html>
+<title>Words</title>
+<head>
+<link rel="shortcut icon" href="/images/eye.png">
+<link rel="stylesheet" type="text/css" href="words.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="words.js"></script>
+</head>
+<body onLoad="start()">
+<center>
+<div id="turnspot">
+<span id="pot">POT: 0</span><span id="turn">Loading...</span><span id="score">SCORE: 0</span>
+</div>
+<form name="f">
+<textarea rows=25 cols=91 id="history" readonly>
+
+</textarea>
+<br>
+<input type="text" name="guess" size=111>
+<input type="button" value="Guess" onClick="guesser()">
+<br><br>
+<input type="button" value="Buy answer" onClick="buy()">
+<input type="button" value="Give up" onClick="giveup()">
+<input type="button" value="New game" onClick="clear()">
+</form>
+<div id="messages">
+Loading dictionary...
+</div>
+</center>
+<div id="iframediv">
+<iframe id="dictionary" src="wordsEn.txt" style="visibility:hidden" onLoad="dictloaded()">
+
+</iframe>
+</div>
+</body>
+</html>

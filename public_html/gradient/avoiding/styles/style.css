@@ -1,0 +1,159 @@
+@font-face {font-family: "BattleslabW00-Light";
+    src: url("../fonts/7844561f5d1a71c927f7d1686cfa39e4.ttf") format("truetype");
+}
+@font-face {font-family: "BattleslabW00-Black";
+    src: url("../fonts/d2ea9647b9b2c568d950a5e7849f6dee.ttf")
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0px;
+    background: url("../images/abstract-adventure-background-2397652-2.jpg");
+    background-attachment: fixed;
+    color: #4f6b8f;
+}
+header {
+    text-align: center;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    padding-bottom: 25px;
+}
+header:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    height: 65px;
+    background: url("../images/stroke-4.png") repeat-x center bottom;
+}
+nav {
+    margin: 60px auto;
+    padding: 0 15%;
+}
+nav li {
+    border-bottom: 3px dotted orange;
+    padding: 10px 0;
+    list-style-type: none;
+    color: orange;
+}
+nav li:before {
+    content: "\25CB";
+    font-size: 170%;
+    padding-right: 10px;
+    color: orange;
+ }
+nav li:hover:before {
+    content: "\25CF";
+}
+nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: padding-left 0.25s;
+}
+nav li:hover a {
+    padding-left: 15px;
+}
+main {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+h1 {
+    padding: 50px 0;
+    margin: 0 15%;
+    border-bottom: 10px solid orange;
+    color: #fff;
+    font-family: "BattleslabW00-Light", sans-serif;
+}
+h1 .orange-text {
+    font-family: "BattleslabW00-Black", sans-serif;
+}
+.orange-text {
+    color: orange;
+}
+.information {
+    position: relative;
+    top: -5px;
+    background-color: #fff;
+    z-index: -1;
+    padding: 20px 15%;
+    padding-top: 50px;
+}
+.information ul {
+    margin: 0;
+}
+.footer {
+    display: block;
+    background-color: #fff;
+    padding: 10px 0;
+    margin-top: -5px;
+    background: repeating-linear-gradient(-60deg, #fff, #fff 10px, orange 10px, orange 13px);
+}
+.footer span {
+    background-color: orange;
+    color: #fff;
+    padding: 10px 50px;
+    margin-left: 15%;
+}
+.flex-container {
+    display: table;
+}
+.left-half, .right-half {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+.left-half {
+    padding-right: 20px;
+}
+.right-half {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 20px;
+}
+.information > div {
+    padding: 10px;
+}
+p {
+    text-indent: 15px;
+}
+lh {
+    font-weight: bold;
+    margin-left: -25px;
+}
+p a {
+    color: #29476e;
+    font-style: italic;
+}
+p a:hover {
+    text-decoration: none;
+}
+.stats {
+    margin: 0 15%;
+}
+.stat {
+    display: table;
+    width: 100%;
+    padding: 5px 0;
+}
+.stats .text {
+    display: table-cell;
+    width: 75%;
+    padding-left: 50px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.stats .value {
+    display: table-cell;
+    width: 25%;
+    color: orange;
+    text-align: right;
+    font-size: 1.75em;
+    font-weight: bold;
+}
+.stats hr {
+    background-color: #29476e;
+}

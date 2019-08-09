@@ -1,0 +1,249 @@
+<html>
+<head>
+<link rel="shortcut icon" href="../Pictures/black_firefox.ico">
+<script>
+function rightjumps()
+{
+document.jumptolink.link.value="javascript: void()";
+document.jumptolink.news.value="javascript: void()";
+document.jumptolink.entertainment.value="javascript: void()";
+document.jumptolink.downloads.value="javascript: void()";
+document.jumptolink.shopping.value="javascript: void()";
+}
+function changejump(jumpvar) {
+jumper=document.jumptolink;
+switch (jumpvar) {
+	case 1: jumper=jumper.link.value; break;
+	case 2: jumper=jumper.news.value; break;
+	case 3: jumper=jumper.entertainment.value; break;
+	case 4: jumper=jumper.downloads.value; break;
+	case 5: jumper=jumper.shopping.value; break;
+	case 6: jumper=jumper.info.value; break;
+	case 7: jumper=jumper.games.value; break;
+}
+top.location=jumper;
+}
+</script>
+<script>
+function getCookie(NameOfCookie){
+    if (document.cookie.length > 0) {              
+    begin = document.cookie.indexOf(NameOfCookie+"=");       
+    if (begin != -1) {           
+      begin += NameOfCookie.length+1;       
+      end = document.cookie.indexOf(";", begin);
+      if (end == -1) end = document.cookie.length;
+        return unescape(document.cookie.substring(begin, end));
+    } 
+  }
+  return null;
+}
+function DoTheCookieStuff()
+{
+customtest=getCookie('customtest');
+if (customtest=="custom") {document.getElementById('formreplace').innerHTML='<link rel="stylesheet" type="text/css" href="firefoxcustomiframe.css">'}
+if (customtest=="original") {document.getElementById('formreplace').innerHTML='<link rel="stylesheet" type="text/css" href="firefoxiframe.css">'}
+if (!customtest) {document.getElementById('formreplace').innerHTML='<link rel="stylesheet" type="text/css" href="firefoxiframe.css">'}
+}
+</script>
+</head>
+<body onLoad="DoTheCookieStuff()">
+<span id="formreplace">
+<link rel="stylesheet" type="text/css" href="firefoxiframe.css">
+</span>
+<form name="jumptolink">
+<table cellspacing=0 cellpadding=1 align=center>
+<tr>
+<td>
+<center>My Links</center>
+<select name="link" onChange="changejump(1)">
+
+
+<!---MY LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://about.com">About.com</option>
+<option value="http://badoo.com">Badoo</option>
+<option value="http://blogger.com">Blogger</option>
+<option value="http://careerbuilder.com">CareerBuilder</option>
+<option value="http://www.conduit.com">Conduit</option>
+<option value="http://facebook.com">Facebook</option>
+<option value="http://hi5.com">hi5</option>
+<option value="http://linkedin.com">LinkedIn</option>
+<option value="http://livejournal.com">LiveJournal</option>
+<option value="http://go.com">Go.com</option>
+<option value="http://mail.google.com">GMail</option>
+<option value="http://www.mail.com">Mail</option>
+<option value="http://microsoft.com">Microsoft</option>
+<option value="http://monster.com">Monster</option>
+<option value="http://myspace.com">MySpace</option>
+<option value="http://search.mywebsearch.com">MyWebSearch</option>
+<option value="http://ning.com">Ning</option>
+<option value="http://tagged.com">Tagged</option>
+<option value="http://typepad.com">TypePad</option>
+<option value="http://vmn.net">VMN</option>
+<option value="http://yelp.com">Yelp</option>
+<!---MY LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.link.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>My Links</option>
+</select>
+</td>
+<td>
+<center>News</center>
+<select name="news" onChange="changejump(2)">
+
+
+<!---NEWS LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://bbc.co.uk">BBC</option>
+<option value="http://ezinearticles.com">EzineArticles</option>
+<option value="http://foxnews.com">Fox News</option>
+<option value="http://news.google.com">Google News</option>
+<option value="http://latimes.com">LA Times</option>
+<option value="http://mlb.com">MLB</option>
+<option value="http://nba.com">NBA</option>
+<option value="http://nfl.com">NFL</option>
+<option value="http://sportsillustrated.cnn.com">Sports Illustrated</option>
+<option value="http://reuters.com">Reuters</option>
+<option value="http://wsj.com">Wall Street Journal</option>
+<option value="http://washingtonpost.com">Washington Post</option>
+<!---NEWS LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.news.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>News</option>
+</select>
+</td>
+<td>
+<center>Entertainment</center>
+<select name="entertainment" onChange="changejump(3)">
+
+
+<!---ENTERTAINMENT LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://www.albinoblacksheep.com">AlbinoBlackSheep</option>
+<option value="http://www.collegehumor.com">College Humor</option>
+<option value="http://disney.go.com">Disney</option>
+<option value="http://www.ifc.com">IFC</option>
+<option value="http://imageshack.us">Imageshack</option>
+<option value="http://gamefaqs.com">GameFAQs</option>
+<option value="http://www.killsometime.com">KillSomeTime</option>
+<option value="http://metacafe.com">Metacafe</option>
+<option value="http://miniclip.com">Miniclip</option>
+<option value="http://pandora.com">Pandora</option>
+<option value="http://www.partypoker.com">PartyPoker</option>
+<option value="http://pogo.com">Pogo</option>
+<option value="http://stumbleupon.com">StumbleUpon</option>
+<option value="http://travian.com">Travian</option>
+<option value="http://games.yahoo.com">Yahoo! Games</option>
+<!---ENTERTAINMENT LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.entertainment.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>Entertainment</option>
+</select>
+</td>
+<td>
+<center>Downloads</center>
+<select name="downloads" onChange="changejump(4)">
+
+
+<!---DOWNLOAD LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://www.downloads.com">Download.com</option>
+<option value="http://www.bitenova.com">BiteNova</option>
+<option value="http://www.brothersoft.com">Brothersoft</option>
+<option value="http://www.filehippo.com">FileHippo</option>
+<option value="http://www.isohunt.com">ISO Hunt</option>
+<option value="http://mozilla.com">Mozilla</option>
+<option value="http://www.mininova.org">MiniNova</option>
+<option value="http://www.sdownloads.net">sDownloads</option>
+<option value="http://www.sourceforge.net">SourceForge</option>
+<option value="http://www.spaceddl.com">SpaceDDL</option>
+<option value="http://www.torrentbox.com">Torrent Search</option>
+<option value="http://www.torrentspy.com">Torrent Spy</option>
+<!---DOWNLOAD LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.downloads.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>Downloads</option>
+</select>
+</td>
+<td>
+<center>Shopping</center>
+<select name="shopping" onChange="changejump(5)">
+
+
+<!---SHOPPING LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://adobe.com">Adobe</option>
+<option value="http://apple.com">Apple</option>
+<option value="http://autotrader.com">Autotrader</option>
+<option value="http://bizrate.com">BizRate</option>
+<option value="http://dell.com">Dell</option>
+<option value="http://expedia.com">Expedia</option>
+<option value="http://homedepot.com">Home Depot</option>
+<option value="http://ikea.com">IKEA</option>
+<option value="http://jcpenny.com">JCPenny</option>
+<option value="http://macys.com">Macy's</option>
+<option value="http://netflix.com">NetFlix</option>
+<option value="http://target.com">Target</option>
+<option value="http://walmart.com">WalMart</option>
+<!---SHOPPING LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.shopping.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>Shopping</option>
+</select>
+</td>
+<td>
+<center>Information</center>
+<select name="info" onChange="changejump(6)">
+
+
+<!---INFO LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://www.dict.cc">dict.cc Dictionary</option>
+<option value="http://drugs.com">Drugs.com</option>
+<option value="http://ehow.com">eHow</option>
+<option value="http://encarta.msn.com">Encarta</option>
+<option value="http://howstuffworks.com">How Stuff Works</option>
+<option value="http://archive.org">Internet Archive</option>
+<option value="http://stumbleupon.com">StumbleUpon</option>
+<option value="http://urbandictionary.com">Urban Dictionary</option>
+<option value="http://webmd.com">WebMD</option>
+<option value="http://whitepages.com">White Pages</option>
+<option value="http://webmd.com">WikiAnswers</option>
+<option value="http://yellowpages.com">Yellow Pages</option>
+<!---INFO LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.entertainment.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>Information</option>
+</select>
+</td>
+<td>
+<center>Games</center>
+<select name="games" onChange="changejump(7)">
+
+
+<!---GAMES LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+<option value="http://addictinggames.com">AddictingGames</option>
+<option value="http://armorgames.com">Armor Games</option>
+<option value="http://candystand.com">Candystand</option>
+<option value="http://disney.go.com/games">Disney Games</option>
+<option value="http://funbrain.com">FunBrain</option>
+<option value="http://games.com">Games.com</option>
+<option value="http://games.net">Games.net</option>
+<option value="http://king.com">King.com</option>
+<option value="http://popcap.com">PopCap</option>
+<option value="http://shockwave.com">Shockwave</option>
+<option value="http://games.yahoo.com">Yahoo! Games</option>
+<option value="http://www.zylom.com/us/en/">Zylom</option>
+<option value="http://zynga.com">Zynga</option>
+<!---GAMES LINKS EDIT BETWEEN THESE TWO BRACKETS--->
+
+
+<option value="javascript: void()1" onClick="javascript: document.jumptolink.entertainment.value='javascript: void()'">----------------------------</option>
+<option value="javascript: void()" selected>Games</option>
+</select>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

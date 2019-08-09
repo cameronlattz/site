@@ -1,0 +1,42 @@
+body,td,a,p,.h{
+font-family:arial,sans-serif;
+}
+body {
+font-size: small;color: #FFFFFF;
+background: url(../Pictures/grgrad.gif);
+margin:0;
+}
+a:link 
+{ 
+color: #6666FF; 
+text-decoration:none
+}
+a:visited { 
+color: #666; 
+}
+a:hover { 
+color: #FFFFFF; 
+text-decoration:underline
+}
+a:active { 
+color: #000; 
+}
+img,table { 
+border: 0;
+}
+#sf{ 
+width: 100%; 
+}
+#q{
+width: 100%;
+}
+#frame {
+width: 564px;margin: 0 auto;
+}
+body.music {color:#FFFFFF}
+input {background-color:#000000; color:#FFFFFF; border-color:black; font-family:arial,sans-serif; font-size: small; font-size: 15;}
+input:hover {font-family:arial,sans-serif; font-size: small; font-size: 15; border-color:white}
+input:focus {font-family:arial,sans-serif; font-size: small; font-size: 15; border-color:white}
+select {background-color:#000000; color:#FFFFFF; border-color:black}
+select:hover {border-color: white;}
+select:focus {border-color: white}

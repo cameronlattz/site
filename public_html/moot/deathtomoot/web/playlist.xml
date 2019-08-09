@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+  <trackList>
+    <track>
+			<creator> 1 </creator><title>Consequences - 2008 (1:48)</title>
+			<location>Consequences.mp3</location>
+		</track>
+		<track>
+			<creator> 2 </creator><title>Pompous - 2010 (2:22)</title>
+			<location>Pompous.mp3</location>
+		</track>
+		<track>
+			<creator> 3 </creator><title>Calicadence - 2010 (3:51)</title>
+			<location>Calicadence.mp3</location>
+		</track>
+		<track>
+			<creator> 4 </creator><title>Classic - 2010 (5:04)</title>
+			<location>Classic.mp3</location>
+		</track>
+		<track>
+			<creator> 5 </creator><title>Desistive - 2010 (3:30)</title>
+			<location>Desistive.mp3</location>
+		</track>
+		<track>
+			<creator> 6 </creator><title>Recherche - 2010(3:13)</title>
+			<location>Recherche.mp3</location>
+		</track>
+		<track>
+			<creator> 7 </creator><title>Humbum - 2012(1:57)</title>
+			<location>humbum.mp3</location>
+		</track>
+		<track>
+			<creator> 8 </creator><title>Space - 2012 (5:37)</title>
+			<location>space6-1.mp3</location>
+		</track>
+		<track>
+			<creator> 9 </creator><title>String - 2012 (2:27)</title>
+			<location>string1-2.mp3</location>
+		</track>
+		<track>
+			<creator> 10 </creator><title>Morse - 2012 (3:44)</title>
+			<location>morse2-2.mp3</location>
+		</track>
+		<track>
+			<creator> 10 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 11 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 12 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 13 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 14 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 15 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 16 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 17 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 18 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 19 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 20 </creator><title>? (0:00)</title>
+			<location>web/blank.mp3</location>
+		</track>
+		<track>
+			<creator> 21 </creator><title>The Prophet - 2014 (0:54)</title>
+			<location>theprophet.mp3</location>
+		</track>
+	</trackList>
+</playlist>

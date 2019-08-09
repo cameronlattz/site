@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+  <trackList>
+    <track>
+			<creator> 1 </creator><title>Glitchy (4:11)</title>
+			<location>Glitchy.mp3</location>
+		</track>
+		<track>
+			<creator> 2 </creator><title>ZOMFG (0:09)</title>
+			<location>ZOMFG.mp3</location>
+		</track>
+		<track>
+			<creator> 3 </creator><title>Clap (0:29)</title>
+			<location>Clap.mp3</location>
+		</track>
+		<track>
+			<creator> 4 </creator><title>Square (0:52)</title>
+			<location>Square.mp3</location>
+		</track>
+		<track>
+			<creator> 5 </creator><title>Time (1:35)</title>
+			<location>Time.mp3</location>
+		</track>
+		<track>
+			<creator> 6 </creator><title>Track 6 (2:07)</title>
+			<location>Track6.mp3</location>
+		</track>
+		<track>
+			<creator> 7 </creator><title>Consequences (1:48)</title>
+			<location>Consequences.mp3</location>
+		</track>
+		<track>
+			<creator> 8 </creator><title>Nasty (2:47)</title>
+			<location>Nasty.mp3</location>
+		</track>
+		<track>
+			<creator> 9 </creator><title>Track 9 (1:15)</title>
+			<location>Track9.mp3</location>
+		</track>
+		<track>
+			<creator>10</creator><title>Results (3:55)</title>
+			<location>Results.mp3</location>
+		</track>
+		<track>
+			<creator>11</creator><title>Aim (1:27)</title>
+			<location>Aim.mp3</location>
+		</track>
+		<track>
+			<creator>12</creator><title>Track 12 (3:22)</title>
+			<location>Track12.mp3</location>
+		</track>
+		<track>
+			<creator>13</creator><title>Arpeggio (1:10)</title>
+			<location>Arpeggio.mp3</location>
+		</track>
+		<track>
+			<creator>14</creator><title>Speed (2:15)</title>
+			<location>Speed.mp3</location>
+		</track>
+		<track>
+			<creator>15</creator><title>Leftovers (4:53)</title>
+			<location>Leftovers.mp3</location>
+		</track>
+		<track>
+			<creator>0</creator><title>First (1:57)</title>
+			<location>First.mp3</location>
+		</track>
+	</trackList>
+</playlist>

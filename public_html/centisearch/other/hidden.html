@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>Firefox - Favorites</title>
+<link rel="shortcut icon" href="../Pictures/black_firefox.ico">
+<script language="JavaScript">
+
+var shown=0;
+var changeshown=0;
+var key;
+var pressed_keys;
+
+function doSomething() {
+showlinks();
+}
+
+document.documentElement.onkeydown = function capturekey(e){
+if(document.all) key=event.keyCode;
+else{
+key=e.which;
+}
+
+if(key==83){
+pressed_keys = key;
+} else if(key==69){
+pressed_keys = pressed_keys+""+key;
+} else if(key==67){
+pressed_keys = pressed_keys+""+key;
+} else if(key==82){
+pressed_keys = pressed_keys+""+key;
+} else if(key==69){
+pressed_keys = pressed_keys+""+key;
+} else if(key==84){
+pressed_keys = pressed_keys+""+key;
+}
+
+if ((key !=83) && (key !=69) && (key !=67) && (key !=82) && (key !=84)) {
+pressed_keys = "";
+}
+
+if (pressed_keys != "") {
+
+// Don'r remove this line or you'll get a "indexOf is not a function" error
+aux = new String(pressed_keys);
+
+if ((aux.indexOf('836967826984') != -1)) {
+doSomething();
+pressed_keys = "";
+}
+}
+}
+</script>
+<script>
+function getCookie(NameOfCookie){
+    if (document.cookie.length > 0) {              
+    begin = document.cookie.indexOf(NameOfCookie+"=");       
+    if (begin != -1) {           
+      begin += NameOfCookie.length+1;       
+      end = document.cookie.indexOf(";", begin);
+      if (end == -1) end = document.cookie.length;
+        return unescape(document.cookie.substring(begin, end));
+    } 
+  }
+  return null;
+}
+function DoTheCookieStuff()
+{
+customtest=getCookie('customtest');
+if (customtest=="custom") 
+{
+document.getElementById('test1').innerHTML='<link rel="stylesheet" type="text/css" href="../Other/firefoxcustom.css">'
+document.getElementById('backsec1').innerHTML='<a href="../firefoxcustom.html">Back to home</a>';
+}
+if (customtest=="original") 
+{
+document.getElementById('test1').innerHTML='<link rel="stylesheet" type="text/css" href="../Other/firefox.css">'
+document.getElementById('backsec1').innerHTML='<a href="../firefox.html">Back to home</a>';
+}
+if (!customtest) 
+{
+document.getElementById('test1').innerHTML='<link rel="stylesheet" type="text/css" href="../Other/firefox.css">'
+document.getElementById('backsec1').innerHTML='<a href="../firefox.html">Back to home</a>';
+}
+}
+function showlinks()
+{
+if (shown==0)
+	{
+	openlinks();
+	}
+if (shown==1)
+	{
+	closelinks();
+	}
+if (changeshown==1)
+	{
+	shown=1;
+	}
+if (changeshown==0)
+	{
+	shown=0;
+	}
+}
+function openlinks()
+{
+document.getElementById('linklist').innerHTML='<iframe src="hiddenlinks.html" height=80% width=100% frameborder=0></iframe><br><a href="javascript: showlinks()">Close links</a><br>';
+document.title='Firefox - Hidden';
+changeshown=1;
+}
+function closelinks()
+{
+document.getElementById('linklist').innerHTML='<br><center><font style="font-size:35">Favorites</font></center>No links added.<br><br><br>';
+document.title='Firefox - Favorites';
+changeshown=0;
+}
+</script>
+</head>
+<body onLoad="DoTheCookieStuff()" onKeyPress="google(event)">
+<div id="test1">
+<link rel="stylesheet" type="text/css" href="../Other/firefox.css">
+</div>
+<br>
+<span id="linklist">
+<br>
+<center>
+<font style="font-size:35">Favorites</font>
+</center>
+No links added.
+<br><br><br>
+</span>
+<span id="backsec1">
+<a href="../firefoxcustom.html">Back to home</a>
+</span>
+</body>
+</html>

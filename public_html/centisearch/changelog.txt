@@ -1,0 +1,181 @@
+Version 0.10- 2006
+	*Added extra searches
+	*Added update feature
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css
+		/pictures/logos/
+			Many
+		/pictures/images/
+			fox0.png, fox1.png
+
+Version 0.11- 2008
+	*Added searches drop down box
+	*Optimized update feature
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css
+
+Version 0.12- 2/28/09
+	*Added ctrl shortcuts
+	*Changed search engine pics
+	*Fixed broken searches
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css, firefox.css
+		/pictures/logos/
+			ebaums.png, miniclip.png, wordpress.png, pogo.png, ign.png, digg.png, weather.png, movies.png, googlemaps.png, guitar.png, songmeanings.png, logobg0.png, logobg.png
+		/backgrounds/
+			grad.png
+
+Version 0.13- April 2009
+	*Optimized code
+	*Added hover states
+	*Added many jump links
+	*Added update information
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css, firefox.css, droplinks.html
+		/pictures/logos/
+			logobg1.png
+
+Version 0.14- May 2009
+	*Added jump links
+	*Added quick searches
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css
+		/pictures/logos/
+			cnet.png, watchmovies.png, pixsy.png, dealtime.png, isohunt.png, lastfm.png, stubhub.png, playlist.png
+
+Version 0.20- 5/31/09
+	*Changed name
+	*Added domain
+	*Added information page
+	*Added some advanced search functions
+	*Style changes
+	*Edited files:
+		root
+			firefox.html, firefoxbig.html
+		/other/
+			script.js, style.css
+		/pictures/logos/
+			dictionary.png
+		/pictures/firefox/
+			fox0.png, fox1.png, ie0.png, ie1.png, title.png, title_bg.png
+
+Version 0.21- 6/10/09
+	*Changed input style
+	*Added more advanced search functions
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css, firefox.css
+		/pictures/firefox/
+			enginetab.png (removed)
+
+Version 0.30- 7/12/09
+	*Remodeled searcher
+	*Remodeled quick jumps
+	*Added searches
+	*Added quick jumps
+	*Optimized code	
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css, firefox.css, droplinks.html, firefoxiframe.css
+		/pictures/firefox/
+			clear.gif (removed), footer1.png (removed), footer2.png (removed), footer3.png (removed), fox0.png, fox1.png, searchfade.png (removed), title.png, title_bg.gif (removed), title_bg.png, white.gif (removed)
+		/pictures/logos/
+			yahooimgs.png, yahoovids.png, yahooans.png, yahooshop.png, yahoosports.png, askimgs.png, askvids.png, asknews.png, askmaps.png, askqa.png, bing.png, bingimgs.png, bingvids.png, bingnews.png, bingmaps.png, bingshop.png, live.png (removed)
+
+Version 0.31- 7/28/09
+	*Searcher bug fixes
+	*Added searches
+	*Added advanced search functions
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js, style.css, firefox.css
+		/pictures/logos/
+			googlefinance.png, yahoonews.png, askshop.png, binglocal.png, wordreference.png, bbc.png, reuters.png, picasa.png, mininova.png, filehippo.png, sourceforge.png
+
+Version 0.32- 8/21/09
+	*Finished adding searches
+	*Edited files:
+		root
+			firefox.html
+		/other/
+			script.js
+		/pictures/logos/
+			shockwave.png, addictinggames.png, msngames.png, yahoogames.png, stumbleupon.png, delicious.png, twitter.png, blogger.png, whitepages.png, bizrate.png (removed), wordpress.png (removed)
+
+Version 0.33- 8/22/09
+	*Finished adding advanced search functions
+	*Reorganized search switcher
+	*Fixed arrow key shortcuts
+		root
+			firefox.html
+		/other/
+			script.js
+		/pictures/logos/
+			bingxrank.png, bingmaps.png(removed)
+
+Version 0.34- 8/22/09
+	*Remodeled updater
+	*Finished adding quick jumps
+		root
+			firefox.html
+		/other/
+			script.js
+
+Version 0.40- 8/23/09
+	*Added widgets
+		root
+			firefox.html
+		/other/
+			script.js, style.css, firefox.css
+
+Version 0.41- 10/01/09
+	*Added customizer
+		root
+			firefox.html
+		/other/
+			script.js, customizer.html
+
+Version 0.42- 2/27/10
+	*Recovered project
+	*Fixed minor errors
+	*Changed some styling
+		root
+			firefox.html
+		/other/
+			scripts.js, style.css, customizer.html
+
+
+Version 0.50- (3/15/10)
+	*Fixed graphical errors
+	*Optimized code
+	*Added second homepage
+
+Version 0.51- (3/25/10)
+	*Updated calendar
+	*Added address book
+	*Updated readme
+
+Version 1.00- (4/20/10)
+	*Ported to all resolutions and browsers
+	*Created release page

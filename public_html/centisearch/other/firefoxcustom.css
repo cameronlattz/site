@@ -1,0 +1,29 @@
+body,td,a,p,.h{
+font-family:arial,sans-serif;
+}
+body {
+font-size: small;color: #111133;
+margin: 0 20px 2em 20px;line-height: 140%;
+background: #000 url(../Backgrounds/background.jpg);
+}
+a:link 
+{ 
+color: #FFFFFF; 
+text-decoration:none
+}
+a:visited { 
+color: #666; 
+}
+a:hover { 
+color: #FFFFFF; 
+text-decoration:underline
+}
+a:active { 
+color: #000; 
+}
+input {background-color:#000000; color:#FFFFFF; border-color:black; font-family:arial,sans-serif; font-size: small; font-size: 15;}
+input:hover {font-family:arial,sans-serif; font-size: small; font-size: 15; border-color:white}
+input:focus {font-family:arial,sans-serif; font-size: small; font-size: 15; border-color:white}
+select {background-color:#000000; color:#FFFFFF; border-color:black}
+select:hover {border-color: white;}
+select:focus {border-color: white}

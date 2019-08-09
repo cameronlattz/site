@@ -1,0 +1,51 @@
+body {
+	background-color: #eee;
+}
+#container {
+    text-align: center;
+    margin: 0 10%;
+	padding: 5px;
+}
+#download {
+	margin-top: 25px;
+}
+.section {
+	border: 1px solid #aaa;
+	background-color: #fff;
+}
+.section:not(:last-child) {
+	margin-bottom: 25px;
+	text-align: center;
+}
+.vnc {
+	border-bottom: 1px solid #aaa;
+}
+.vnc, .header {
+	text-align: center;
+	background: #ddd;
+}
+.computer {
+	display: inline-block;
+}
+.computer, .machine {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+.power-button {
+	position: absolute;
+	z-index: 10;
+	cursor: pointer; 
+}
+.optiplex .power-button {
+	left: 175px;
+	top: 16px;
+}
+.phantom .power-button {
+	left: 324px;
+	top: 255px;
+}
+.toshiba .power-button {
+	left: 448px;
+	top: 93px;
+}

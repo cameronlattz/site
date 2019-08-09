@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Scores calculator</title>
+<link rel="shortcut icon" href="/images/eye.png">
+<link rel="stylesheet" type="text/css" href="/styles/style.css">
+<link rel="stylesheet" type="text/css" href="/styles/lists.css">
+<script>
+	function loaders() {
+		document.getElementById("ta1").value="";
+		document.getElementById("ta2").value="";
+	}
+
+	function init() {
+		var top=calculate(0);
+		document.getElementById("ta1").value=top[0];
+		document.getElementById("ta2").value=top[1];
+		var kids=calculate(1);
+		document.getElementById("tak1").value=kids[0];
+		document.getElementById("tak2").value=kids[1];
+		
+	}
+
+	function calculate(framenum) {
+		var inner=window.frames[framenum].document.body.innerHTML;
+		var first1=inner.split("</h2>")[1];
+		var first2=inner.split("</h2>")[2];
+		var firstb=first1+first2;
+		var first=firstb.split('<div id="left" class="center">')[0];
+		var outer="<h2>Scores by year</h2><table class='bigtable'><tr>";
+		var outer2="<h2>Scores by decade</h2><table><tr><th>Decade</th><th>Movies</th><th>Total</th><th>Average</th></tr>";
+		var year=new Array();
+		var score=new Array();
+		var count=new Array();
+		var decadescore=new Array();
+		var decadecount=new Array();
+		for (i=0; i<100; i++) {
+			year[i]=0;
+		}
+		for (i=0; i<21; i++) {
+			decadescore[i]=0;
+			decadecount[i]=0;
+		}
+		for (i=1900; i<2100; i++) {
+			score[i]=0;
+			count[i]=0;
+		}
+		for (i=0; i<first.split(")</a> - ").length; i++) {
+			var newyear=Number(first.split(")</a> - ")[i].split("(")[1]);
+			if (newyear>1899 && newyear<2100) {
+				var broke=false;
+				for (j=0; j<50; j++) {
+					if (year[j]==newyear) {
+						broke=true;
+						break;
+					}
+				}
+				var newscore=Number(first.split(")</a> - ")[i+1].split("</li>")[0])+Number(score[newyear]);
+				if (newscore!="?") {
+					if (!broke) {year[i]=newyear;}
+					score[newyear]=newscore;
+					count[newyear]=count[newyear]+1;
+				}
+			}
+		}
+		year.sort(sortNumber);
+		var decade=-1;
+		var changecount=-1;
+		for (i=0; i<100; i++) {
+			if (year[i]>1899 && year[i]<2100) {
+				if (Math.floor((year[i]-1900)/10)!=decade) {
+					if (decade!=-1) {outer=outer+"</table></td>";}
+					decade=Math.floor((year[i]-1900)/10);
+					changecount++;
+					if (changecount==3) {
+						outer=outer+"</tr><tr>";
+						changecount=0;
+					}
+					outer=outer+"<td><table><tr><th>Year</th><th>Movies</th><th>Total</th><th>Average</th></tr>";
+				}
+				decadescore[decade]=decadescore[decade]+score[year[i]];
+				decadecount[decade]=decadecount[decade]+count[year[i]];
+				outer=outer+"<tr><td>"+year[i]+"</td><td>"+count[year[i]]+"</td><td>"+score[year[i]]+"</td><td>"+Math.round(score[year[i]]/count[year[i]]*100)/100+"</td></tr>";
+			}
+		}
+		if (changecount!=3) {outer=outer+"</tr>";}
+		for (i=0; i<21; i++) {
+			if (decadescore[i]!=0) {
+				outer2=outer2+"<tr><td>"+(1900+i*10)+"s</td><td>"+decadecount[i]+"</td><td>"+decadescore[i]+"</td><td>"+Math.round(decadescore[i]/decadecount[i]*100)/100+"</td></tr>";
+			}
+		}
+		var outers=new Array();
+		outer=outer+"</table></tr></table>";
+		outer2=outer2+"</tr></table>";
+		outers[0]=outer;
+		outers[1]=outer2;
+		return outers;
+	}
+	function sortNumber(a,b) {
+		return a - b;
+}	
+</script>
+<style>
+	iframe {visibility:hidden; width:1px; height:1px;}
+	textarea {width:400px; height:400px}
+</style>
+</head>
+<body onLoad="loaders()">
+<center>
+<input type="button" onclick="init()" value="Calculate!"><br>
+<h1>Top 100 Movies</h1>
+<textarea id="ta1">&nbsp;</textarea>
+<textarea id="ta2">&nbsp;</textarea><br>
+<h1>Top 50 Kids Movies</h1>
+<textarea id="tak1">&nbsp;</textarea>
+<textarea id="tak2">&nbsp;</textarea><br>
+</center>
+<iframe id="movies" name="movies" src="100movies.html"></iframe><br>
+<iframe id="kidsmovies" name="kidsmovies" src="kidsmovies.html"></iframe><br>
+</body>
+</html>

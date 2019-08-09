@@ -1,0 +1,31 @@
+body,td,a,p,.h{font-family:arial,sans-serif;}
+body {font-size:small; color:#333; margin:0 20px 2em 20px; line-height:140%; background: #fff url(../backgrounds/grad.png) 0% 100% repeat-x; overflow:hidden; height:100%}
+a:link {color:#039; text-decoration:none}
+a:visited {color:#666}
+a:hover {color:#333}
+a:active {color:#000}
+#updatesec {background:#eee;}
+#searchbox2 input {font-size:12px}
+#searchbox2 {font-size:12px; padding-left:25px;}
+#searchbox2 select {font-size:12px}
+#searchbox2 #sf,#searchbox2 .sf3,#searchbox2 .sf2 {font-family:arial,sans-serif; background:#f9f9f9; border:1px solid #888}
+#searchbox2 .df {color:#333; font-family:arial,sans-serif; background:#f9f9f9; border:1px solid #888}
+#searchbox1 a {border:0px; border-left:2px solid #ccc; border-right:2px solid #999; border-top:3px solid #ccc; background:#fff; opacity:.8}
+#searchbox1 a:hover {border-top:5px solid #ccc; border-right:2px solid #aaa; border-bottom:4px solid #ccc; background:#fdfdfd; opacity:1;}
+#searchbox1 a.cur {color:#444; font-size:16px; font-weight:normal; border:1px solid #999; border-bottom:0px; background:#f9f9f9; opacity:1;}
+#searchbox1 a img {width:75px; height:32px;}
+#searchbox2 input.sub {height:30px; font-size:16px; margin-right:10px}
+select {border-color:#fff;}
+select:hover {border-color: #333}
+#calendarbox ul {border:1px solid #000; height:101px; width:306px; padding:0}
+#calendarbox li {background-color:#dedede; color:#222233; display:block; float:left; border:1px solid #000000; height:110px; width:100px; font-size:12px; text-align:left;}
+#calendarbox a {font-family:Tahoma,Arial; width:304px; font-weight:bold; border:2px solid #000; color:#fff; border-top:0; background:#bcbcbc}
+#calendarbox a:hover {background:#dedede; color:#222; text-decoration:underline;}
+#searchbox1 a.mov {color:#039;}
+#searchbox1 a.mov:hover {color:#333; border:1px solid #444}
+#clockbox a {background:#dedede; border:1px solid #000}
+#clockbox a:hover {background:#efefef;}
+#clockbox {border:0px solid #111;}
+#g0 #t1s a {padding:10px; margin-left:-1px; display:block; color:#333; font-size:20px; border-top:2px solid #fff; border-bottom:0px solid #fff}
+#g0 #t1s a.rtab {float:right; margin-top:-24px; padding-top:1px; padding-bottom:0px}
+#g0 #t1s a:hover {color:#000; background:#ddd; border-top:1px solid #bbb; border-bottom:1px solid #bbb}

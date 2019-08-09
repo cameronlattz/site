@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+  <trackList>
+    <track>
+			<creator> 1 </creator><title>Womb (0:12)</title>
+			<location>clips/womb3.mp3</location>
+		</track>
+		<track>
+			<creator> 2 </creator><title>----- (-:--)</title>
+			<location>clips/breathing.mp3</location>
+		</track>
+		<track>
+			<creator> 3 </creator><title>Devil (0:09)</title>
+			<location>clips/devil2.mp3</location>
+		</track>
+		<track>
+			<creator> 4 </creator><title>Humbum (1:57)</title>
+			<location>humbum.mp3</location>
+		</track>
+		<track>
+			<creator> 5 </creator><title>Disgusting (0:13)</title>
+			<location>clips/disgusting.mp3</location>
+		</track>
+		<track>
+			<creator> 6 </creator><title>----- (-:--)</title>
+			<location>clips/breathing.mp3</location>
+		</track>
+		<track>
+			<creator> 7 </creator><title>Worship (0:13)</title>
+			<location>clips/worship4.mp3</location>
+		</track>
+		<track>
+			<creator> 8 </creator><title>Space (5:37)</title>
+			<location>space6-1.mp3</location>
+		</track>
+		<track>
+			<creator> 9 </creator><title>Lord (0:15)</title>
+			<location>clips/lord2.mp3</location>
+		</track>
+		<track>
+			<creator>10</creator><title>String (2:27)</title>
+			<location>string1-2.mp3</location>
+		</track>
+		<track>
+			<creator>11</creator><title>Swan (0:19)</title>
+			<location>clips/swan5.mp3</location>
+		</track>
+		<track>
+			<creator>12</creator><title>----- (-:--)</title>
+			<location>clips/breathing.mp3</location>
+		</track>
+		<track>
+			<creator>13</creator><title>Silence (breathing) (0:08)</title>
+			<location>clips/silence1.mp3</location>
+		</track>
+		<track>
+			<creator>14</creator><title>2+2 (0:23)</title>
+			<location>clips/2and2-2.mp3</location>
+		</track>
+		<track>
+			<creator>15</creator><title>Rain (2:52)</title>
+			<location>Rain1-4.mp3</location>
+		</track>
+		<track>
+			<creator>16</creator><title>Eazy (0:31)</title>
+			<location>clips/eazy.mp3</location>
+		</track>
+		<track>
+			<creator>17</creator><title>Morse (3:44)</title>
+			<location>morse2-2.mp3</location>
+		</track>
+		<track>
+			<creator>18</creator><title>Silence (bottle cap) (0:15)</title>
+			<location>clips/silence2.mp3</location>
+		</track>
+		<track>
+			<creator>19</creator><title>Goodbye (0:39)</title>
+			<location>clips/goodbye2.mp3</location>
+		</track>
+	</trackList>
+</playlist>

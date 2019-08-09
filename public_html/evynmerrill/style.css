@@ -1,0 +1,22 @@
+body {background:url('img/bg.jpg');}
+div {display:block; clear:both; padding:0px; margin:0px; border:0px}
+#content {width:97%; border:0px solid #ffffff; position:relative; top:0px; left:1%; display:block; margin-bottom:10px}
+#head {text-align:center;}
+#head img {border:0px;}
+#menu {height:100px; text-align:center; display:block;}
+#menu .nav {display:inline-block}
+#text {padding-top:15px; background:url('img/clear.png'); border-left:1px solid #111; border-right:1px solid #111; font-size:18px}
+#foot {height:50px; border:1px solid #111; background-color:#999; text-align:center; color:#eee}
+p {text-indent:15px; margin-left:5px; margin-right:5px;}
+h1 {margin:0px; margin-left:5px; margin-right:5px;}
+#menu a {border:0px;text-align:center; width:250px; height:100px; padding:0px; display:block; float:left;}
+#menu a b,#menu .cur b {position:relative; top:13px}
+#menu .cur {display:block; border:0px; float:left; height:100px; width:250px;}
+.picl {border:1px solid #000; float:left; clear:both; margin:5px;}
+.picr {border:1px solid #000; float:right; clear:both; margin:5px;}
+.h {position:relative; right:5px; top:-10px; display:block; text-align:right}
+.cds {display:block; text-align:center}
+.cds a {padding-left:25px; padding-right:25px;}
+.contacttext p {font-size:24px;}
+.contacttext a {color:#944; text-decoration:underline}
+.contacttext a:hover {color:#444; text-decoration:none;}

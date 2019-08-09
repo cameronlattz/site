@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Prime Designing: BG Test</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<script type="text/javascript" src="script/script.js"></script>
+<script>
+function changebg() {
+	bgstring='';
+	nor=0;
+	if (document.getElementById('bgcolor').value.length>2) {
+		bgstring=document.getElementById('bgcolor').value;
+	}
+	if (document.getElementById('bgurl').value.length>4) {
+		if (bgstring.length>0) {bgstring=bgstring+' '+document.getElementById('bgurl').value;}
+		else {bgstring='url("'+document.getElementById('bgurl').value+'")';}
+	} else {
+		nor=1;
+	}
+	if (bgstring.length<3) {
+		bgstring='#FFFFFF';
+	}
+	if (nor==0) {
+		if (document.getElementById('xbox').checked) {
+			if (document.getElementById('ybox').checked) {
+				bgstring=bgstring+' repeat';
+			} else {
+				bgstring=bgstring+' repeat-x';
+			}
+		} else if (document.getElementById('ybox').checked) {
+			bgstring=bgstring+' repeat-y';
+		} else {
+			bgstring=bgstring+' no-repeat';
+		}
+		if (document.getElementById('scrollbox').checked) {
+			bgstring=bgstring+' scroll';
+		} else {
+			bgstring=bgstring+' fixed';
+		}
+		if (document.getElementById('middlebox').checked) {
+			bgstring=bgstring+' center';
+		} else {
+			bgstring=bgstring+' top';
+		}
+		if (document.getElementById('centerbox').checked) {
+			bgstring=bgstring+' center';
+		} else {
+			bgstring=bgstring+' left';
+		}
+	}
+	document.getElementById('container').style.background=bgstring;
+}
+</script>
+<link rel="shortcut icon" href="images/favicon.png">
+</head>
+<body>
+<div id="container">
+	<div id="logo">&nbsp;</div>
+	<div id="body">
+		<div id="navbar">
+			<div class="border">&nbsp;</div>
+			<div class="images" id="images">
+				<a><img src="images/navline.png"></a><a><img src="images/navline.png"></a><a><img src="images/navline.png"></a><a><img src="images/navline.png"></a><a><img src="images/navline.png"></a>
+			</div>
+			<div class="border">&nbsp;</div>
+		</div>
+		<div id="outercontent">
+			<div id="content" style="display:none">
+			</div>
+			<div id="content2">
+				<center>
+					<div style="text-align:left; width:300px">
+						<br>
+						Color: <input type="text" id="bgcolor"><br>
+						Image URL: <input type="text" id="bgurl" size=30><br>
+						<label for="xbox">Repeat X: </label><input type="checkbox" id="xbox" checked><br>
+						<label for="ybox">Repeat Y: </label><input type="checkbox" id="ybox" checked><br>
+						<label for="centerbox">Center: </label><input type="checkbox" id="centerbox"><br>
+						<label for="middlebox">Middle: </label><input type="checkbox" id="middlebox"><br>
+						<label for="scrollbox">Scroll: </label><input type="checkbox" id="scrollbox" checked><br>
+						<label for="stretchbox">Stretch: </label><input type="checkbox" id="stretchbox"><br>
+						<input type="button" value="GO!" onclick="changebg()" style="width:200px"><br><br><br><br><br><br><Br><BR><Br><br><Br><BR><br><br><br><br><br><br><Br><BR><Br><br><Br><BR>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+	<div id="footdiv">
+		<div id="foot">
+			Copyright &copy; 2013 Cameron Lattz&nbsp; |&nbsp; <a href="mailto:cameron@primedesigning.com">cameron@primedesigning.com</a>&nbsp; |&nbsp; (813) 294-0236
+		</div>
+	</div>
+</div>
+</body>
+</html>

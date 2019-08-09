@@ -1,0 +1,4 @@
+http://multi.media.illinois.edu/ng/j480fall2009/ShootoutatHall09/Shootout_at_the_Hall_2009/ROBINSON_files/shapeimage_3.png
+fixes for ie:
+	make h2 size 50px
+	fix nav span (display inline-block)

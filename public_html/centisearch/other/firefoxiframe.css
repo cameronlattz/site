@@ -1,0 +1,17 @@
+body,td,a,p,.h{font-family:verdana,georgia,arial,sans-serif;}
+body {font-size:small; color: #eee; margin:0;}
+a:link {color: #039; text-decoration:none}
+a:visited {color: #666;}
+a:hover {color:#333; text-decoration:underline}
+a:active {color:#000;}
+img,table {border:0;}
+#sf{width:100%;}
+#frame {width:564px; margin:0 auto;}
+input.search {color:#333; font-family:arial,sans-serif; font-size:15px;}
+input.search:hover {color:#333; font-family:arial,sans-serif; font-size:small; font-size:15px}
+input.search:focus {color:#333; font-family:arial,sans-serif; font-size:small; font-size:15px}
+select {border-color:#e3e3e3; background:#f9f9f9}
+select:hover {border-color:#333; background:#fff}
+select:focus {border-color:#fff}
+table {border:5px solid #111; border-bottom:0px solid #aaa; border-top:3px solid #aaa; background:url('../pictures/firefox/jumpbg.png')}
+td {border-left:1px solid #aaa; border-right:1px solid #aaa; padding-right:1px; padding-left:1px;}

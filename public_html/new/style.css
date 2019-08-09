@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "Brown Bag Lunch";
+  src: url("BrownBagLunch.ttf");
+}
+@font-face {
+  font-family: "Avant Garde Medium";
+  src: url("AVANTM.ttf");
+}
+
+body {
+	margin: 0px;
+	background-color: #202624;
+}
+
+svg#grid {
+	width: 100%;
+	height: 100%;
+}
+
+svg#grid line {
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 10000;
+  animation: dash 5s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#navbarContainer {
+	position: absolute;
+	top: 8px;
+	left: -600px;
+	background-color: #eff6ef;
+	background-image: url("bg.png");
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 5px;
+	-ms-transition: left 1s ease-in;
+	transition: left 1s ease-in;
+	z-index: 4;
+}
+
+
+#navbar {
+    text-align: center;
+	text-align: left;
+	background: url("line.png");
+	background-repeat:repeat;
+	background-size:contain;
+	background-position:center;
+}
+
+#navbar span {
+    color: #414b4c;
+    font-size: 42px;
+	font-family: "Brown Bag Lunch";
+	margin: 5px;
+	margin-top: 0px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	position: relative;
+	top: -7px;
+}
+
+@media screen and (max-width: 600px) {
+	#navbar span {
+		font-size: 6vw;
+		padding-left: 1px;
+		padding-right: 1px;
+		margin: 2px;
+	}
+}
+
+#navbar span:hover {
+	color: #f23343;
+	cursor: pointer;
+}
+
+#navbar span.active {
+	color: #1a4ac5;
+}
+
+#navbar span:nth-child(3) {
+	top: -6px;
+}
+
+#navbar span:nth-child(4) {
+	top: -9px;
+}
+
+.content {
+	position: absolute;
+	top: 65px;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 2;
+	display: none;
+	min-height: 80%;
+	width: 80%;
+	color: #ede4d2;
+	text-align: center;
+	border: 1px solid #ede4d2;
+	background-color: #202624;
+}
+
+#homeContentEighties {
+	color: #ede4d2;
+	padding: 20px;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 42px;
+	font-family: "Avant Garde Medium";
+	border-width: 0px;
+	background-color: transparent;
+	min-width: 575px;
+	letter-spacing: -2px;
+}
+
+#homeContentEighties div {
+	-ms-transition: opacity 0.5s ease-in;
+	transition: opacity 0.5s ease-in;
+}
+
+#name {
+	font-size: 10vh;
+}
+
+#homeContentEighties #ratingContainer {
+	padding: 3px;
+    -ms-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+
+#vhs {
+	position: absolute;
+	left: 25px;
+	bottom: 50px;
+	-ms-transition: opacity 0.5s ease-in;
+	transition: opacity 0.5s ease-in;
+	font-family: "Avant Garde Medium";
+	font-size: 18px;
+	color: #ede4d2;
+	white-space: nowrap;
+}
+
+#vhs svg {
+	float: left;
+	border: 1px solid #ede4d2;
+	background-color: #202624;
+	height: 57px;
+	width: 110px;
+	margin-top: -13px;
+	margin-right: 5px;
+}
+
+#vhs svg .fil0, #vhs svg .fil1 {
+	fill: #ede4d2;
+}
+
+#vhsAndCutOut {
+	position: relative;
+	z-index: 2;
+	bottom: 300px;
+	width: 100%;
+	height: 180px;
+}
+
+#cutOut{
+	float: right;
+	margin-right: -1px;
+}
+
+#topRainbow {
+	position: absolute;
+	top: 10px;
+	right: 0px;
+	width: 25%;
+	margin-right: 10px;
+}
+
+#topRainbow div {
+	height: 8px;
+	margin-left: 100%;
+    -ms-transition: margin-left 0.5s ease-in;
+    transition: margin-left 0.5s ease-in;
+}
+
+#topRainbow div:nth-child(1) {
+	background-color: #cb97a3;
+}
+
+#topRainbow div:nth-child(2) {
+	background-color: #d31c32;
+}
+
+#topRainbow div:nth-child(3) {
+	background-color: #cf5f1f;
+}
+
+#topRainbow div:nth-child(4) {
+	background-color: #ebd00d;
+}
+
+#topRainbow div:nth-child(5) {
+	background-color: #186881;
+}
+
+#bottomRainbow {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+}
+
+#bottomRainbow div {
+	position: relative;
+	bottom: -200px;
+	margin-bottom: 5px;
+    -ms-transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#bottomRainbow div:nth-child(1), #bottomRainbow div:nth-child(2) {
+	height: 8px;
+}
+
+#bottomRainbow div:nth-child(1) {
+	background-color: #b998a9;
+}
+
+#bottomRainbow div:nth-child(2) {
+	background-color: #ab709c;
+}
+
+#bottomRainbow div:nth-child(3) {
+	background-color: #d61f31;
+	height: 15px;
+}
+
+#bottomRainbow div:nth-child(4) {
+	background-color: #d86721;
+	height: 20px;
+}
+
+#bottomRainbow div:nth-child(5) {
+	background-color: #edd803;
+	height: 25px;
+}
+
+#bottomRainbow div:nth-child(6) {
+	background-color: #097aa2;
+	height: 30px;
+}
+
+#topRainbow .margin-left-0 {
+	margin-left: 0%;
+}
+
+#bottomRainbow .bottom-0 {
+	bottom: 0px;
+}
+
+#navbarContainer.left-13 {
+	left: 13px;
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+div#eightiesContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	min-width: 500px;
+	background-image: url("bg.png");
+}
+
+#noise {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 3;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-image: url("bg.png");
+}
