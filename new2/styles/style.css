@@ -14,7 +14,24 @@ body {
 	height: 300%;
 	width: 100%;
 }
-.content-container {
+#contentContainer {
+	position: fixed;
+	top: 10%;
+	left: 0;
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	z-index: 1;
+}
+#contentContainer > div {
+	padding: 5px;
+	overflow-y: auto;
+	display: none;
+}
+#contentContainer > div.show {
+	display: block;
+}
+.scrolling-content-container {
 	position: relative;
 	z-index: 1;
 	top: -34%;
@@ -30,6 +47,14 @@ body {
 	background-image: url("../images/bg.png");
 }
 
+/* helper */
+.opacity-0 {
+	opacity: 0;
+}
+.opacity-1 {
+	opacity: 1;
+}
+
 /* header */
 #containerHeader {
 	height: 100%;
@@ -42,17 +67,63 @@ body {
 	top: -100%;
 }
 
-/* 80s */
-#backgroundContainer80s {
-	background-color: #202624;
-}
-#cutOut{
+/* nav */
+.navbar-container {
 	position: absolute;
-	bottom: 15%;
-	right: 0px;
+	top: 8px;
+	left: -600px;
+	background-color: #eff6ef;
+	background-image: url("../images/bg.png");
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 5px;
+	-ms-transition: left 1s ease-in;
+	transition: left 1s ease-in;
+	z-index: 4;
+}
+#navbar {
+    text-align: center;
+	text-align: left;
+	background: url("../images/line.png");
+	background-repeat:repeat;
+	background-size:contain;
+	background-position:center;
+}
+#navbar span {
+    color: #414b4c;
+    font-size: 42px;
+	font-family: "Brown Bag Lunch";
+	margin: 5px;
+	margin-top: 0px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	position: relative;
+	top: -7px;
+}
+@media screen and (max-width: 600px) {
+	#navbar span {
+		font-size: 6vw;
+		padding-left: 1px;
+		padding-right: 1px;
+		margin: 2px;
+	}
+}
+#navbar span:hover {
+	color: #f23343;
+	cursor: pointer;
+}
+#navbar span.active {
+	color: #1a4ac5;
+}
+#navbar span:nth-child(3) {
+	top: -6px;
+}
+#navbar span:nth-child(4) {
+	top: -9px;
 }
 
-/* 90s */
+/* TEMP */
 #backgroundContainer90s {
 	background-color: #ff0;
 }
