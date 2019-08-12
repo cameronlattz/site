@@ -1,6 +1,7 @@
 /* main */
 body {
 	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 .background-container {
 	position: sticky;
@@ -46,6 +47,9 @@ body {
 	height: 100%;
 	background-image: url("../images/bg.png");
 }
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+}
 
 /* helper */
 .opacity-0 {
@@ -60,11 +64,14 @@ body {
 	height: 100%;
 }
 #backgroundContainerHeader {
-	background-color: #f6f6f6;
+	background-color: #252934;
 	height: 100%;
 }
 #contentContainerHeader {
+	position: relative;
+	z-index: 1;
 	top: -100%;
+	color: #f6f6f6;
 }
 
 /* nav */
