@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 #navbar span:not(.active):hover {
 	cursor: pointer;
 	font-weight: bold;
-	background-color: #e1e5f0;
+	background-color: #f5f9ff;
 }
 #navbar span.active {
 	background-color: #151924;
