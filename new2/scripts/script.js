@@ -56,10 +56,20 @@ const script = function() {
 		}
 	}
 
+	const init = function() {
+		setTimeout(function() {
+			document.getElementById("navbar").classList.add("loaded");
+		}, 100);
+		setTimeout(function() {
+			document.getElementById("headerFooter").classList.add("loaded");
+		}, 900);
+	}
+
 	document.addEventListener("DOMContentLoaded", function() {
 		setupNavbar();
 		containers = document.getElementsByClassName("container");
 		currentContainerIndex = getContainerIndex();
+		init();
 	});
 	window.addEventListener("scroll", function(event) {
 		getContainerIndex();

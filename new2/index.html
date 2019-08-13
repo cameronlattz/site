@@ -8,15 +8,27 @@
 <link rel="shortcut icon" href="images/favicon.png">
 </head>
 <body>
+    <div id="contentContainer">
+        <div id="about">
+            <h1>About</h1>
+        </div>
+    </div>
+    <div id="navbar" class="navbar-container">
+        <span class="navbar-item active">Home</span><!--
+        --><span data-target="about" class="navbar-item">About</span><!--
+        --><span data-target="projects" class="navbar-item">Projects</span><!--
+        --><span data-target="contact" class="navbar-item">Contact</span>
+    </div>
     <div id="containerHeader" class="container">
         <div id="backgroundContainerHeader" class="background-container">
             <div class="noise-container"></div>
         </div>
         <div id="contentContainerHeader" class="content-container">
-            <h1>Hello!</h1>
-            <h2>My name is Cameron Lattz.<br>
-                I'm a software developer from Minneapolis.</h2>
-            <h3>Scroll down to see how much this site has changed throughout the years!</h3>
+            <div id="headerMiddle">
+                <h2>Hello! My name is <span class="contrast-color">Cameron Lattz</span>.</h2>
+                <h2>I'm a <span class="contrast-color">full stack developer</span> from Minneapolis.</h2>
+            </div>
+            <h3 id="headerFooter" class="bounce-down">Scroll down to see how much this site has changed throughout the years!<br>&#8681;</h3>
         </div>
     </div>
     <div id="container80s" class="container">
@@ -82,17 +94,6 @@
             Curabitur imperdiet mattis sagittis. Donec interdum eget sapien nec malesuada. Nam et gravida dui, vitae imperdiet metus. Nulla eu purus leo. Aenean vel ultrices nisl, et aliquet magna. Proin a mauris ac nunc gravida bibendum in ut augue. Aliquam a sapien vel quam placerat vestibulum et vitae enim. Phasellus in ante lobortis felis iaculis mattis id quis arcu. Suspendisse blandit, lacus sit amet vulputate sollicitudin, ante lectus varius neque, eu mollis tellus nulla vitae odio. Mauris sagittis, orci ac pulvinar pretium, nibh odio mattis leo, eu varius purus sapien quis magna.
             
             Donec sed feugiat diam, eget semper velit. Cras maximus nulla ut gravida facilisis. Sed tincidunt placerat diam, in ornare diam pretium semper. Sed euismod consectetur enim. Mauris pellentesque lacus in elit convallis, non commodo sem feugiat. Aenean a ex eget lorem elementum varius. Pellentesque nec lorem non lorem bibendum egestas. Proin sit amet luctus nulla. Pellentesque consectetur dignissim enim. Ut vel euismod est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In ipsum felis, accumsan at massa quis, semper aliquam lacus. Curabitur arcu eros, eleifend eget ligula sed, tristique lobortis neque.
-        </div>
-    </div>
-    <div id="navbar">
-        <span class="navbar-item active">Home</span>
-        <span data-target="about" class="navbar-item">About</span>
-        <span data-target="projects" class="navbar-item">Projects</span>
-        <span data-target="contact" class="navbar-item">Contact</span>
-    </div>
-    <div id="contentContainer">
-        <div id="about">
-            <h1>About</h1>
         </div>
     </div>
 </body>

@@ -20,24 +20,67 @@
   font-family: "Brown Bag Lunch";
   color: #f6f6f6;
 }
-.navbar-container.loaded {
+#container80s #navbar {
+	text-align: left;
+	background: url("../images/line.png");
+	background-repeat:repeat;
+	background-size:contain;
+	background-position:center;
+}
+#container80s .navbar-container.loaded {
 	left: 13px;
+}
+#container80s .navbar-container {
+	top: 8px;
+	left: -600px;
+	background-color: #e5e9f4;
+	background-image: url("../images/bg.png");
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 5px;
+	-ms-transition: left 1s ease-in;
+	transition: left 1s ease-in;
+	z-index: 4;
+	font-family: "Montserrat Regular"
+}
+#container80s #navbar span {
+	position: relative;
+	top: -7px;
+    color: #414b4c;
+    font-size: 42px;
+	margin: 5px;
+	margin-top: 0px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+}
+#container80s #navbar span:hover {
+	color: #f23343;
+}
+#container80s #navbar span.active {
+	color: #1a4ac5;
+}
+#container80s #navbar span:nth-child(3) {
+	top: -6px;
+}
+#container80s #navbar span:nth-child(4) {
+	top: -9px;
 }
 
 #contentContainer.eighties > div {
-  background: url("../images/transparent.png");
-  border: 1px solid #888;
-  color: #f6f6f6;
-  font-family: "Avant Garde Medium";
+	background: url("../images/transparent.png");
+	border: 1px solid #888;
+	color: #f6f6f6;
+	font-family: "Avant Garde Medium";
 	margin: 0 10%;
 	max-height: 75%;
 }
 
 #backgroundContent80s {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  right: 0;
+	position: absolute;
+	top: 10%;
+	left: 0;
+	right: 0;
 	color: #ede4d2;
 	padding: 20px;
 	text-transform: uppercase;
