@@ -1,6 +1,6 @@
 const script = function() {
-	let currentContainerIndex = -1;
-	let containers = [];
+	let _currentContainerIndex = -1;
+	let _containers = [];
 	const bottomY = function(el) {
 		const rect = el.getBoundingClientRect(),
 		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -8,27 +8,52 @@ const script = function() {
 	}
 	const getEra = function(eraId) {
 		switch (eraId) {
+			case "containerHeader":
+				return header;
 			case "container80s":
-				return eighties(15, 25);
+				return eighties;
+			case "container90s":
+				return test;
 			default:
 				return null;
 		}
 	}
-	const getContainerIndex = function() {
+	const getContainerIndex = function(movingUp) {
 		const doc = document.documentElement;
 		const scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-		for (let i = containers.length - 1; i >= 0; i--) {
-			const containerTop = bottomY(containers[i]);
-			if (containerTop <= scrollTop) {
-				const containerHeight = containers[i].offsetHeight;
-				const era = getEra(containers[i].getAttribute("id"));
-				if (era !== null && currentContainerIndex !== i) {
-					const navbarContainer = containers[i].getElementsByClassName("navbar-container")[0];
-					navbarContainer.append(document.getElementById("navbar"));
-					document.getElementById("contentContainer").classList = ["eighties"];
-					era.move(scrollTop-containerTop);
+		const initContainer = function(index) {
+			const container = _containers[index];
+			const era = getEra(container.getAttribute("id"));
+			if (era !== null && _currentContainerIndex !== index) {
+				_currentContainerIndex = index;
+				const navbarContainer = container.getElementsByClassName("navbar-container")[0];
+				navbarContainer.append(document.getElementById("navbar"));
+				document.getElementById("contentContainer").classList = ["eighties"];
+				era.init();
+				for (let i = 0; i < _containers.length; i++) {
+					if (i !== index) {
+						const hideEra = getEra(_containers[i].getAttribute("id"));
+						if (hideEra !== null) {
+							hideEra.revert();
+						}
+					}
 				}
-				return i;
+				return index;
+			}
+		}
+		if (movingUp) {
+			for (let i = 0; i < _containers.length; i++) {
+				const containerTop = bottomY(_containers[i]);
+				if (containerTop >= scrollTop) {
+					return initContainer(i);
+				}
+			}
+		} else {
+			for (let i = _containers.length - 1; i >= 0; i--) {
+				const containerTop = bottomY(_containers[i]);
+				if (containerTop + 50 <= scrollTop) {
+					return initContainer(i);
+				}
 			}
 		}
 	}
@@ -56,22 +81,30 @@ const script = function() {
 		}
 	}
 
-	const init = function() {
-		setTimeout(function() {
-			document.getElementById("navbar").classList.add("loaded");
-		}, 100);
-		setTimeout(function() {
-			document.getElementById("headerFooter").classList.add("loaded");
-		}, 900);
-	}
-
 	document.addEventListener("DOMContentLoaded", function() {
 		setupNavbar();
-		containers = document.getElementsByClassName("container");
-		currentContainerIndex = getContainerIndex();
-		init();
+		_containers = document.getElementsByClassName("container");
+		_currentContainerIndex = getContainerIndex(true);
 	});
 	window.addEventListener("scroll", function(event) {
-		getContainerIndex();
+		clearTimeout(this.scrollTimeout);  
+		this.scrollTimeout = setTimeout(function() {
+			getContainerIndex(this.previousScrollY > this.scrollY);
+			this.previousScrollY = this.scrollY;
+		}, 50);
 	});
+}();
+
+const test = function() {
+	return {
+		init: function() {
+
+		},
+		move: function() {
+
+		},
+		revert: function() {
+			
+		}
+	}
 }();

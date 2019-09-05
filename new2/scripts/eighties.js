@@ -1,15 +1,15 @@
-const eighties = function(delay, lineSpacing) {
+const eighties = function() {
 	const _color = "#888";
 	let _svg = null;
-	const _delay = delay;
-	const _lineSpacing = lineSpacing;
+	const _delay = 15;
+	const _lineSpacing = 25;
 	let _horizontalLineCount = 0;
 	let _maxHorizontalLineCount = null;
 	let _verticalLineCount = 0;
 	let _maxVerticalLineCount = null;
 	let _horizontalRainbowCount = 0;
 	let _verticalRainbowCount = 0;
-	let running = false;
+	let _running = false;
 	
 	const _drawVerticalLine = function(x) {
 		var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -136,18 +136,56 @@ const eighties = function(delay, lineSpacing) {
 	}
 	
 	const _init = function() {
+		_running = true;
 		var windowWidth = window.innerWidth;
 		_maxVerticalLineCount = Math.ceil((windowWidth + 1) / _lineSpacing);
 		_svg = document.getElementById("grid");
 		_drawVerticalLines(_delay);
-    }
+	}
+	
+	const _revert = function() {
+		_running = false;
+		_svg.innerHTML = "";
+		document.getElementById("vhs").classList.remove("opacity-1");
+		document.getElementById("vhs").classList.add("opacity-0");
+		document.getElementById("name80s").classList.remove("opacity-1");
+		document.getElementById("name80s").classList.add("opacity-0");
+		document.getElementById("title80s").classList.remove("opacity-1");
+		document.getElementById("title80s").classList.add("opacity-0");
+		document.getElementById("info80s").classList.remove("opacity-1");
+		document.getElementById("info80s").classList.add("opacity-0");
+		document.getElementById("ratingContainer").classList.remove("opacity-1");
+		document.getElementById("ratingContainer").classList.add("opacity-0");
+		const topRainbowChildren = document.getElementById("topRainbow").children;
+		for (let i = 0; i < topRainbowChildren.length; i++) {
+			topRainbowChildren[i].classList.remove("loaded");
+		}
+		const bottomRainbowChildren = document.getElementById("bottomRainbow").children;
+		for (let i = 0; i < bottomRainbowChildren.length; i++) {
+			bottomRainbowChildren[i].classList.remove("loaded");
+		}
+		_horizontalLineCount = 0;
+		_maxHorizontalLineCount = null;
+		_verticalLineCount = 0;
+		_maxVerticalLineCount = null;
+		_horizontalRainbowCount = 0;
+		_verticalRainbowCount = 0;
+		_running = false;
+	}
 
     return {
-        move: function(top) {
-			if (!running) {
+        init: function() {
+			if (!_running) {
 				_init();
-				running = true;
 			}
-        }
+		},
+		move: function(y) {
+
+		},
+		revert: function() {
+			if (_running) {
+				_revert();
+			}
+		}
     }
-};
+}();

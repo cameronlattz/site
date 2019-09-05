@@ -23,9 +23,10 @@
 #container80s #navbar {
 	text-align: left;
 	background: url("../images/line.png");
-	background-repeat:repeat;
-	background-size:contain;
-	background-position:center;
+	background-repeat: repeat;
+	background-size: contain;
+	background-position: center;
+	display: inline-block;
 }
 #container80s .navbar-container.loaded {
 	left: 13px;
@@ -41,7 +42,8 @@
 	-ms-transition: left 1s ease-in;
 	transition: left 1s ease-in;
 	z-index: 4;
-	font-family: "Montserrat Regular"
+	font-family: "Brown Bag Lunch";
+	display: inline-table;
 }
 #container80s #navbar span {
 	position: relative;
