@@ -11,6 +11,7 @@
 	z-index: 1;
 	top: -100%;
 	height: 100%;
+	padding-top: 15%;
 }
 #containerHeader .contrast-color {
 	color: #A7475D;
@@ -24,12 +25,8 @@
 	visibility: hidden;
 }
 #headerFooter.loaded {
-	bottom: 0;
+	bottom: 15%;
 	visibility: visible;
-}
-#headerMiddle {
-	margin: 0 auto;
-	padding-top: 15%;
 }
 #containerHeader .navbar-container {
     z-index: 2;
