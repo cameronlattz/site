@@ -1,7 +1,8 @@
 const script = function() {
+	"using strict";
 	let _currentContainerIndex = -1;
 	let _containers = [];
-	const bottomY = function(el) {
+	const topY = function(el) {
 		const rect = el.getBoundingClientRect(),
 		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		return rect.top + scrollTop;
@@ -28,7 +29,6 @@ const script = function() {
 				_currentContainerIndex = index;
 				const navbarContainer = container.getElementsByClassName("navbar-container")[0];
 				navbarContainer.append(document.getElementById("navbar"));
-				document.getElementById("contentContainer").classList = ["eighties"];
 				era.init();
 				for (let i = 0; i < _containers.length; i++) {
 					if (i !== index) {
@@ -41,18 +41,38 @@ const script = function() {
 				return index;
 			}
 		}
+		const offset = 50;
 		if (movingUp) {
 			for (let i = 0; i < _containers.length; i++) {
-				const containerTop = bottomY(_containers[i]);
-				if (containerTop >= scrollTop) {
-					return initContainer(i);
+				const containerBottom = topY(_containers[i]) + _containers[i].scrollHeight;
+				if (containerBottom - offset*2 >= scrollTop) {
+					const era = getEra(_containers[i].getAttribute("id"));
+					document.getElementById("contentContainer").classList = era.className;
+					break;
+				}
+			}
+			for (let i = 0; i < _containers.length; i++) {
+				const containerBottom = topY(_containers[i]) + _containers[i].scrollHeight;
+				//console.log("container " + i + ": " + (containerBottom - offset) + " >= " + scrollTop);
+				// when moving up, we want to revert all on scrollTop being higher than the top, and init i on 
+				// scrollTop being higher than the very bottom of a section
+				if (containerBottom - offset >= scrollTop) {
+					initContainer(i);
+					break;
 				}
 			}
 		} else {
 			for (let i = _containers.length - 1; i >= 0; i--) {
-				const containerTop = bottomY(_containers[i]);
-				if (containerTop + 50 <= scrollTop) {
-					return initContainer(i);
+				const containerTop = topY(_containers[i]);
+				// when moving down, we want to revert all on scrollBottom being lower than the bottom, and init i on 
+				// scrollTop being higher than the very top of a section
+				if (containerTop + offset <= scrollTop) {
+					initContainer(i);
+				}
+				if (containerTop <= scrollTop) {
+					const era = getEra(_containers[i].getAttribute("id"));
+					document.getElementById("contentContainer").classList = era.className;
+					break;
 				}
 			}
 		}
@@ -77,11 +97,20 @@ const script = function() {
 						contentNodes[j].classList.remove("show");
 					}
 				}
+				const headerContainers = document.getElementById("contentContainerHeader").children;
+				for (let j = 0; j < headerContainers.length; j++) {
+					if (headerContainers[j].id === contentId + "Header") {
+						headerContainers[j].classList.add("show");
+					} else {
+						headerContainers[j].classList.remove("show");
+					}
+				}
 			})
 		}
 	}
 
 	document.addEventListener("DOMContentLoaded", function() {
+		document.getElementById("contentContainerHeader").children[0].classList.add("show");
 		setupNavbar();
 		_containers = document.getElementsByClassName("container");
 		_currentContainerIndex = getContainerIndex(true);
@@ -97,6 +126,7 @@ const script = function() {
 
 const test = function() {
 	return {
+		className: "nineties",
 		init: function() {
 
 		},
@@ -105,6 +135,9 @@ const test = function() {
 		},
 		revert: function() {
 			
+		},
+		visible: function() {
+
 		}
 	}
 }();

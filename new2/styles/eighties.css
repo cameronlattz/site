@@ -68,7 +68,9 @@
 #container80s #navbar span:nth-child(4) {
 	top: -9px;
 }
-
+#contentContainer.eighties {
+	display: unset;
+}
 #contentContainer.eighties > div {
 	background: url("../images/transparent.png");
 	border: 1px solid #888;
@@ -103,15 +105,17 @@
 }
 #backgroundContent80s #ratingContainer {
 	padding: 3px;
-  -ms-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
+	-ms-transition: opacity 1s ease-in;
+	transition: opacity 1s ease-in;
 }
 
-#cutOut{
+#cutOut {
 	position: absolute;
 	bottom: 15%;
-  right: 0px;
-  z-index: 1;
+	right: 0px;
+	z-index: 1;
+	-ms-transition: opacity 0.5s ease-in;
+	transition: opacity 0.5s ease-in;
 }
 #vhsLogo {
     position: absolute;
@@ -134,11 +138,15 @@
 	background-color: #202624;
 	height: 57px;
 	width: 110px;
-	margin-top: -13px;
 	margin-right: 5px;
 }
 #vhs svg .fil0, #vhs svg .fil1 {
 	fill: #ede4d2;
+}
+#vhs span {
+	display: table-cell;
+	vertical-align: middle;
+	height: 57px;
 }
 #grid {
 	width: 100%;

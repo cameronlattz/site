@@ -1,4 +1,5 @@
 const eighties = function() {
+	"using strict";
 	const _color = "#888";
 	let _svg = null;
 	const _delay = 15;
@@ -134,18 +135,28 @@ const eighties = function() {
 			ratingContainer.classList.remove("opacity-0");
 		}, 2500);
 	}
+
+	const _showCutout = function(delay) {
+		document.getElementById("cutOut").classList.remove("opacity-0");
+		document.getElementById("cutOut").classList.add("opacity-1");
+		setTimeout(function() {
+			_drawVerticalLines(delay);
+		}, 500);
+	}
 	
 	const _init = function() {
 		_running = true;
 		var windowWidth = window.innerWidth;
 		_maxVerticalLineCount = Math.ceil((windowWidth + 1) / _lineSpacing);
 		_svg = document.getElementById("grid");
-		_drawVerticalLines(_delay);
+		_showCutout(_delay);
 	}
 	
 	const _revert = function() {
 		_running = false;
 		_svg.innerHTML = "";
+		document.getElementById("cutOut").classList.remove("opacity-1");
+		document.getElementById("cutOut").classList.add("opacity-0");
 		document.getElementById("vhs").classList.remove("opacity-1");
 		document.getElementById("vhs").classList.add("opacity-0");
 		document.getElementById("name80s").classList.remove("opacity-1");
@@ -156,6 +167,7 @@ const eighties = function() {
 		document.getElementById("info80s").classList.add("opacity-0");
 		document.getElementById("ratingContainer").classList.remove("opacity-1");
 		document.getElementById("ratingContainer").classList.add("opacity-0");
+		document.getElementById("backgroundContainer80s").getElementsByClassName("navbar-container")[0].classList.remove("loaded");
 		const topRainbowChildren = document.getElementById("topRainbow").children;
 		for (let i = 0; i < topRainbowChildren.length; i++) {
 			topRainbowChildren[i].classList.remove("loaded");
@@ -174,6 +186,7 @@ const eighties = function() {
 	}
 
     return {
+		className: "eighties",
         init: function() {
 			if (!_running) {
 				_init();
@@ -186,6 +199,10 @@ const eighties = function() {
 			if (_running) {
 				_revert();
 			}
+		},
+		visible: function() {
+            console.log("show content");
+            document.getElementById("contentContainer").classList.add("show");
 		}
     }
 }();
