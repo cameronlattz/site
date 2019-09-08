@@ -22,6 +22,7 @@
 	right: 0;
 	transition: bottom 1s ease-in;
 	visibility: hidden;
+	font-size: 3vh;
 }
 #headerFooter.loaded {
 	bottom: 0;
@@ -71,21 +72,9 @@
 }
 #navbar span {
 	display: inline;
-    color: #414b4c;
-    font-size: 1.25em;
-	padding: 5px;
-}
-@media screen and (max-width: 600px) {
-	#navbar span {
-		font-size: 6vw;
-		padding-left: 1px;
-		padding-right: 1px;
-		margin: 2px;
-	}
-}
-#navbar span {
+    font-size: 4vh;
 	color: #222;
-    padding: 0 20px;
+    padding: 2px 20px;
     opacity: 0.8;
 }
 #navbar span:not(.active):hover {
@@ -94,4 +83,9 @@
 #navbar span.active {
 	color: #f6f6f6;
 	opacity: 1;
+}
+@media screen and (max-width: 600px) {
+	#navbar span {
+		padding: 0 5px;
+	}
 }
