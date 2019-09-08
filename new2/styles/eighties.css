@@ -103,11 +103,6 @@
 #name80s {
 	font-size: 10vh;
 }
-#backgroundContent80s #ratingContainer {
-	padding: 3px;
-	-ms-transition: opacity 1s ease-in;
-	transition: opacity 1s ease-in;
-}
 
 #cutOut {
 	position: absolute;

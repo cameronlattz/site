@@ -129,11 +129,7 @@ const eighties = function() {
 			info.classList.add("opacity-1");
 			info.classList.remove("opacity-0");
 		}, 1500);
-		setTimeout(function() {
-			const ratingContainer = document.getElementById("ratingContainer");
-			ratingContainer.classList.add("opacity-1");
-			ratingContainer.classList.remove("opacity-0");
-		}, 2500);
+		// make C# / React / JS / T-SQL appear one by one
 	}
 
 	const _showCutout = function(delay) {
@@ -165,8 +161,6 @@ const eighties = function() {
 		document.getElementById("title80s").classList.add("opacity-0");
 		document.getElementById("info80s").classList.remove("opacity-1");
 		document.getElementById("info80s").classList.add("opacity-0");
-		document.getElementById("ratingContainer").classList.remove("opacity-1");
-		document.getElementById("ratingContainer").classList.add("opacity-0");
 		document.getElementById("backgroundContainer80s").getElementsByClassName("navbar-container")[0].classList.remove("loaded");
 		const topRainbowChildren = document.getElementById("topRainbow").children;
 		for (let i = 0; i < topRainbowChildren.length; i++) {

@@ -90,48 +90,6 @@ h1, h2, h3, h4, h5, h6 {
 	animation: bounce 2s infinite;
 }
 
-/* nav */
-.navbar-container {
-	position: absolute;
-	top: -50px;
-	left: 0;
-	right: 0;
-	background-color: #e5e9f4;
-	font-family: "Open Sans Regular";
-	transition: top 1s ease-in;
-}
-.navbar-container.loaded {
-	top: 0px;
-}
-#navbar {
-	text-align: right;
-	z-index: 2;
-}
-#navbar span {
-	display: inline;
-    color: #414b4c;
-    font-size: 1.25em;
-	padding: 5px;
-}
-@media screen and (max-width: 600px) {
-	#navbar span {
-		font-size: 6vw;
-		padding-left: 1px;
-		padding-right: 1px;
-		margin: 2px;
-	}
-}
-#navbar span {
-	color: #252934;
-	padding: 0 10px;
-}
-#navbar span:not(.active):hover {
-	cursor: pointer;
-}
-#navbar span.active {
-	color: #f6f6f6;
-}
-
 /* TEMP */
 #backgroundContainer90s {
 	background-color: #ff0;
