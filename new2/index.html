@@ -2,9 +2,12 @@
 <head>
     <meta charset="utf-8"/>
     <title>Cameron Lattz: Software Developer</title>
+    <script src="scripts/fontawesome.js" defer></script>
+    <script src="scripts/Typewriter.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/eighties.js" defer></script>
     <script src="scripts/header.js" defer></script>
+    <link href="styles/font-awesome.min.css" rel="stylesheet"></link>
     <link href="styles/style.css" rel="stylesheet"></link>
     <link href="styles/header.css" rel="stylesheet"></link>
     <link href="styles/eighties.css" rel="stylesheet"></link>
@@ -14,20 +17,79 @@
     <div id="contentContainer">
         <div id="about">
             <h1>About</h1>
+            <p>
+                <img src="images/jeb.jpg" alt="Cat" width="240">
+                I am a Full Stack developer from Minneapolis. I've also been doing web development as a freelancer since 2008. 
+                In 2007, I won FBLA's Web Development competition for the state of Florida.
+            </p>
+            <p>
+                I've been fascinated with computers for as long as I can remember. My first exposure to development happened 
+                when I was 8 or 9. My parents gave me a computer that had Microsoft FrontPage, a visual developing environment. 
+                I would drag elements on to a page, then look at the source code to see what had changed.
+            </p>
+            <p>
+                Since those first years, I've learned a lot of other, non-web languages, but I've never forgotten my first love: web 
+                development. Hire me as your next developer!
+            </p>
+            <p>
+                This section made with: <span id="aboutThisPage"></span>
+            </p>
         </div>
         <div id="projects">
             <h1>Projects</h1>
+            <div id="projectsContainer">
+                <div class="project">
+                    <a href="https://cameronlattz.github.io/Responsive-Portfolio/">
+                        <img src="images/portfolio.png" alt="Bootcamp Spot" width="240">
+                        <div class="project-name">Bootcamp portfolio</div>
+                    </a>
+                    <div class="project-info">Portfolio created for the University of Minnesota's Bootcamp Spot. (2019)</div>
+                </div>
+                <div class="project">
+                    <a href="./centisearch">
+                        <img src="images/centisearch.png" alt="CentiSearch" width="240">
+                        <div class="project-name">CentiSearch</div>
+                    </a>
+                    <div class="project-info">The Internet's most popular websites, all searchable on one page. (2008)</div>
+                </div>
+                <div class="project">
+                    <a href="./remote">
+                        <img src="images/remote.png" alt="Remote Management" width="240">
+                        <div class="project-name">Remote Management</div>
+                    </a>
+                    <div class="project-info">Turns home computers on/off. (2017)</div>
+                </div>
+                <div class="project">
+                    <a href="./test">
+                        <img src="images/transparent.png" alt="Remote Management" width="240">
+                        <div class="project-name">Next project</div>
+                    </a>
+                    <div class="project-info">Test. (2017)</div>
+                </div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+            </div>
         </div>
         <div id="contact">
             <h1>Contact</h1>
+            <br>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:cameronlattz@gmail.com">cameronlattz@gmail.com</a></p>
+            <p><i class="fab fa-github"></i> <a href="https://github.com/cameronlattz">GitHub</a></p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/cameron-lattz-109b28144/">LinkedIn</a></p>
         </div>
     </div>
     <div id="navbar">
-        <!--make hamburger menu for mobile-->
         <span data-target="home" class="navbar-item active">Home</span><!--
         --><span data-target="about" class="navbar-item">About</span><!--
         --><span data-target="projects" class="navbar-item">Projects</span><!--
-        --><span data-target="contact" class="navbar-item">Contact</span>
+        --><span data-target="contact" class="navbar-item">Contact</span><!--
+        --><span id="hamburger" class="navbar-item">
+            <svg height="48px" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="48px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+            </svg>
+        </span>
     </div>
     <div id="containerHeader" class="container">
         <div id="backgroundContainerHeader" class="background-container">
@@ -35,10 +97,10 @@
         </div>
         <div id="layoutContainerHeader" class="content-container">
             <div class="navbar-container"></div>
+            <div id="dropdownMenuHeader" class="dropdown-menu"></div>
             <div id="contentContainerHeader">
                 <div id="homeHeader" class="header-content">
-                    <h2>Hello! My name is <span class="contrast-color">Cameron Lattz</span>.</h2>
-                    <h2>I'm a <span class="contrast-color"><span class="typing">full stack</span> developer</span> from Minneapolis.</h2>
+                    <h2 id="typingName"></h2>
                 </div>
                 <div id="aboutHeader" class="header-content"></div>
                 <div id="projectsHeader" class="header-content"></div>
@@ -47,8 +109,8 @@
             <h3 id="headerFooter" class="bounce-down">Scroll down to see how much this site has changed through the years!<br>&#8681;</h3>
         </div>
     </div>
-    <div id="container80s" class="container">
-        <div id="backgroundContainer80s" class="background-container">
+    <div id="container87" class="container">
+        <div id="backgroundContainer87" class="background-container">
             <svg xmlns="http://www.w3.org/2000/svg" id="grid"></svg>
             <div class="noise-container"></div>
             <div class="navbar-container"></div>
@@ -59,17 +121,17 @@
                 <div></div>
                 <div></div>
             </div>
-            <div id="backgroundContent80s">
-                <div id="title80s" class="opacity-0">
+            <div id="backgroundContent87">
+                <div id="title87" class="opacity-0">
                     Full Stack
                 </div>
-                <div id="name80s" class="opacity-0">
+                <div id="name87" class="opacity-0">
                     <img src="images/cameron.png">
                     <img src="images/lattz.png">
                 </div>
-                <div id="info80s" class="opacity-0">
+                <div id="info87" class="opacity-0">
                     Software Developer<br>
-                    C# / React / JS / T-SQL
+                    <div id="languages87"></div>
                 </div>
             </div>
 			<span id="vhs" class="opacity-0">
