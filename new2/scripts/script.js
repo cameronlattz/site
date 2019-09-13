@@ -82,9 +82,6 @@ const script = function() {
 		_setupNavbar();
 		_containers = document.getElementsByClassName("container");
 		_parseURL();
-		setTimeout(function() {
-			//_getContainerIndex(true);
-		}, 1);
 	}
 
 	const _parseURL = function() {

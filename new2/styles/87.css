@@ -68,6 +68,9 @@
 #container87 #navbar span:nth-child(4) {
 	top: -9px;
 }
+#container87 #navbar #hamburger {
+	display: none;
+}
 #contentContainer.eighties {
 	display: unset;
 }
@@ -94,6 +97,7 @@
 	border-width: 0px;
 	background-color: transparent;
 	letter-spacing: -2px;
+	max-width: 464px;
 	margin: 0 auto;
 }
 #backgroundContent87 div {
@@ -108,9 +112,13 @@
 #languages87 span.active {
 	opacity: 1;
 }
+#name87 img {
+	width: 100%;
+}
 
 #cutOut {
 	position: absolute;
+	height: 25%;
 	bottom: 15%;
 	right: 0px;
 	z-index: 1;
@@ -139,6 +147,7 @@
 	height: 6vh;
 	width: 12vh;
 	margin-right: 5px;
+	margin-top: 4%;
 }
 #vhs svg .fil0, #vhs svg .fil1 {
 	fill: #ede4d2;
@@ -236,4 +245,17 @@
 }
 #bottomRainbow div.loaded {
 	bottom: 0px;
+}
+
+
+@media (max-width: 700px) {
+	#container87 .navbar-container {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	#container87 #navbar span {
+		margin: 1px;
+	}
+}
+@media (min-width: 700px) {
 }
