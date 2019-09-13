@@ -2,7 +2,7 @@ const script = function() {
 	"using strict";
 	let _currentContainerIndex = -1;
 	let _containers = [];
-	const _languages = ["C#", "React", "JavaScript", "T-SQL", "Full Stack"];
+	const _languages = ["C#", "Java", "React", "JavaScript", "SQL", "Full Stack"];
 
 	const _topY = function(el) {
 		const rect = el.getBoundingClientRect();
