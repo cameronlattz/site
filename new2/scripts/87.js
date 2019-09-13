@@ -1,4 +1,4 @@
-const eighties = function() {
+const eightySeven = function() {
 	"using strict";
 	const _color = "#888";
 	let _svg = null;
@@ -73,6 +73,7 @@ const eighties = function() {
 			_maxVerticalLineCount = Math.ceil((windowWidth + 1) / _lineSpacing);
 			_svg = document.getElementById("grid");
 			_showCutout(_delay);
+			document.getElementById("languages87").innerHTML = "";
 			for (let i = 0; i < languages.length - 1; i++) {
 				const span = document.createElement("span");
 				span.innerHTML = languages[i] === "JavaScript" ? "JS" : languages[i];
@@ -150,7 +151,6 @@ const eighties = function() {
 			for (let i = 0; i < bottomRainbowChildren.length; i++) {
 				bottomRainbowChildren[i].classList.remove("loaded");
 			}
-			document.getElementById("languages87").innerHTML = "";
 			_horizontalLineCount = 0;
 			_maxHorizontalLineCount = null;
 			_verticalLineCount = 0;
@@ -214,9 +214,6 @@ const eighties = function() {
 		className: "eighties",
         init: _init,
 		revert: _revert,
-		scrollTo: function() {
-
-		},
 		visible: _visible
     }
 }();

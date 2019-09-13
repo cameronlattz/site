@@ -5,22 +5,24 @@ const script = function() {
 	const _languages = ["C#", "React", "JavaScript", "T-SQL", "Full Stack"];
 
 	const _topY = function(el) {
-		const rect = el.getBoundingClientRect(),
-		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		const rect = el.getBoundingClientRect();
+		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		return rect.top + scrollTop;
 	}
+
 	const _getEra = function(eraId) {
 		switch (eraId) {
 			case "containerHeader":
 				return header;
 			case "container87":
-				return eighties;
+				return eightySeven;
 			case "container90s":
 				return test;
 			default:
 				return null;
 		}
 	}
+
 	const _getContainerIndex = function(movingUp) {
 		const doc = document.documentElement;
 		const scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
@@ -32,55 +34,59 @@ const script = function() {
 				const navbarContainer = container.getElementsByClassName("navbar-container")[0];
 				navbarContainer.append(document.getElementById("navbar"));
 				era.init(_languages);
-				for (let i = 0; i < _containers.length; i++) {
-					if (i !== index) {
-						const hideEra = _getEra(_containers[i].getAttribute("id"));
-						if (hideEra !== null) {
-							hideEra.revert();
-						}
-					}
-				}
-				return index;
 			}
 		}
-		const offset = 50;
+		const revertContainer = function(index) {
+			const era = _getEra(_containers[index].getAttribute("id"));
+			if (era !== null) {
+				era.revert();
+			}
+		}
+		const getTopBottomY = function(index) {
+			const offset = 50;
+			const containerTop = _topY(_containers[index]) - offset;
+			const containerBottom = containerTop + _containers[index].scrollHeight - offset;
+			return [containerTop, containerBottom];
+		}
 		if (movingUp) {
 			for (let i = 0; i < _containers.length; i++) {
-				const containerBottom = _topY(_containers[i]) + _containers[i].scrollHeight;
-				if (containerBottom - offset*2 >= scrollTop) {
+				const [containerTop, containerBottom] = getTopBottomY(i);
+				if (containerTop >= scrollTop) {
+					revertContainer(i);
+				}
+				if (containerBottom >= scrollTop && containerTop <= scrollTop) {
 					const era = _getEra(_containers[i].getAttribute("id"));
 					document.getElementById("contentContainer").classList = era.className;
 					document.getElementById("aboutThisPage").innerHTML = era.about;
-					break;
-				}
-			}
-			for (let i = 0; i < _containers.length; i++) {
-				const containerBottom = _topY(_containers[i]) + _containers[i].scrollHeight;
-				//console.log("container " + i + ": " + (containerBottom - offset) + " >= " + scrollTop);
-				// when moving up, we want to revert all on scrollTop being higher than the top, and init i on 
-				// scrollTop being higher than the very bottom of a section
-				if (containerBottom - offset >= scrollTop) {
 					initContainer(i);
-					break;
 				}
 			}
 		} else {
 			for (let i = _containers.length - 1; i >= 0; i--) {
-				const containerTop = _topY(_containers[i]);
-				// when moving down, we want to revert all on scrollBottom being lower than the bottom, and init i on 
-				// scrollTop being higher than the very top of a section
-				if (containerTop + offset <= scrollTop) {
-					initContainer(i);
+				const [containerTop, containerBottom] = getTopBottomY(i);
+				if (containerBottom <= scrollTop) {
+					revertContainer(i);
 				}
-				if (containerTop <= scrollTop) {
+				if (containerTop <= scrollTop && containerBottom >= scrollTop) {
 					const era = _getEra(_containers[i].getAttribute("id"));
 					document.getElementById("contentContainer").classList = era.className;
 					document.getElementById("aboutThisPage").innerHTML = era.about;
-					break;
+					initContainer(i);
 				}
 			}
 		}
 	}
+
+	const _init = function() {
+		document.getElementById("contentContainerHeader").children[0].classList.add("show");
+		_setupNavbar();
+		_containers = document.getElementsByClassName("container");
+		_parseURL();
+		setTimeout(function() {
+			//_getContainerIndex(true);
+		}, 1);
+	}
+
 	const _parseURL = function() {
 		const urlParams = new URLSearchParams(window.location.search);
 		let page = "home";
@@ -88,8 +94,7 @@ const script = function() {
 		if (window.location.hash) {
 			hash = window.location.hash.substring(1);
 		}
-		era = _getEra("container" + hash);
-		era.scrollTo();
+		_scrollToContainer(hash);
 		if (urlParams.has("page")) {
 			page = urlParams.get("page");
 		}
@@ -104,6 +109,26 @@ const script = function() {
 			}
 		}
 	}
+
+	const _scroll = function() {
+		clearTimeout(this.scrollTimeout);  
+		this.scrollTimeout = setTimeout(function() {
+			_getContainerIndex(this.previousScrollY > this.scrollY);
+			this.previousScrollY = this.scrollY;
+		}, 50);
+	}
+
+	const _scrollToContainer = function(hash) {
+		setTimeout(function() {
+			document.getElementById("container" + hash).scrollIntoView();
+			if (hash !== "Header") {
+				setTimeout(function() {
+					window.scrollBy(0, 60);
+				}, 1000);
+			}
+		}, 50);
+	}
+
 	const _setupNavbar = function() {
 		document.addEventListener("click",function(e){
 			if (e.target && e.target.classList.contains("navbar-item")) {
@@ -127,6 +152,7 @@ const script = function() {
 			 }
 		 });
 	}
+
 	const _updatePage = function(contentId, updateURL) {
 		const contentNodes = document.getElementById("contentContainer").children;
 		for (let j = 0; j < contentNodes.length; j++) {
@@ -149,6 +175,7 @@ const script = function() {
 		}
 		return contentId;
 	}
+
 	const _updateURL = function(pageName) {
 		if (history.pushState) {
 			let query = "";
@@ -161,18 +188,10 @@ const script = function() {
 	}
 
 	document.addEventListener("DOMContentLoaded", function() {
-		document.getElementById("contentContainerHeader").children[0].classList.add("show");
-		_setupNavbar();
-		_containers = document.getElementsByClassName("container");
-		_currentContainerIndex = _getContainerIndex(true);
-		_parseURL();
+		_init();
 	});
 	window.addEventListener("scroll", function(event) {
-		clearTimeout(this.scrollTimeout);  
-		this.scrollTimeout = setTimeout(function() {
-			_getContainerIndex(this.previousScrollY > this.scrollY);
-			this.previousScrollY = this.scrollY;
-		}, 50);
+		_scroll();
 	});
 	window.addEventListener("popstate", function() {
 		_parseURL();
@@ -188,9 +207,6 @@ const test = function() {
 		},
 		revert: function() {
 			
-		},
-		scrollTo: function() {
-
 		},
 		visible: function() {
 
