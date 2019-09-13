@@ -100,7 +100,7 @@ h1 {
 h2 {
 	font-size: 6vh;
 }
-@media (min-width: 700px) {
+@media (max-width: 700px) {
 	h1 {
 		font-size: 6vh;
 	}

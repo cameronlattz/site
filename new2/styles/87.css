@@ -259,6 +259,7 @@
 	#container87 #topRainbow {
 		width: 40%;
 	}
-}
-@media (min-width: 700px) {
+	#container87 #navbar span {
+		font-size: 4vh;
+	}
 }

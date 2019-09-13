@@ -137,7 +137,7 @@ const script = function() {
 					}
 					const spans = document.getElementsByClassName("navbar-item");
 					for (let j = 0; j < spans.length; j++) {
-						if (spans[j] !== span) {
+						if (spans[j].getAttribute("data-target") !== span.getAttribute("data-target")) {
 							spans[j].classList.remove("active");
 						} else {
 							spans[j].classList.add("active");
