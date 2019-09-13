@@ -256,6 +256,9 @@
 	#container87 #navbar span {
 		margin: 1px;
 	}
+	#container87 #topRainbow {
+		width: 40%;
+	}
 }
 @media (min-width: 700px) {
 }
