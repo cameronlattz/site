@@ -54,29 +54,14 @@ const header = function() {
                 .start();
         }
     }
-    const _revert = function() {
-        /*console.log("header revert");
-        const container = document.getElementById("containerHeader");
-        container.getElementsByClassName("navbar-container")[0].classList.remove("loaded");
-        document.getElementById("headerFooter").classList.remove("loaded");
-        if (_typewriter !== null) {
-            _typewriter.stop();
-            _typewriter = null;
-        }
-        if (_typewriter2 !== null) {
-            _typewriter2.stop();
-            _typewriter2 = null;
-        }
-        document.getElementById("dropdownMenuHeader").innerHTML = "";
-        document.getElementById("hamburger").removeEventListener("click", _displayDropdownMenu);*/
-    }
+    const _revert = function() {}
 
     const _visible = function() {
         document.getElementById("contentContainer").classList.remove("show");
     }
 
     return {
-		about: "<a href=\"https://safi.me.uk/typewriterjs/\">Typewriter</a>, <a href=\"https://fontawesome.com\">Font Awesome</a>, Vanilla JS and CSS.",
+		about: "<a href=\"https://safi.me.uk/typewriterjs/\">Typewriter</a>, Vanilla JS and CSS.",
         className: "header",
         init: _init,
         revert: _revert,
