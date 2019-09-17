@@ -13,14 +13,12 @@
   }
 }
 
-#backgroundContainer87 {
-	background-color: #202624;
-}
 #container87 {
   font-family: "Brown Bag Lunch";
   color: #f6f6f6;
+  background-color: #202624;
 }
-#container87 #navbar {
+#container87 .navbar {
 	text-align: left;
 	background: url("../images/line.png");
 	background-repeat: repeat;
@@ -32,6 +30,7 @@
 	left: 13px;
 }
 #container87 .navbar-container {
+	position: absolute;
 	top: 8px;
 	left: -600px;
 	background-color: #e5e9f4;
@@ -45,7 +44,7 @@
 	font-family: "Brown Bag Lunch";
 	display: inline-table;
 }
-#container87 #navbar span {
+#container87 .navbar span {
 	position: relative;
 	top: -7px;
     color: #414b4c;
@@ -56,19 +55,19 @@
 	padding-right: 3px;
 	padding-bottom: 5px;
 }
-#container87 #navbar span:hover {
+#container87 .navbar span:hover {
 	color: #f23343;
 }
-#container87 #navbar span.active {
+#container87 .navbar span.active {
 	color: #1a4ac5;
 }
-#container87 #navbar span:nth-child(3) {
+#container87 .navbar span:nth-child(3) {
 	top: -6px;
 }
-#container87 #navbar span:nth-child(4) {
+#container87 .navbar span:nth-child(4) {
 	top: -9px;
 }
-#container87 #navbar #hamburger {
+#container87 .navbar .hamburger {
 	display: none;
 }
 #contentContainer.eighties {
@@ -253,13 +252,13 @@
 		padding-left: 5px;
 		padding-right: 5px;
 	}
-	#container87 #navbar span {
+	#container87 .navbar span {
 		margin: 1px;
 	}
 	#container87 #topRainbow {
 		width: 40%;
 	}
-	#container87 #navbar span {
+	#container87 .navbar span {
 		font-size: 4vh;
 	}
 }

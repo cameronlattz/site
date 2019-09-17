@@ -1,5 +1,6 @@
 const header = function() {
     "using strict";
+    let _container = null;
     let _typewriter = null;
     let _running = false;
 
@@ -15,6 +16,7 @@ const header = function() {
     const _init = function(languages) {
         if (!_running) {
             _running = true;
+            _container = document.getElementById("containerHeader");
             const containers = document.getElementById("contentContainer").children;
             const headerContainers = document.getElementById("contentContainerHeader").children;
             for (let i = 0; i < containers.length; i++) {
@@ -26,9 +28,9 @@ const header = function() {
             for (let i = 0; i < navItems.length - 1; i++) {
                 dropdownMenu.append(navItems[i].cloneNode(true));
             }
-            document.getElementById("hamburger").addEventListener("click", _displayDropdownMenu);
+            _container.getElementsByClassName("hamburger")[0].addEventListener("click", _displayDropdownMenu);
             setTimeout(function() {
-                document.getElementById("containerHeader").getElementsByClassName("navbar-container")[0].classList.add("loaded");
+                _container.getElementsByClassName("navbar-container")[0].classList.add("loaded");
             }, 50);
             setTimeout(function() {
                 document.getElementById("headerFooter").classList.add("loaded");

@@ -16,7 +16,7 @@ const script = function() {
 				return header;
 			case "container87":
 				return eightySeven;
-			case "container90s":
+			case "containerTest":
 				return test;
 			default:
 				return null;
@@ -26,31 +26,21 @@ const script = function() {
 	const _getContainerIndex = function(movingUp) {
 		const doc = document.documentElement;
 		const scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-		const initContainer = function(index) {
-			const container = _containers[index];
-			const era = _getEra(container.getAttribute("id"));
-			if (era !== null && _currentContainerIndex !== index) {
-				_currentContainerIndex = index;
-				const navbarContainer = container.getElementsByClassName("navbar-container")[0];
-				navbarContainer.append(document.getElementById("navbar"));
-				era.init(_languages);
-			}
-		}
 		const revertContainer = function(index) {
 			const era = _getEra(_containers[index].getAttribute("id"));
 			if (era !== null) {
 				era.revert();
 			}
 		}
-		const getTopBottomY = function(index) {
-			const offset = 50;
-			const containerTop = _topY(_containers[index]) - offset;
-			const containerBottom = containerTop + _containers[index].scrollHeight - offset;
+		const offset = document.getElementsByClassName("scrolling-content-container")[0].offsetHeight;
+		const getTopBottomY = function(index, offset) {
+			const containerTop = _topY(_containers[index]) + offset;
+			const containerBottom = containerTop + _containers[index].scrollHeight + offset;
 			return [containerTop, containerBottom];
 		}
 		if (movingUp) {
 			for (let i = 0; i < _containers.length; i++) {
-				const [containerTop, containerBottom] = getTopBottomY(i);
+				const [containerTop, containerBottom] = getTopBottomY(i, offset);
 				if (containerTop >= scrollTop) {
 					revertContainer(i);
 				}
@@ -58,12 +48,12 @@ const script = function() {
 					const era = _getEra(_containers[i].getAttribute("id"));
 					document.getElementById("contentContainer").classList = era.className;
 					document.getElementById("aboutThisPage").innerHTML = era.about;
-					initContainer(i);
+					_initContainer(i);
 				}
 			}
 		} else {
 			for (let i = _containers.length - 1; i >= 0; i--) {
-				const [containerTop, containerBottom] = getTopBottomY(i);
+				const [containerTop, containerBottom] = getTopBottomY(i, offset);
 				if (containerBottom <= scrollTop) {
 					revertContainer(i);
 				}
@@ -71,7 +61,7 @@ const script = function() {
 					const era = _getEra(_containers[i].getAttribute("id"));
 					document.getElementById("contentContainer").classList = era.className;
 					document.getElementById("aboutThisPage").innerHTML = era.about;
-					initContainer(i);
+					_initContainer(i);
 				}
 			}
 		}
@@ -81,7 +71,26 @@ const script = function() {
 		document.getElementById("contentContainerHeader").children[0].classList.add("show");
 		_setupNavbar();
 		_containers = document.getElementsByClassName("container");
+		const era = _getEra(_containers[0].getAttribute("id"));
+		document.getElementById("contentContainer").classList = era.className;
+		document.getElementById("aboutThisPage").innerHTML = era.about;
+		_initContainer(0);
 		_parseURL();
+	}
+
+	const _initContainer = function(index) {
+		const container = _containers[index];
+		const era = _getEra(container.getAttribute("id"));
+		if (era !== null && _currentContainerIndex !== index) {
+			_currentContainerIndex = index;
+			const navbarContainer = container.getElementsByClassName("navbar-container")[0];
+			if (navbarContainer && navbarContainer.innerHTML === "") {
+				const navbarClone = document.getElementById("navbar").cloneNode(true);
+				navbarClone.removeAttribute("id");
+				navbarContainer.append(navbarClone);
+			}
+			era.init(_languages);
+		}
 	}
 
 	const _parseURL = function() {
@@ -130,7 +139,7 @@ const script = function() {
 		document.addEventListener("click",function(e){
 			if (e.target && e.target.classList.contains("navbar-item")) {
 				const span = e.target;
-				if (span.id !== "hamburger") {
+				if (!span.classList.contains("hamburger")) {
 					const menus = document.getElementsByClassName("dropdown-menu");
 					for (let i = 0; i < menus.length; i++) {
 						menus[i].classList.remove("show");
@@ -198,15 +207,9 @@ const script = function() {
 const test = function() {
 	return {
 		about: "",
-		className: "nineties",
-		init: function() {
-
-		},
-		revert: function() {
-			
-		},
-		visible: function() {
-
-		}
+		className: "test",
+		init: function() {},
+		revert: function() {},
+		visible: function() {}
 	}
 }();
