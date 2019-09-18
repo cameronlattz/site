@@ -28,7 +28,6 @@
 	right: 0;
 	transition: bottom 1s ease-in;
 	visibility: hidden;
-	font-size: 3vh;
 }
 #headerFooter.loaded {
 	bottom: 0;
