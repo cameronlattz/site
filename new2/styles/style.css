@@ -131,10 +131,6 @@ a:hover {
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
-#projectsContainer .blank {
-	width: 240px;
-	height: 0px;
-}
 #projectsContainer .project {
 	margin: 5px;
 	width: 240px;
@@ -164,7 +160,7 @@ a:hover {
 	border: 1px solid transparent;
 }
 .project img:hover {
-	border: 1px solid #f6f6f6;
+	border: 1px solid #888888;
 	cursor: pointer;
 }
 #contact svg, #contactHeader svg {
@@ -186,8 +182,9 @@ a:hover {
 }
 
 /* TEMP */
-#backgroundContainerTest {
-	background-color: #ff0;
+#containerTest {
+	background-color: #293425;
+	color: #f6f6f6;
 }
 #contentContainer.test {
 	display: unset;

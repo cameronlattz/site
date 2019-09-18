@@ -5,7 +5,7 @@ const header = function() {
     let _running = false;
 
     const _displayDropdownMenu = function() {
-        const menu = document.getElementById("dropdownMenuHeader");
+        const menu = _container.querySelector("#dropdownMenuHeader");
         if (menu.classList.contains("show")) {
             menu.classList.remove("show");
         } else {
@@ -18,12 +18,12 @@ const header = function() {
             _running = true;
             _container = document.getElementById("containerHeader");
             const containers = document.getElementById("contentContainer").children;
-            const headerContainers = document.getElementById("contentContainerHeader").children;
+            const headerContainers = _container.querySelector("#contentContainerHeader").children;
             for (let i = 0; i < containers.length; i++) {
                 headerContainers[i+1].innerHTML = containers[i].innerHTML;
             }
-            const dropdownMenu = document.getElementById("dropdownMenuHeader");
-            const navbar = document.getElementById("navbar");
+            const dropdownMenu = _container.querySelector("#dropdownMenuHeader");
+            const navbar = document.querySelector("#navbar");
             const navItems = navbar.getElementsByClassName("navbar-item");
             for (let i = 0; i < navItems.length - 1; i++) {
                 dropdownMenu.append(navItems[i].cloneNode(true));
@@ -33,9 +33,9 @@ const header = function() {
                 _container.getElementsByClassName("navbar-container")[0].classList.add("loaded");
             }, 50);
             setTimeout(function() {
-                document.getElementById("headerFooter").classList.add("loaded");
+                _container.querySelector("#headerFooter").classList.add("loaded");
             }, 750);
-            _typewriter = new Typewriter(document.getElementById("typingName"));
+            _typewriter = new Typewriter(_container.querySelector("#typingName"));
             const delay = 2000;
             _typewriter.typeString("Hello World!")
                 .pauseFor(delay)
@@ -46,7 +46,7 @@ const header = function() {
                 .typeString("<br>I'm a <span class=\"contrast-color\"><span id=\"typingLanguage\">Full Stack</span> developer</span> from Minneapolis.")
                 .pauseFor(delay*1.25)
                 .callFunction(function() {
-                    document.getElementsByClassName("Typewriter__cursor")[0].style.display = "none";
+                    _container.getElementsByClassName("Typewriter__cursor")[0].style.display = "none";
                     _typeWriter2 = new Typewriter(document.getElementById("typingLanguage"), {
                         autoStart: true,
                         loop: true,

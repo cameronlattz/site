@@ -32,7 +32,6 @@ const script = function() {
 				era.revert();
 			}
 		}
-		const offset = document.getElementsByClassName("scrolling-content-container")[0].offsetHeight;
 		const getTopBottomY = function(index, offset) {
 			const containerTop = _topY(_containers[index]) + offset;
 			const containerBottom = containerTop + _containers[index].scrollHeight + offset;
@@ -40,27 +39,23 @@ const script = function() {
 		}
 		if (movingUp) {
 			for (let i = 0; i < _containers.length; i++) {
+				const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
 				const [containerTop, containerBottom] = getTopBottomY(i, offset);
 				if (containerTop >= scrollTop) {
 					revertContainer(i);
 				}
 				if (containerBottom >= scrollTop && containerTop <= scrollTop) {
-					const era = _getEra(_containers[i].getAttribute("id"));
-					document.getElementById("contentContainer").classList = era.className;
-					document.getElementById("aboutThisPage").innerHTML = era.about;
 					_initContainer(i);
 				}
 			}
 		} else {
 			for (let i = _containers.length - 1; i >= 0; i--) {
+				const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
 				const [containerTop, containerBottom] = getTopBottomY(i, offset);
 				if (containerBottom <= scrollTop) {
 					revertContainer(i);
 				}
 				if (containerTop <= scrollTop && containerBottom >= scrollTop) {
-					const era = _getEra(_containers[i].getAttribute("id"));
-					document.getElementById("contentContainer").classList = era.className;
-					document.getElementById("aboutThisPage").innerHTML = era.about;
 					_initContainer(i);
 				}
 			}
@@ -81,6 +76,7 @@ const script = function() {
 	const _initContainer = function(index) {
 		const container = _containers[index];
 		const era = _getEra(container.getAttribute("id"));
+		_updateContent(era);
 		if (era !== null && _currentContainerIndex !== index) {
 			_currentContainerIndex = index;
 			const navbarContainer = container.getElementsByClassName("navbar-container")[0];
@@ -157,6 +153,11 @@ const script = function() {
 				}
 			 }
 		 });
+	}
+
+	const _updateContent = function(era) {
+		document.getElementById("contentContainer").classList = era.className;
+		document.getElementById("aboutThisPage").innerHTML = era.about;
 	}
 
 	const _updatePage = function(contentId, updateURL) {

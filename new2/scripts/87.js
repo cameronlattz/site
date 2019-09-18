@@ -129,7 +129,9 @@ const eightySeven = function() {
 			}, ms*5);
 		} else {
 			setTimeout(function() {
-				_showText();
+				if (_running) {
+					_showText();
+				}
 			}, _timeout);
 		}
 	}
@@ -144,6 +146,7 @@ const eightySeven = function() {
 		if (_running) {
 			_running = false;
 			clearInterval(_interval);
+			_interval = null;
 			_svg.innerHTML = "";
 			_container.querySelector("#cutOut").classList.add("opacity-0");
 			_container.querySelector("#cutOut").classList.remove("opacity-1");
@@ -156,11 +159,11 @@ const eightySeven = function() {
 			_container.querySelector("#info87").classList.remove("opacity-1");
 			_container.querySelector("#info87").classList.add("opacity-0");
 			_container.querySelector("#backgroundContainer87").getElementsByClassName("navbar-container")[0].classList.remove("loaded");
-			const topRainbowChildren = document.querySelector("#topRainbow").children;
+			const topRainbowChildren = _container.querySelector("#topRainbow").children;
 			for (let i = 0; i < topRainbowChildren.length; i++) {
 				topRainbowChildren[i].classList.remove("loaded");
 			}
-			const bottomRainbowChildren = document.querySelector("#bottomRainbow").children;
+			const bottomRainbowChildren = _container.querySelector("#bottomRainbow").children;
 			for (let i = 0; i < bottomRainbowChildren.length; i++) {
 				bottomRainbowChildren[i].classList.remove("loaded");
 			}
@@ -199,21 +202,23 @@ const eightySeven = function() {
 			}
 		}, _timeout*3);
 		setTimeout(function() {
-			_interval = setInterval(function() {
-				const languages = _container.querySelector("#languages87").children;
-				let activeIndex = -1;
-				for (let i = 0; i < languages.length; i++) {
-					if (languages[i].classList.contains("active")) {
-						languages[i].classList.remove("active");
-						activeIndex = i;
-						break;
+			if (_running && _interval === null) {
+				_interval = setInterval(function() {
+					const languages = _container.querySelector("#languages87").children;
+					let activeIndex = -1;
+					for (let i = 0; i < languages.length; i++) {
+						if (languages[i].classList.contains("active")) {
+							languages[i].classList.remove("active");
+							activeIndex = i;
+							break;
+						}
 					}
-				}
-				if (activeIndex === languages.length - 1) {
-					activeIndex = -1;
-				}
-				languages[activeIndex + 1].classList.add("active");
-			}, _timeout*4);
+					if (activeIndex === languages.length - 1) {
+						activeIndex = -1;
+					}
+					languages[activeIndex + 1].classList.add("active");
+				}, _timeout*4);
+			}
 		}, _timeout*2);
 	}
 
@@ -234,7 +239,7 @@ const eightySeven = function() {
 
     return {
 		about: "Vanilla JS and CSS.",
-		className: "eighties",
+		className: "eightySeven",
         init: _init,
 		revert: _revert,
 		visible: _visible

@@ -70,10 +70,13 @@
 #container87 .navbar .hamburger {
 	display: none;
 }
-#contentContainer.eighties {
+#container87 .navbar-header {
+	display: none;
+}
+#contentContainer.eightySeven {
 	display: unset;
 }
-#contentContainer.eighties > div {
+#contentContainer.eightySeven > div {
 	background: url("../images/transparent.png");
 	border: 1px solid #888;
 	color: #f6f6f6;
@@ -259,6 +262,6 @@
 		width: 40%;
 	}
 	#container87 .navbar span {
-		font-size: 4vh;
+		font-size: 4.5vh;
 	}
 }
