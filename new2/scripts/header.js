@@ -34,7 +34,7 @@ const header = function() {
             }, 50);
             setTimeout(function() {
                 _container.querySelector("#headerFooter").classList.add("loaded");
-            }, 750);
+            }, 1500);
             _typewriter = new Typewriter(_container.querySelector("#typingName"));
             const delay = 2000;
             _typewriter.typeString("Hello World!")

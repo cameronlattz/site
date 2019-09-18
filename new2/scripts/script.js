@@ -16,8 +16,8 @@ const script = function() {
 				return header;
 			case "container87":
 				return eightySeven;
-			case "containerTest":
-				return test;
+			case "container65":
+				return sixtyFive;
 			default:
 				return null;
 		}
@@ -203,14 +203,4 @@ const script = function() {
 	window.addEventListener("popstate", function() {
 		_parseURL();
 	})
-}();
-
-const test = function() {
-	return {
-		about: "",
-		className: "test",
-		init: function() {},
-		revert: function() {},
-		visible: function() {}
-	}
 }();

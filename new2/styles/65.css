@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "Psychedelia HM";
+    src: url("../fonts/Psychedelia-HM.ttf");
+}
+@font-face {
+    font-family: "Magical Mystery Tour";
+    src: url("../fonts/MAGIMT__.ttf");
+}
+
+#container65 {
+	background-color: #293425;
+    color: #f6f6f6;
+    font-family: "Psychedelia HM";
+}
+#contentContainer.sixtyFive {
+	display: unset;
+    width: 41%;
+    margin-left: 22%;
+    margin-top: 5%;
+    height: 60%;
+    overflow-y: auto;
+}
+#backgroundContainer65 {
+	background-image: url("../images/tv.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-position: center center;
+}
+#backgroundContainer65 .navbar-container.loaded {
+    bottom: 0px;
+}
+#backgroundContainer65 .navbar-container {
+    position: absolute;
+    bottom: -600px;
+    right: 0;
+    font-size: 5vh;
+    border: 3px solid #6c3a0d;
+    background-color: #be7c2e;
+    padding: 10px;
+    font-family: "Magical Mystery Tour";
+    z-index: 2;
+    transition: bottom 1s ease-in;
+}
+#backgroundContainer65 .navbar-item {
+    display: block;
+    background-color: rgba(0,0,0,0.25);
+    border: 2px outset rgba(0,0,0,0.25);
+    margin: 5px;
+    text-align: center;
+}
+#backgroundContainer65 .navbar-item:hover {
+    cursor: pointer;
+}
+#backgroundContainer65 .navbar-item:active {
+    border: 2px inset rgba(0,0,0,0.25);
+}
+#backgroundContainer65 .hamburger, #backgroundContainer65 .navbar-header {
+    display: none;
+}
+#contentContainer.sixtyFive {
+    font-family: "Magical Mystery Tour";
+    color: #333333;
+}
+#contentContainer.sixtyFive #contact a {
+    text-decoration: none;
+    border-bottom: 2px solid #333333;
+    color: #333333;
+}
+#contentContainer.sixtyFive #contact a:hover {
+    border-bottom: 2px solid transparent;
+}
+#contentContainer.sixtyFive h1 {
+    color: #333;
+}
+#contentContainer.sixtyFive path {
+    fill: #333333 !important;
+}

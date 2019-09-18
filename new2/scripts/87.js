@@ -91,7 +91,7 @@ const eightySeven = function() {
 		}
 	}
 	
-	const _moveNavbar = function(i) {
+	const _moveNavbar = function() {
 		const navbar = _container.getElementsByClassName("navbar")[0];
 		navbar.parentNode.classList.add("loaded");
 	}

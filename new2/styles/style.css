@@ -196,12 +196,3 @@ a:hover {
 .bounce-down {
 	animation: bounce 2s infinite;
 }
-
-/* TEMP */
-#containerTest {
-	background-color: #293425;
-	color: #f6f6f6;
-}
-#contentContainer.test {
-	display: unset;
-}
