@@ -18,6 +18,8 @@ const script = function() {
 				return eightySeven;
 			case "container65":
 				return sixtyFive;
+			case "container40":
+				return test;
 			default:
 				return null;
 		}
@@ -26,10 +28,14 @@ const script = function() {
 	const _getContainerIndex = function(movingUp) {
 		const doc = document.documentElement;
 		const scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+		const scrollBottom = scrollTop + document.documentElement.clientHeight;
 		const revertContainer = function(index) {
 			const era = _getEra(_containers[index].getAttribute("id"));
 			if (era !== null) {
-				era.revert();
+				const reverted = era.revert();
+				if (reverted) {
+					_updateContent();
+				}
 			}
 		}
 		const getTopBottomY = function(index, offset) {
@@ -40,22 +46,22 @@ const script = function() {
 		if (movingUp) {
 			for (let i = 0; i < _containers.length; i++) {
 				const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
-				const [containerTop, containerBottom] = getTopBottomY(i, offset);
-				if (containerTop >= scrollTop) {
+				const [containerTop, containerBottom] = getTopBottomY(i, 0);
+				if (containerTop + offset >= scrollTop) {
 					revertContainer(i);
 				}
-				if (containerBottom >= scrollTop && containerTop <= scrollTop) {
+				if (containerBottom >= scrollBottom && containerTop <= scrollTop) {
 					_initContainer(i);
 				}
 			}
 		} else {
 			for (let i = _containers.length - 1; i >= 0; i--) {
 				const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
-				const [containerTop, containerBottom] = getTopBottomY(i, offset);
-				if (containerBottom <= scrollTop) {
+				const [containerTop, containerBottom] = getTopBottomY(i, 0);
+				if (containerBottom <= scrollBottom) {
 					revertContainer(i);
 				}
-				if (containerTop <= scrollTop && containerBottom >= scrollTop) {
+				if (containerTop + offset <= scrollTop && containerBottom + offset >= scrollTop) {
 					_initContainer(i);
 				}
 			}
@@ -76,8 +82,8 @@ const script = function() {
 	const _initContainer = function(index) {
 		const container = _containers[index];
 		const era = _getEra(container.getAttribute("id"));
-		_updateContent(era);
 		if (era !== null && _currentContainerIndex !== index) {
+			_updateContent(era);
 			_currentContainerIndex = index;
 			const navbarContainer = container.getElementsByClassName("navbar-container")[0];
 			if (navbarContainer && navbarContainer.innerHTML === "") {
@@ -156,8 +162,12 @@ const script = function() {
 	}
 
 	const _updateContent = function(era) {
-		document.getElementById("contentContainer").classList = era.className;
-		document.getElementById("aboutThisPage").innerHTML = era.about;
+		if (era === void 0) {
+			document.getElementById("contentContainer").removeAttribute("class");
+		} else {
+			document.getElementById("contentContainer").classList = era.className;
+			document.getElementById("aboutThisPage").innerHTML = era.about;
+		}
 	}
 
 	const _updatePage = function(contentId, updateURL) {
@@ -203,4 +213,14 @@ const script = function() {
 	window.addEventListener("popstate", function() {
 		_parseURL();
 	})
+}();
+
+const test = function() {
+	return {
+		about: "",
+		className: "test",
+		init: function() {},
+		revert: function() {},
+		visible: function() {},
+	}
 }();

@@ -196,3 +196,7 @@ a:hover {
 .bounce-down {
 	animation: bounce 2s infinite;
 }
+
+#container40 .navbar-container {
+	display: none;
+}

@@ -178,6 +178,7 @@ const eightySeven = function() {
 					_revert(true);
 				}, 1000);
 			}
+			return true;
 		}
 	}
 	
@@ -243,7 +244,7 @@ const eightySeven = function() {
 	}
 
     return {
-		about: "Vanilla JS and CSS.",
+		about: "<a href=\"scripts/87.js\">Vanilla JS</a> and <a href=\"styles/87.css\">CSS</a>.",
 		className: "eightySeven",
         init: _init,
 		revert: _revert,

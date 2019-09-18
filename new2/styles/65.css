@@ -31,7 +31,7 @@
 }
 #backgroundContainer65 .navbar-container {
     position: absolute;
-    bottom: -600px;
+    bottom: -300px;
     right: 0;
     font-size: 5vh;
     border: 3px solid #6c3a0d;
@@ -61,16 +61,20 @@
     font-family: "Magical Mystery Tour";
     color: #333333;
 }
-#contentContainer.sixtyFive #contact a {
+#contentContainer.sixtyFive a {
     text-decoration: none;
     border-bottom: 2px solid #333333;
     color: #333333;
 }
-#contentContainer.sixtyFive #contact a:hover {
+#contentContainer.sixtyFive a:hover {
     border-bottom: 2px solid transparent;
 }
+#contentContainer.sixtyFive #projects a {
+    border-bottom: 2px solid transparent;
+    color: #f6f6f6;
+}
 #contentContainer.sixtyFive h1 {
-    color: #333;
+    color: #333333;
 }
 #contentContainer.sixtyFive path {
     fill: #333333 !important;

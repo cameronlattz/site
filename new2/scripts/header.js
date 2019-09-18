@@ -56,14 +56,16 @@ const header = function() {
                 .start();
         }
     }
-    const _revert = function() {}
+    const _revert = function() {
+        return false;
+    }
 
     const _visible = function() {
         document.getElementById("contentContainer").classList.remove("show");
     }
 
     return {
-		about: "<a href=\"https://safi.me.uk/typewriterjs/\">Typewriter</a>, Vanilla JS and CSS.",
+		about: "<a href=\"https://safi.me.uk/typewriterjs/\">Typewriter</a>, <a href=\"scripts/header.js\">Vanilla JS</a> and <a href=\"styles/header.css\">CSS</a>.",
         className: "header",
         init: _init,
         revert: _revert,
