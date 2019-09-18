@@ -88,6 +88,9 @@ body {
 .navbar-item:not(.active):hover {
 	cursor: pointer;
 }
+.navbar .hamburger svg {
+	height: 42px;
+}
 h1, h2, h3, h4, h5, h6, p {
 	margin: 0px;
 }
@@ -138,7 +141,8 @@ a:hover {
 }
 .project-name {
 	position: absolute;
-	top: 0;
+	top: 3px;
+	left: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
 	font-size: 2.5vh;
@@ -157,10 +161,10 @@ a:hover {
 	margin-right: 15px;
 }
 .project img {
-	border: 1px solid transparent;
+	border: 3px solid transparent;
 }
 .project img:hover {
-	border: 1px solid #888888;
+	border: 3px solid #f6f6f6;
 	cursor: pointer;
 }
 #contact svg, #contactHeader svg {
