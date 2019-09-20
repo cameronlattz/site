@@ -27,19 +27,19 @@
 	background-position: center center;
 }
 #backgroundContainer65 .navbar-container.loaded {
-    bottom: 0px;
+    bottom: -100px;
 }
 #backgroundContainer65 .navbar-container {
     position: absolute;
-    bottom: -300px;
-    right: 0;
-    font-size: 5vh;
-    border: 3px solid #6c3a0d;
-    background-color: #be7c2e;
-    padding: 10px;
-    font-family: "Magical Mystery Tour";
+    bottom: -600px;
+    right: -50px;
     z-index: 2;
     transition: bottom 1s ease-in;
+}
+#backgroundContainer65 .navbar-container img {
+    height: 70vh;
+    min-height: 300px;
+    max-height: 600px;
 }
 #backgroundContainer65 .navbar-item {
     display: block;

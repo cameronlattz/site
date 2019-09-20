@@ -10,12 +10,12 @@ const sixtyFive = function() {
             _moveNavbar();
 		}
     }
-	
+
 	const _moveNavbar = function() {
         const navbar = _container.getElementsByClassName("navbar-container")[0];
 		navbar.classList.add("loaded");
     }
-    
+
     const _revert = function(force) {
 		if (_running || force) {
             _running = false;
@@ -29,7 +29,7 @@ const sixtyFive = function() {
             return true;
         }
     }
-    
+
     const _visible = function() {}
 
 	return {
