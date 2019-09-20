@@ -5,7 +5,8 @@ const sixtyFive = function() {
 
 	const _init = function(languages) {
 		if (!_running) {
-			_container = document.getElementById("container65");
+            _container = document.getElementById("container65");
+            _container.classList.add("loaded");
             _running = true;
             _moveNavbar();
 		}
@@ -19,6 +20,7 @@ const sixtyFive = function() {
     const _revert = function(force) {
 		if (_running || force) {
             _running = false;
+            _container.classList.remove("loaded");
             const navbar = _container.getElementsByClassName("navbar-container")[0];
             navbar.classList.remove("loaded");
             if (!force) {

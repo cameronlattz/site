@@ -8,9 +8,13 @@
 }
 
 #container65 {
-	background-color: #293425;
+    background-color: #30312c;
+    background-image: url("../images/static.gif");
     color: #f6f6f6;
     font-family: "Psychedelia HM";
+}
+#container65.loaded {
+    background-image: unset;
 }
 #contentContainer.sixtyFive {
 	display: unset;
@@ -21,7 +25,7 @@
     overflow-y: auto;
 }
 #backgroundContainer65 {
-	background-image: url("../images/tv.jpg");
+	background-image: url("../images/tv.png");
     background-repeat: no-repeat;
     background-size: cover;
 	background-position: center center;
@@ -59,12 +63,12 @@
 }
 #contentContainer.sixtyFive {
     font-family: "Magical Mystery Tour";
-    color: #333333;
+    color: #f6f6f6;
 }
 #contentContainer.sixtyFive a {
     text-decoration: none;
-    border-bottom: 2px solid #333333;
-    color: #333333;
+    border-bottom: 2px solid #f6f6f6;
+    color: #f6f6f6;
 }
 #contentContainer.sixtyFive a:hover {
     border-bottom: 2px solid transparent;
@@ -74,8 +78,8 @@
     color: #f6f6f6;
 }
 #contentContainer.sixtyFive h1 {
-    color: #333333;
+    color: #f6f6f6;
 }
 #contentContainer.sixtyFive path {
-    fill: #333333 !important;
+    fill: #f6f6f6 !important;
 }
