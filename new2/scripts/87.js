@@ -142,8 +142,8 @@ const eightySeven = function() {
 		beam.classList.add("loaded");
 	}
 	
-	const _revert = function(force) {
-		if (_running || force) {
+	const _revert = function() {
+		if (_running) {
 			_running = false;
 			clearInterval(_interval);
 			_interval = null;
@@ -173,11 +173,6 @@ const eightySeven = function() {
 			_maxVerticalLineCount = null;
 			_horizontalRainbowCount = 0;
 			_verticalRainbowCount = 0;
-			if (!force) {
-				setTimeout(function() {
-					_revert(true);
-				}, 1000);
-			}
 			return true;
 		}
 	}

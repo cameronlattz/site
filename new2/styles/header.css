@@ -4,6 +4,7 @@
 	font-family: "Montserrat Regular", Arial, Helvetica, sans-serif;
 	background-color: #252934;
 	background-image: url("../images/code.jpg");
+	background-attachment: fixed;
 }
 .Typewriter__cursor {
 	color: #f6f6f6;

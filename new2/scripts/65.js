@@ -5,9 +5,18 @@ const sixtyFive = function() {
 
 	const _init = function(languages) {
 		if (!_running) {
-            _container = document.getElementById("container65");
-            _container.classList.add("loaded");
             _running = true;
+            _container = document.getElementById("container65");
+            _container.classList.add("loading");
+            setTimeout(function() {
+                _container.classList.remove("loading");
+                _container.classList.add("loaded");
+                const containers = document.getElementById("contentContainer").children;
+                const tvContainers = _container.querySelector("#contentContainerTv").children;
+                for (let i = 0; i < containers.length; i++) {
+                    tvContainers[i+1].innerHTML = containers[i].innerHTML;
+                }
+            }, 500);
             _moveNavbar();
 		}
     }
@@ -17,17 +26,12 @@ const sixtyFive = function() {
 		navbar.classList.add("loaded");
     }
 
-    const _revert = function(force) {
-		if (_running || force) {
+    const _revert = function() {
+		if (_running) {
             _running = false;
             _container.classList.remove("loaded");
             const navbar = _container.getElementsByClassName("navbar-container")[0];
             navbar.classList.remove("loaded");
-            if (!force) {
-                setTimeout(function() {
-                    _revert(true);
-                }, 1000);
-            }
             return true;
         }
     }

@@ -10,16 +10,19 @@
     <script src="scripts/Typewriter.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/87.js" defer></script>
-    <script src="scripts/65.js" defer></script>
+    <script src="scripts/71.js" defer></script>
+    <script src="scripts/96.js" defer></script>
     <script src="scripts/header.js" defer></script>
     <link href="styles/font-awesome.min.css" rel="stylesheet"></link>
     <link href="styles/style.css" rel="stylesheet"></link>
     <link href="styles/header.css" rel="stylesheet"></link>
     <link href="styles/87.css" rel="stylesheet"></link>
-    <link href="styles/65.css" rel="stylesheet"></link>
+    <link href="styles/71.css" rel="stylesheet"></link>
+    <link href="styles/96.css" rel="stylesheet"></link>
     <link rel="shortcut icon" href="images/favicon.png">
 </head>
 <body>
+    <img id="underConstruction" src="images/underconstruction.png">
     <div id="navbar" class="navbar">
         <span class="navbar-header active">Cameron Lattz</span>
         <span data-target="home" class="navbar-item active">Home</span><!--
@@ -58,28 +61,21 @@
             <div id="projectsContainer">
                 <div class="project">
                     <a href="https://cameronlattz.github.io/Responsive-Portfolio/">
-                        <img src="images/portfolio.png" alt="Bootcamp Spot" width="240">
+                        <img src="images/portfolio.png" alt="Bootcamp Spot">
                         <div class="project-name">Bootcamp portfolio</div>
                     </a>
                     <div class="project-info">Portfolio created for the University of Minnesota's Bootcamp Spot. (2019)</div>
                 </div>
                 <div class="project">
                     <a href="./remote">
-                        <img src="images/remote.png" alt="Remote Management" width="240">
+                        <img src="images/remote.png" alt="Remote Management">
                         <div class="project-name">Remote Management</div>
                     </a>
                     <div class="project-info">Turns home computers on/off. (2017)</div>
                 </div>
                 <div class="project">
-                    <a href="./test">
-                        <img src="images/jeb.jpg" alt="Remote Management" width="240">
-                        <div class="project-name">Next project</div>
-                    </a>
-                    <div class="project-info">Test. (2017)</div>
-                </div>
-                <div class="project">
                     <a href="./centisearch">
-                        <img src="images/centisearch.png" alt="CentiSearch" width="240">
+                        <img src="images/centisearch.png" alt="CentiSearch">
                         <div class="project-name">CentiSearch</div>
                     </a>
                     <div class="project-info">The Internet's most popular websites, all searchable on one page. (2008)</div>
@@ -93,7 +89,7 @@
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill="#f6f6f6" d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.649 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.076 3 1.5 3H2l10 7.25L22 3h.5c.425 0 .8.162 1.069.432.27.268.431.643.431 1.068z"/>
                 </svg>
-                <a href="mailto:cameronlattz@gmail.com">cameronlattz@gmail.com</a>
+                <a href="mailto:cameronlattz@gmail.com">Gmail</a>
             </p>
             <p>
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +126,7 @@
                 <div id="projectsHeader" class="header-content"></div>
                 <div id="contactHeader" class="header-content"></div>
             </div>
-            <h4 id="headerFooter" class="bounce-down">Scroll down to see how much this site has changed through the years!<br>&#8681;</h4>
+            <h4 id="headerFooter" class="bounce-down">Scroll down (slowly) to see how much this site has changed through the years!<br>&#8681;</h4>
         </div>
         <div class="scrolling-content-container"></div>
     </div>
@@ -186,25 +182,47 @@
             <h2>1987</h2>
         </div>
     </div>
-    <div id="container65" class="container">
-        <div id="backgroundContainer65" class="background-container">
+    <div id="container71" class="container">
+        <div id="backgroundContainer71" class="background-container">
             <div class="noise-container"></div>
-            <div class="navbar-container">
-                <img src="./images/tvremote.png" id="remote">
+            <div id="tvContainer71">
+                <div id="contentContainerTv">
+                    <div id="homeTv" class="tv-content">
+                        <iframe src="https://www.youtube.com/embed/kdLy0fksPRo?mute=1&autoplay=1" frameborder="0"></iframe>
+                    </div>
+                    <div id="aboutTv" class="tv-content"></div>
+                    <div id="projectsTv" class="tv-content"></div>
+                    <div id="contactTv" class="tv-content"></div>
+                </div>
+                <div id="contentBorderTopTv">
+                    <img src="./images/tvbordertop.png">
+                </div>
+                <div id="contentBorderBottomTv">
+                    <img src="./images/tvborderbottom.png">
+                </div>
+                <img id="tv" src="images/tv.png">
             </div>
-            <div id="tvContainer"></div>
+            <div id="remote-wrapper">
+                <div id="navbarTv">
+                    <div class="navbar-container"></div>
+                    <img src="./images/tvremote.png" id="remote">
+                </div>
+            </div>
         </div>
-        <div id="contentContainer65" class="scrolling-content-container">
-            <h2>1965</h2>
+        <div id="contentContainer71" class="scrolling-content-container">
+            <h2>1971</h2>
         </div>
     </div>
-    <!--<div id="container40" class="container">
-        <div id="backgroundContainer40" class="background-container">
+    <!--<div id="container96" class="container">
+        <div id="backgroundContainer96" class="background-container">
             <div class="noise-container"></div>
             <div class="navbar-container"></div>
+            <div id="gameboyContainer">
+                <img src="images/gameboy.png">
+            </div>
         </div>
-        <div id="contentContainer40" class="scrolling-content-container">
-            <h2>2040</h2>
+        <div id="contentContainer96" class="scrolling-content-container">
+            <h3>1996</h3>
         </div>
     </div>-->
 </body>

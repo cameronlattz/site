@@ -141,15 +141,12 @@ a {
 a:hover {
 	text-decoration: none;
 }
-#projectsContainer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
 #projectsContainer .project {
 	margin: 5px;
 	width: 240px;
 	text-align: center;
+	display: inline-block;
+	vertical-align: top;
 }
 .project-name {
 	position: absolute;
@@ -174,6 +171,8 @@ a:hover {
 }
 .project img {
 	border: 3px solid transparent;
+	width: 240px;
+	max-width: 100%;
 }
 .project img:hover {
 	border: 3px solid #f6f6f6;
@@ -197,6 +196,12 @@ a:hover {
 	animation: bounce 2s infinite;
 }
 
-#container40 .navbar-container {
-	display: none;
+/* temporary */
+#underConstruction {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	height: 10%;
+	min-height: 100px;
 }

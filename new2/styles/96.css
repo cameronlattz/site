@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Early Gameboy";
+    src: url("../fonts/Early-GameBoy.ttf");
+}
+
+#container96 {
+    background-color: #cacec0;
+    font-family: "Early Gameboy";
+    color: #111111;
+}
+#container96 .navbar-container {
+	display: none;
+}
+#gameboyContainer {
+    text-align: center;
+}
+#gameboyContainer img {
+    height: 90vh;
+    margin-top: 5vh;
+}

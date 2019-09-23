@@ -3,83 +3,137 @@
     src: url("../fonts/Psychedelia-HM.ttf");
 }
 @font-face {
-    font-family: "Magical Mystery Tour";
-    src: url("../fonts/MAGIMT__.ttf");
+    font-family: "King Richard";
+    src: url("../fonts/king-richard-rg.ttf");
 }
 
 #container65 {
     background-color: #30312c;
-    background-image: url("../images/static.gif");
+    background-image: url("../images/wood.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     color: #f6f6f6;
     font-family: "Psychedelia HM";
 }
-#container65.loaded {
-    background-image: unset;
-}
 #contentContainer.sixtyFive {
-	display: unset;
-    width: 41%;
-    margin-left: 22%;
-    margin-top: 5%;
-    height: 60%;
-    overflow-y: auto;
-}
-#backgroundContainer65 {
-	background-image: url("../images/tv.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-	background-position: center center;
+	display: none;
 }
 #backgroundContainer65 .navbar-container.loaded {
-    bottom: -100px;
+    bottom: 0px;
 }
 #backgroundContainer65 .navbar-container {
     position: absolute;
-    bottom: -600px;
-    right: -50px;
     z-index: 2;
-    transition: bottom 1s ease-in;
+    top: 85px;
+    left: 29px;
+    font-size: 2vh;
 }
-#backgroundContainer65 .navbar-container img {
-    height: 70vh;
+#remote-wrapper {
+    position: absolute;
+    height: 40%;
+    bottom: -40%;
+    right: -50px;
+    z-index: 3;
+	transition: bottom 0.75s ease-in;
+}
+#container65.loaded #remote-wrapper {
+    bottom: 0;
+}
+#remote {
+    position: relative;
+    height: 100%;
     min-height: 300px;
     max-height: 600px;
 }
+#navbarTv {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
 #backgroundContainer65 .navbar-item {
-    display: block;
-    background-color: rgba(0,0,0,0.25);
-    border: 2px outset rgba(0,0,0,0.25);
-    margin: 5px;
+    color: #170c00;
     text-align: center;
+    position: relative;
+    padding-bottom: 55%;
+    font-family: "King Richard";
+    max-width: 24px;
+    display: inline-block;
 }
 #backgroundContainer65 .navbar-item:hover {
     cursor: pointer;
+    color: #f6f6f6;
 }
 #backgroundContainer65 .navbar-item:active {
-    border: 2px inset rgba(0,0,0,0.25);
+}
+#backgroundContainer65 .navbar-item:nth-child(2n) {
+    top: 13px;
+    padding-bottom: 53%;
+}
+#backgroundContainer65 .navbar-item:nth-child(2) {
+    margin-right: 3px;
 }
 #backgroundContainer65 .hamburger, #backgroundContainer65 .navbar-header {
     display: none;
 }
-#contentContainer.sixtyFive {
-    font-family: "Magical Mystery Tour";
-    color: #f6f6f6;
+
+#tv {
+    background-image: url("../images/static.gif");
+    width: 100%;
+    margin-bottom: -10px;
 }
-#contentContainer.sixtyFive a {
+#container65.loaded #tv {
+    background-image: unset;
+}
+#tvContainer65 {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color: #30312c;
+    max-width: 1000px;
+}
+#contentContainerTv {
+    position: absolute;
+    top: 14%;
+    left: 12%;
+    width: 56%;
+    height: 70%;
+    overflow: auto;
+    scrollbar-width: none;
+    font-family: "King Richard";
+}
+#contentContainerTv iframe {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+#contentContainerTv a {
     text-decoration: none;
     border-bottom: 2px solid #f6f6f6;
-    color: #f6f6f6;
 }
-#contentContainer.sixtyFive a:hover {
+#contentContainerTv a:hover {
     border-bottom: 2px solid transparent;
 }
-#contentContainer.sixtyFive #projects a {
+#contentContainerTv #projectsTv a {
     border-bottom: 2px solid transparent;
-    color: #f6f6f6;
 }
-#contentContainer.sixtyFive h1 {
-    color: #f6f6f6;
+.tv-content {
+    display: none;
 }
-#contentContainer.sixtyFive path {
-    fill: #f6f6f6 !important;
+#container65.loaded .tv-content.show {
+    display: block;
+}
+#homeTv {
+    background-color: unset;
+}
+#container65 svg {
+    width: 24px;
+    height: 24px;
+}
+#container65 img {
+    max-width: 100%;
 }

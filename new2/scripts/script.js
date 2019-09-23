@@ -16,10 +16,10 @@ const script = function() {
 				return header;
 			case "container87":
 				return eightySeven;
-			case "container65":
-				return sixtyFive;
-			case "container40":
-				return test;
+			case "container71":
+				return seventyOne;
+			case "container96":
+				return ninetySix;
 			default:
 				return null;
 		}
@@ -43,27 +43,13 @@ const script = function() {
 			const containerBottom = containerTop + _containers[index].scrollHeight + offset;
 			return [containerTop, containerBottom];
 		}
-		if (movingUp) {
-			for (let i = 0; i < _containers.length; i++) {
-				const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
-				const [containerTop, containerBottom] = getTopBottomY(i, 0);
-				if (containerTop + offset >= scrollTop) {
-					revertContainer(i);
-				}
-				if (containerBottom >= scrollBottom && containerTop <= scrollTop) {
-					_initContainer(i);
-				}
-			}
-		} else {
-			for (let i = _containers.length - 1; i >= 0; i--) {
-				const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
-				const [containerTop, containerBottom] = getTopBottomY(i, 0);
-				if (containerBottom <= scrollBottom) {
-					revertContainer(i);
-				}
-				if (containerTop + offset <= scrollTop && containerBottom + offset >= scrollTop) {
-					_initContainer(i);
-				}
+		for (let i = _containers.length - 1; i >= 0; i--) {
+			const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
+			const [containerTop, containerBottom] = getTopBottomY(i, 0);
+			if (containerTop + offset <= scrollTop && containerBottom >= scrollBottom) {
+				_initContainer(i);
+			} else {
+				revertContainer(i);
 			}
 		}
 	}
@@ -190,6 +176,17 @@ const script = function() {
 				headerContainers[j].classList.remove("show");
 			}
 		}
+		const tvContainers = document.getElementById("contentContainerTv").children;
+		for (let j = 0; j < tvContainers.length; j++) {
+			if (tvContainers[j].id === contentId + "Tv") {
+				if (updateURL) {
+					_updateURL(contentId);
+				}
+				tvContainers[j].classList.add("show");
+			} else {
+				tvContainers[j].classList.remove("show");
+			}
+		}
 		return contentId;
 	}
 
@@ -213,14 +210,4 @@ const script = function() {
 	window.addEventListener("popstate", function() {
 		_parseURL();
 	})
-}();
-
-const test = function() {
-	return {
-		about: "",
-		className: "test",
-		init: function() {},
-		revert: function() {},
-		visible: function() {},
-	}
 }();

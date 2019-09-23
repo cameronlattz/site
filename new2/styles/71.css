@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "Psychedelia HM";
+    src: url("../fonts/Psychedelia-HM.ttf");
+}
+@font-face {
+    font-family: "King Richard";
+    src: url("../fonts/king-richard-rg.ttf");
+}
+
+#container71 {
+    background-color: #30312c;
+    background-image: url("../images/wood.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f6f6f6;
+    font-family: "Psychedelia HM";
+}
+#contentContainer.seventyOne {
+	display: none;
+}
+#backgroundContainer71 .navbar-container.loaded {
+    bottom: 0px;
+}
+#backgroundContainer71 .navbar-container {
+    position: absolute;
+    z-index: 2;
+    top: 85px;
+    left: 29px;
+    font-size: 2vh;
+}
+#remote-wrapper {
+    position: absolute;
+    height: 40%;
+    bottom: -40%;
+    right: -50px;
+    z-index: 3;
+	transition: bottom 0.75s ease-in;
+}
+#container71.loaded #remote-wrapper {
+    bottom: 0;
+}
+#remote {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+    max-height: 600px;
+}
+#navbarTv {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#backgroundContainer71 .navbar-item {
+    color: #170c00;
+    text-align: center;
+    position: relative;
+    padding-bottom: 55%;
+    font-family: "King Richard";
+    max-width: 24px;
+    display: inline-block;
+}
+#backgroundContainer71 .navbar-item:hover {
+    cursor: pointer;
+    color: #f6f6f6;
+}
+#backgroundContainer71 .navbar-item:active {
+}
+#backgroundContainer71 .navbar-item:nth-child(2n) {
+    top: 13px;
+    padding-bottom: 53%;
+}
+#backgroundContainer71 .navbar-item:nth-child(2) {
+    margin-right: 3px;
+}
+#backgroundContainer71 .hamburger, #backgroundContainer71 .navbar-header {
+    display: none;
+}
+
+#tv {
+    background-image: url("../images/static.gif");
+    width: 100%;
+    margin-bottom: -10px;
+}
+#container71.loaded #tv {
+    background-image: unset;
+}
+#tvContainer71 {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color: #30312c;
+    max-width: 1000px;
+    box-shadow: 8px 10px 10px #000;
+}
+#contentContainerTv {
+    position: absolute;
+    top: 14%;
+    left: 12%;
+    width: 56%;
+    height: 70%;
+    overflow: auto;
+    scrollbar-width: none;
+    font-family: "King Richard";
+}
+#contentContainerTv iframe {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+#contentContainerTv a {
+    text-decoration: none;
+    border-bottom: 2px solid #f6f6f6;
+}
+#contentContainerTv a:hover {
+    border-bottom: 2px solid transparent;
+}
+#contentContainerTv #projectsTv a {
+    border-bottom: 2px solid transparent;
+}
+.tv-content {
+    display: none;
+}
+#container71.loaded .tv-content.show {
+    display: block;
+}
+#homeTv {
+    background-color: unset;
+}
+#container71 svg {
+    width: 24px;
+    height: 24px;
+}
+#container71 img {
+    max-width: 100%;
+}
+#contentBorderTopTv {
+    position: absolute;
+    top: 0;
+}
+#contentBorderBottomTv {
+    position: absolute;
+    bottom: -10px;
+}
