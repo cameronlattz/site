@@ -1,6 +1,5 @@
 const script = function() {
 	"using strict";
-	let _currentContainerIndex = -1;
 	let _containers = [];
 	const _languages = ["C#", "Java", "React", "JavaScript", "SQL", "Full Stack"];
 
@@ -25,31 +24,24 @@ const script = function() {
 		}
 	}
 
-	const _getContainerIndex = function(movingUp) {
+	const _getContainerIndex = function() {
 		const doc = document.documentElement;
 		const scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
 		const scrollBottom = scrollTop + document.documentElement.clientHeight;
-		const revertContainer = function(index) {
-			const era = _getEra(_containers[index].getAttribute("id"));
-			if (era !== null) {
-				const reverted = era.revert();
-				if (reverted) {
-					_updateContent();
-				}
-			}
-		}
-		const getTopBottomY = function(index, offset) {
-			const containerTop = _topY(_containers[index]) + offset;
-			const containerBottom = containerTop + _containers[index].scrollHeight + offset;
-			return [containerTop, containerBottom];
-		}
 		for (let i = _containers.length - 1; i >= 0; i--) {
 			const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
-			const [containerTop, containerBottom] = getTopBottomY(i, 0);
+			const containerTop = _topY(_containers[i]) + offset;
+			const containerBottom = containerTop + _containers[i].scrollHeight + offset;
 			if (containerTop + offset <= scrollTop && containerBottom >= scrollBottom) {
 				_initContainer(i);
 			} else {
-				revertContainer(i);
+				const era = _getEra(_containers[i].getAttribute("id"));
+				if (era !== null) {
+					const reverted = era.revert();
+					if (reverted) {
+						_updateContent();
+					}
+				}
 			}
 		}
 	}
@@ -68,9 +60,8 @@ const script = function() {
 	const _initContainer = function(index) {
 		const container = _containers[index];
 		const era = _getEra(container.getAttribute("id"));
-		if (era !== null && _currentContainerIndex !== index) {
+		if (era !== null) {
 			_updateContent(era);
-			_currentContainerIndex = index;
 			const navbarContainer = container.getElementsByClassName("navbar-container")[0];
 			if (navbarContainer && navbarContainer.innerHTML === "") {
 				const navbarClone = document.getElementById("navbar").cloneNode(true);
@@ -105,9 +96,11 @@ const script = function() {
 	}
 
 	const _scroll = function() {
-		clearTimeout(this.scrollTimeout);  
+		clearTimeout(this.scrollTimeout);
 		this.scrollTimeout = setTimeout(function() {
-			_getContainerIndex(this.previousScrollY > this.scrollY);
+			_getContainerIndex();
+			console.log("87: " + eightySeven.running());
+			console.log("71: " + seventyOne.running());
 			this.previousScrollY = this.scrollY;
 		}, 50);
 	}

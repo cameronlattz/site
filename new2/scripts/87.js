@@ -14,7 +14,7 @@ const eightySeven = function() {
 	let _verticalRainbowCount = 0;
 	let _running = false;
 	let _interval = null;
-	
+
 	const _drawVerticalLine = function(x) {
 		var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		line.setAttributeNS(null, 'x1', x);
@@ -25,7 +25,7 @@ const eightySeven = function() {
 		line.setAttributeNS(null, 'stroke-width', "1");
 		_svg.appendChild(line);
     }
-    
+
 	const _drawVerticalLines = function (ms) {
 		if (_verticalLineCount < 2160/_lineSpacing) {
 			_drawVerticalLine(_verticalLineCount * _lineSpacing);
@@ -43,7 +43,7 @@ const eightySeven = function() {
 			_drawHorizontalLines(_delay);
 		}
 	}
-	
+
 	const _drawHorizontalLines = function (ms) {
 		if (_horizontalLineCount < 3840/_lineSpacing) {
 			_drawHorizontalLine(_horizontalLineCount * _lineSpacing);
@@ -62,7 +62,7 @@ const eightySeven = function() {
 			}, _timeout);
 		}
 	}
-	
+
 	const _drawHorizontalLine = function(y) {
 		const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		line.setAttributeNS(null, 'x1', 0);
@@ -73,7 +73,7 @@ const eightySeven = function() {
 		line.setAttributeNS(null, 'stroke-width', "1");
 		_svg.appendChild(line);
 	}
-	
+
 	const _init = function(languages) {
 		if (!_running) {
 			_container = document.getElementById("container87");
@@ -90,12 +90,12 @@ const eightySeven = function() {
 			}
 		}
 	}
-	
+
 	const _moveNavbar = function() {
 		const navbar = _container.getElementsByClassName("navbar")[0];
 		navbar.parentNode.classList.add("loaded");
 	}
-	
+
 	const _moveHorizontalRainbowBeams = function (ms) {
 		if (_horizontalRainbowCount < 5) {
 			_moveHorizontalRainbowBeam(_horizontalRainbowCount);
@@ -113,7 +113,7 @@ const eightySeven = function() {
 			}, _timeout/2);
 		}
 	}
-	
+
 	const _moveHorizontalRainbowBeam = function(i) {
 		const topRainbowContainer = _container.querySelector("#topRainbow");
 		const beam = topRainbowContainer.children[i];
@@ -135,13 +135,13 @@ const eightySeven = function() {
 			}, _timeout);
 		}
 	}
-	
+
 	const _moveVerticalRainbowBeam = function(i) {
 		const bottomRainbowContainer = _container.querySelector("#bottomRainbow");
 		var beam = bottomRainbowContainer.children[i];
 		beam.classList.add("loaded");
 	}
-	
+
 	const _revert = function() {
 		if (_running) {
 			_running = false;
@@ -176,7 +176,7 @@ const eightySeven = function() {
 			return true;
 		}
 	}
-	
+
 	const _showText = function() {
 		const vhs = _container.querySelector("#vhs");
 		vhs.classList.add("opacity-1");
