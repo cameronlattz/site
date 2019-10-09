@@ -147,9 +147,9 @@
     bottom: -10px;
 }
 video {
-    height: 410px;
-    margin-left: -8px;
-    margin-top: 4px;
+    width: 105%;
+    margin-left: -4%;
+    margin-top: 1%;
 }
 #aboutTv img {
     float: left;
@@ -158,5 +158,5 @@ video {
 }
 #homeTv {
     overflow: hidden;
-    max-height: 412px;
+    max-height: 100%;
 }

@@ -158,6 +158,9 @@ a:hover {
 	transition: padding-left 0.5s ease-in;
 	background-color: rgba(0,0,0,0.75);
 }
+#projectsContainer {
+	text-align: center;
+}
 #projectsContainer a {
 	position: relative;
 	display: block;

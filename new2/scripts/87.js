@@ -233,16 +233,10 @@ const eightySeven = function() {
 		}, _timeout);
 	}
 
-	const _visible = function() {
-		_container.querySelector("#aboutThisPage").innerHTML = "Vanilla JavaScript+CSS.";
-		_container.querySelector("#contentContainer").classList.add("show");
-	}
-
     return {
 		about: "<a href=\"scripts/87.js\">Vanilla JS</a> and <a href=\"styles/87.css\">CSS</a>.",
 		className: "eightySeven",
         init: _init,
-		revert: _revert,
-		visible: _visible
+		revert: _revert
     }
 }();

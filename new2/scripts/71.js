@@ -4,7 +4,6 @@ const seventyOne = function() {
 	let _running = false;
 
 	const _init = function(languages) {
-        console.log("init 71");
 		if (!_running) {
             _running = true;
             _container = document.getElementById("container71");
@@ -37,13 +36,10 @@ const seventyOne = function() {
         }
     }
 
-    const _visible = function() {}
-
 	return {
 		about: "<a href=\"scripts/71.js\">Vanilla JS</a>+<a href=\"styles/71.css\">CSS</a>",
 		className: "seventyOne",
 		init: _init,
-		revert: _revert,
-        visible: _visible
+		revert: _revert
 	}
 }();
