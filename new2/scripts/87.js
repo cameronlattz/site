@@ -1,21 +1,21 @@
-const eightySeven = function() {
+var eightySeven = function() {
 	"using strict";
-	let _container = null;
-	const _color = "#888";
-	let _svg = null;
-	const _delay = 15;
-	const _timeout = 500;
-	const _lineSpacing = 25;
-	let _horizontalLineCount = 0;
-	let _maxHorizontalLineCount = null;
-	let _verticalLineCount = 0;
-	let _maxVerticalLineCount = null;
-	let _horizontalRainbowCount = 0;
-	let _verticalRainbowCount = 0;
-	let _running = false;
-	let _interval = null;
+	var _container = null;
+	var _color = "#888";
+	var _svg = null;
+	var _delay = 15;
+	var _timeout = 500;
+	var _lineSpacing = 25;
+	var _horizontalLineCount = 0;
+	var _maxHorizontalLineCount = null;
+	var _verticalLineCount = 0;
+	var _maxVerticalLineCount = null;
+	var _horizontalRainbowCount = 0;
+	var _verticalRainbowCount = 0;
+	var _running = false;
+	var _interval = null;
 
-	const _drawVerticalLine = function(x) {
+	var _drawVerticalLine = function(x) {
 		var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		line.setAttributeNS(null, 'x1', x);
 		line.setAttributeNS(null, 'y1', 0);
@@ -26,45 +26,48 @@ const eightySeven = function() {
 		_svg.appendChild(line);
     }
 
-	const _drawVerticalLines = function (ms) {
-		if (_verticalLineCount < 2160/_lineSpacing) {
+	var _drawVerticalLines = function (ms) {
+		var delay = (_timeout)/_maxVerticalLineCount;
+		if (_verticalLineCount < _maxVerticalLineCount) {
 			_drawVerticalLine(_verticalLineCount * _lineSpacing);
 			setTimeout(function() {
 				if (_running) {
 					_verticalLineCount++;
-					_drawVerticalLines(_delay);
+					_drawVerticalLines(delay);
 				}
 			}, ms);
 		}
 		if (_verticalLineCount === _maxVerticalLineCount){
-			const windowHeight = window.innerHeight;
+			var windowHeight = window.innerHeight;
 			_maxHorizontalLineCount = Math.ceil((windowHeight + 1) / _lineSpacing);
 			_moveNavbar();
-			_drawHorizontalLines(_delay);
+			console.log(windowHeight + ", " + _maxHorizontalLineCount);
+			_drawHorizontalLines(delay);
 		}
 	}
 
-	const _drawHorizontalLines = function (ms) {
-		if (_horizontalLineCount < 3840/_lineSpacing) {
+	var _drawHorizontalLines = function (ms) {
+		var delay = (_timeout)/_maxHorizontalLineCount;
+		if (_horizontalLineCount < _maxHorizontalLineCount) {
 			_drawHorizontalLine(_horizontalLineCount * _lineSpacing);
 			setTimeout(function() {
 				if (_running) {
 					_horizontalLineCount++;
-					_drawHorizontalLines(_delay);
+					_drawHorizontalLines(delay);
 				}
 			}, ms);
 		}
 		if (_horizontalLineCount === _maxHorizontalLineCount) {
 			setTimeout(function() {
 				if (_running) {
-					_moveHorizontalRainbowBeams();
+					_moveHorizontalRainbowBeams(delay);
 				}
 			}, _timeout);
 		}
 	}
 
-	const _drawHorizontalLine = function(y) {
-		const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+	var _drawHorizontalLine = function(y) {
+		var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		line.setAttributeNS(null, 'x1', 0);
 		line.setAttributeNS(null, 'y1', y);
 		line.setAttributeNS(null, 'x2', 3840);
@@ -74,29 +77,29 @@ const eightySeven = function() {
 		_svg.appendChild(line);
 	}
 
-	const _init = function(languages) {
+	var _init = function(languages) {
 		if (!_running) {
 			_container = document.getElementById("container87");
 			_running = true;
 			var windowWidth = window.innerWidth;
 			_maxVerticalLineCount = Math.ceil((windowWidth + 1) / _lineSpacing);
 			_svg = _container.querySelector("#grid");
-			_showCutout(_delay);
+			_showCutout();
 			_container.querySelector("#languages87").innerHTML = "";
-			for (let i = 0; i < languages.length - 1; i++) {
-				const span = document.createElement("span");
+			for (var i = 0; i < languages.length - 1; i++) {
+				var span = document.createElement("span");
 				span.innerHTML = languages[i] === "JavaScript" ? "JS" : languages[i];
 				_container.querySelector("#languages87").append(span);
 			}
 		}
 	}
 
-	const _moveNavbar = function() {
-		const navbar = _container.getElementsByClassName("navbar")[0];
+	var _moveNavbar = function() {
+		var navbar = _container.getElementsByClassName("navbar")[0];
 		navbar.parentNode.classList.add("loaded");
 	}
 
-	const _moveHorizontalRainbowBeams = function (ms) {
+	var _moveHorizontalRainbowBeams = function (ms) {
 		if (_horizontalRainbowCount < 5) {
 			_moveHorizontalRainbowBeam(_horizontalRainbowCount);
 			setTimeout(function() {
@@ -114,13 +117,13 @@ const eightySeven = function() {
 		}
 	}
 
-	const _moveHorizontalRainbowBeam = function(i) {
-		const topRainbowContainer = _container.querySelector("#topRainbow");
-		const beam = topRainbowContainer.children[i];
+	var _moveHorizontalRainbowBeam = function(i) {
+		var topRainbowContainer = _container.querySelector("#topRainbow");
+		var beam = topRainbowContainer.children[i];
 		beam.classList.add("loaded");
 	}
 
-	const _moveVerticalRainbowBeams = function (ms) {
+	var _moveVerticalRainbowBeams = function (ms) {
 		if (_verticalRainbowCount < 6) {
 			_moveVerticalRainbowBeam(_verticalRainbowCount);
 			setTimeout(function() {
@@ -136,13 +139,13 @@ const eightySeven = function() {
 		}
 	}
 
-	const _moveVerticalRainbowBeam = function(i) {
-		const bottomRainbowContainer = _container.querySelector("#bottomRainbow");
+	var _moveVerticalRainbowBeam = function(i) {
+		var bottomRainbowContainer = _container.querySelector("#bottomRainbow");
 		var beam = bottomRainbowContainer.children[i];
 		beam.classList.add("loaded");
 	}
 
-	const _revert = function() {
+	var _revert = function() {
 		if (_running) {
 			_running = false;
 			clearInterval(_interval);
@@ -159,13 +162,16 @@ const eightySeven = function() {
 			_container.querySelector("#info87").classList.remove("opacity-1");
 			_container.querySelector("#info87").classList.add("opacity-0");
 			_container.querySelector("#backgroundContainer87").getElementsByClassName("navbar-container")[0].classList.remove("loaded");
-			const topRainbowChildren = _container.querySelector("#topRainbow").children;
-			for (let i = 0; i < topRainbowChildren.length; i++) {
+			var topRainbowChildren = _container.querySelector("#topRainbow").children;
+			for (var i = 0; i < topRainbowChildren.length; i++) {
 				topRainbowChildren[i].classList.remove("loaded");
 			}
-			const bottomRainbowChildren = _container.querySelector("#bottomRainbow").children;
-			for (let i = 0; i < bottomRainbowChildren.length; i++) {
+			var bottomRainbowChildren = _container.querySelector("#bottomRainbow").children;
+			for (var i = 0; i < bottomRainbowChildren.length; i++) {
 				bottomRainbowChildren[i].classList.remove("loaded");
+				setTimeout(function() {
+					bottomRainbowChildren[i].classList.remove("loaded");
+				}, _timeout);
 			}
 			_horizontalLineCount = 0;
 			_maxHorizontalLineCount = null;
@@ -177,27 +183,27 @@ const eightySeven = function() {
 		}
 	}
 
-	const _showText = function() {
-		const vhs = _container.querySelector("#vhs");
+	var _showText = function() {
+		var vhs = _container.querySelector("#vhs");
 		vhs.classList.add("opacity-1");
 		vhs.classList.remove("opacity-0");
 		setTimeout(function() {
 			if (_running) {
-				const name = _container.querySelector("#name87");
+				var name = _container.querySelector("#name87");
 				name.classList.add("opacity-1");
 				name.classList.remove("opacity-0");
 			}
 		}, _timeout);
 		setTimeout(function() {
 			if (_running) {
-				const title = _container.querySelector("#title87");
+				var title = _container.querySelector("#title87");
 				title.classList.add("opacity-1");
 				title.classList.remove("opacity-0");
 			}
 		}, _timeout*2);
 		setTimeout(function() {
 			if (_running) {
-				const info = _container.querySelector("#info87");
+				var info = _container.querySelector("#info87");
 				info.classList.add("opacity-1");
 				info.classList.remove("opacity-0");
 			}
@@ -205,9 +211,9 @@ const eightySeven = function() {
 		setTimeout(function() {
 			if (_running && _interval === null) {
 				_interval = setInterval(function() {
-					const languages = _container.querySelector("#languages87").children;
-					let activeIndex = -1;
-					for (let i = 0; i < languages.length; i++) {
+					var languages = _container.querySelector("#languages87").children;
+					var activeIndex = -1;
+					for (var i = 0; i < languages.length; i++) {
 						if (languages[i].classList.contains("active")) {
 							languages[i].classList.remove("active");
 							activeIndex = i;
@@ -223,12 +229,12 @@ const eightySeven = function() {
 		}, _timeout*2);
 	}
 
-	const _showCutout = function(delay) {
+	var _showCutout = function() {
 		_container.querySelector("#cutOut").classList.remove("opacity-0");
 		_container.querySelector("#cutOut").classList.add("opacity-1");
 		setTimeout(function() {
 			if (_running) {
-				_drawVerticalLines(delay);
+				_drawVerticalLines(0);
 			}
 		}, _timeout);
 	}

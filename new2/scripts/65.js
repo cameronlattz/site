@@ -1,9 +1,9 @@
-const sixtyFive = function() {
+var sixtyFive = function() {
 	"using strict";
-	let _container = null;
-	let _running = false;
+	var _container = null;
+	var _running = false;
 
-	const _init = function(languages) {
+	var _init = function(languages) {
 		if (!_running) {
             _running = true;
             _container = document.getElementById("container65");
@@ -11,9 +11,9 @@ const sixtyFive = function() {
             setTimeout(function() {
                 _container.classList.remove("loading");
                 _container.classList.add("loaded");
-                const containers = document.getElementById("contentContainer").children;
-                const tvContainers = _container.querySelector("#contentContainerTv").children;
-                for (let i = 0; i < containers.length; i++) {
+                var containers = document.getElementById("contentContainer").children;
+                var tvContainers = _container.querySelector("#contentContainerTv").children;
+                for (var i = 0; i < containers.length; i++) {
                     tvContainers[i+1].innerHTML = containers[i].innerHTML;
                 }
             }, 500);
@@ -21,22 +21,22 @@ const sixtyFive = function() {
 		}
     }
 
-	const _moveNavbar = function() {
-        const navbar = _container.getElementsByClassName("navbar-container")[0];
+	var _moveNavbar = function() {
+        var navbar = _container.getElementsByClassName("navbar-container")[0];
 		navbar.classList.add("loaded");
     }
 
-    const _revert = function() {
+    var _revert = function() {
 		if (_running) {
             _running = false;
             _container.classList.remove("loaded");
-            const navbar = _container.getElementsByClassName("navbar-container")[0];
+            var navbar = _container.getElementsByClassName("navbar-container")[0];
             navbar.classList.remove("loaded");
             return true;
         }
     }
 
-    const _visible = function() {}
+    var _visible = function() {}
 
 	return {
 		about: "<a href=\"scripts/65.js\">Vanilla JS</a>+<a href=\"styles/65.css\">CSS</a>",

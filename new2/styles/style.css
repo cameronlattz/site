@@ -199,12 +199,6 @@ a:hover {
 	animation: bounce 2s infinite;
 }
 
-/* temporary */
-#underConstruction {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	z-index: 2;
-	height: 10%;
-	min-height: 100px;
+noscript {
+	display: none;
 }

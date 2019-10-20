@@ -1,15 +1,15 @@
-const script = function() {
+var script = function() {
 	"using strict";
-	let _containers = [];
-	const _languages = ["C#", "Java", "React", "JavaScript", "SQL", "Full Stack"];
+	var _containers = [];
+	var _languages = ["C#", "Java", "React", "JavaScript", "SQL", "Full Stack"];
 
-	const _topY = function(el) {
-		const rect = el.getBoundingClientRect();
-		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	var _topY = function(el) {
+		var rect = el.getBoundingClientRect();
+		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		return rect.top + scrollTop;
 	}
 
-	const _getEra = function(eraId) {
+	var _getEra = function(eraId) {
 		switch (eraId) {
 			case "containerHeader":
 				return header;
@@ -24,20 +24,20 @@ const script = function() {
 		}
 	}
 
-	const _getContainerIndex = function() {
-		const doc = document.documentElement;
-		const scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-		const scrollBottom = scrollTop + document.documentElement.clientHeight;
-		for (let i = _containers.length - 1; i >= 0; i--) {
-			const offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
-			const containerTop = _topY(_containers[i]) + offset;
-			const containerBottom = containerTop + _containers[i].scrollHeight + offset;
-			if (containerTop + offset <= scrollTop && containerBottom >= scrollBottom) {
+	var _getContainerIndex = function() {
+		var doc = document.documentElement;
+		var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+		var scrollBottom = scrollTop + document.documentElement.clientHeight;
+		for (var i = _containers.length - 1; i >= 0; i--) {
+			var offset = _containers[i].getElementsByClassName("scrolling-content-container")[0].offsetHeight;
+			var containerTop = _topY(_containers[i]) + offset;
+			var containerBottom = containerTop + _containers[i].scrollHeight + offset;
+			if (containerTop + offset <= scrollTop && containerBottom - offset >= scrollBottom) {
 				_initContainer(i);
 			} else {
-				const era = _getEra(_containers[i].getAttribute("id"));
+				var era = _getEra(_containers[i].getAttribute("id"));
 				if (era !== null) {
-					const reverted = era.revert();
+					var reverted = era.revert();
 					if (reverted) {
 						_updateContent();
 					}
@@ -46,25 +46,26 @@ const script = function() {
 		}
 	}
 
-	const _init = function() {
+	var _init = function() {
 		document.getElementById("contentContainerHeader").children[0].classList.add("show");
 		_setupNavbar();
 		_containers = document.getElementsByClassName("container");
-		const era = _getEra(_containers[0].getAttribute("id"));
+		var era = _getEra(_containers[0].getAttribute("id"));
 		document.getElementById("contentContainer").classList = era.className;
 		document.getElementById("aboutThisPage").innerHTML = era.about;
 		_initContainer(0);
 		_parseURL();
+		_loadImages();
 	}
 
-	const _initContainer = function(index) {
-		const container = _containers[index];
-		const era = _getEra(container.getAttribute("id"));
+	var _initContainer = function(index) {
+		var container = _containers[index];
+		var era = _getEra(container.getAttribute("id"));
 		if (era !== null) {
 			_updateContent(era);
-			const navbarContainer = container.getElementsByClassName("navbar-container")[0];
+			var navbarContainer = container.getElementsByClassName("navbar-container")[0];
 			if (navbarContainer && navbarContainer.innerHTML === "") {
-				const navbarClone = document.getElementById("navbar").cloneNode(true);
+				var navbarClone = document.getElementById("navbar").cloneNode(true);
 				navbarClone.removeAttribute("id");
 				navbarContainer.append(navbarClone);
 			}
@@ -72,10 +73,19 @@ const script = function() {
 		}
 	}
 
-	const _parseURL = function() {
-		const urlParams = new URLSearchParams(window.location.search);
-		let page = "home";
-		let hash = "Header";
+	var _loadImages = function() {
+		var images = document.getElementsByTagName("img");
+		for (var i = 0; i < images.length; i++) {
+			var image = images[i];
+			image.setAttribute("src", image.getAttribute("data-src"));
+			image.removeAttribute("data-src");
+		}
+	}
+
+	var _parseURL = function() {
+		var urlParams = new URLSearchParams(window.location.search);
+		var page = "home";
+		var hash = "Header";
 		if (window.location.hash) {
 			hash = window.location.hash.substring(1);
 		}
@@ -83,10 +93,10 @@ const script = function() {
 		if (urlParams.has("page")) {
 			page = urlParams.get("page");
 		}
-		const contentId = _updatePage(page, false);
-		const spans = document.getElementsByClassName("navbar-item");
-		for (let i = 0; i < spans.length; i++) {
-			const spanTargetId = spans[i].getAttribute("data-target");
+		var contentId = _updatePage(page, false);
+		var spans = document.getElementsByClassName("navbar-item");
+		for (var i = 0; i < spans.length; i++) {
+			var spanTargetId = spans[i].getAttribute("data-target");
 			if (contentId === spanTargetId) {
 				spans[i].classList.add("active");
 			} else {
@@ -95,7 +105,7 @@ const script = function() {
 		}
 	}
 
-	const _scroll = function() {
+	var _scroll = function() {
 		clearTimeout(this.scrollTimeout);
 		this.scrollTimeout = setTimeout(function() {
 			_getContainerIndex();
@@ -103,7 +113,7 @@ const script = function() {
 		}, 50);
 	}
 
-	const _scrollToContainer = function(hash) {
+	var _scrollToContainer = function(hash) {
 		setTimeout(function() {
 			document.getElementById("container" + hash).scrollIntoView();
 			if (hash !== "Header") {
@@ -114,31 +124,31 @@ const script = function() {
 		}, 50);
 	}
 
-	const _setupNavbar = function() {
+	var _setupNavbar = function() {
 		document.addEventListener("click",function(e){
 			if (e.target && e.target.classList.contains("navbar-item")) {
-				const span = e.target;
+				var span = e.target;
 				if (!span.classList.contains("hamburger")) {
-					const menus = document.getElementsByClassName("dropdown-menu");
-					for (let i = 0; i < menus.length; i++) {
+					var menus = document.getElementsByClassName("dropdown-menu");
+					for (var i = 0; i < menus.length; i++) {
 						menus[i].classList.remove("show");
 					}
-					const spans = document.getElementsByClassName("navbar-item");
-					for (let j = 0; j < spans.length; j++) {
+					var spans = document.getElementsByClassName("navbar-item");
+					for (var j = 0; j < spans.length; j++) {
 						if (spans[j].getAttribute("data-target") !== span.getAttribute("data-target")) {
 							spans[j].classList.remove("active");
 						} else {
 							spans[j].classList.add("active");
 						}
 					}
-					const contentId = span.getAttribute("data-target") || "";
+					var contentId = span.getAttribute("data-target") || "";
 					_updatePage(contentId, true);
 				}
 			 }
 		 });
 	}
 
-	const _updateContent = function(era) {
+	var _updateContent = function(era) {
 		if (era === void 0) {
 			document.getElementById("contentContainer").removeAttribute("class");
 		} else {
@@ -147,17 +157,17 @@ const script = function() {
 		}
 	}
 
-	const _updatePage = function(contentId, updateURL) {
-		const contentNodes = document.getElementById("contentContainer").children;
-		for (let j = 0; j < contentNodes.length; j++) {
+	var _updatePage = function(contentId, updateURL) {
+		var contentNodes = document.getElementById("contentContainer").children;
+		for (var j = 0; j < contentNodes.length; j++) {
 			if (contentNodes[j].id === contentId) {
 				contentNodes[j].classList.add("show");
 			} else {
 				contentNodes[j].classList.remove("show");
 			}
 		}
-		const headerContainers = document.getElementById("contentContainerHeader").children;
-		for (let j = 0; j < headerContainers.length; j++) {
+		var headerContainers = document.getElementById("contentContainerHeader").children;
+		for (var j = 0; j < headerContainers.length; j++) {
 			if (headerContainers[j].id === contentId + "Header") {
 				if (updateURL) {
 					_updateURL(contentId);
@@ -167,8 +177,8 @@ const script = function() {
 				headerContainers[j].classList.remove("show");
 			}
 		}
-		const tvContainers = document.getElementById("contentContainerTv").children;
-		for (let j = 0; j < tvContainers.length; j++) {
+		var tvContainers = document.getElementById("contentContainerTv").children;
+		for (var j = 0; j < tvContainers.length; j++) {
 			if (tvContainers[j].id === contentId + "Tv") {
 				if (updateURL) {
 					_updateURL(contentId);
@@ -181,13 +191,13 @@ const script = function() {
 		return contentId;
 	}
 
-	const _updateURL = function(pageName) {
+	var _updateURL = function(pageName) {
 		if (history.pushState) {
-			let query = "";
+			var query = "";
 			if (pageName !== "home") {
 				query = "?page=" + pageName;
 			}
-			const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + query;
+			var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + query;
 			window.history.pushState({path:newurl},"",newurl);
 		}
 	}

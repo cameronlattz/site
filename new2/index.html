@@ -13,16 +13,29 @@
     <script src="scripts/71.js" defer></script>
     <script src="scripts/96.js" defer></script>
     <script src="scripts/header.js" defer></script>
-    <link href="styles/font-awesome.min.css" rel="stylesheet"></link>
-    <link href="styles/style.css" rel="stylesheet"></link>
-    <link href="styles/header.css" rel="stylesheet"></link>
-    <link href="styles/87.css" rel="stylesheet"></link>
-    <link href="styles/71.css" rel="stylesheet"></link>
-    <link href="styles/96.css" rel="stylesheet"></link>
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link href="styles/style.css" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" />
+    <link href="styles/header.css" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" />
+    <link href="styles/87.css" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" />
+    <link href="styles/71.css" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" />
+    <link href="styles/96.css" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" />
+    <link href="images/favicon.png" rel="preload" as="image" onload="this.rel='icon';this.onload=null" />
+    <noscript>
+        <style>
+            div {display: none;}
+            body {margin:0}
+            #noScript {
+                display: block !important;
+                text-align: center;
+                font-size: 2em;
+                position: absolute;
+                top: 40vh;
+                width: 100%;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
-    <img id="underConstruction" src="images/underconstruction.png">
     <div id="navbar" class="navbar">
         <span class="navbar-header active">Cameron Lattz</span>
         <span data-target="home" class="navbar-item active">Home</span><!--
@@ -39,7 +52,7 @@
         <div id="about">
             <h1>About</h1>
             <p>
-                <img src="images/me2.jpg" alt="Cat" width="240">
+                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/me2.jpg" alt="Cat" width="240">
                 I am a Full Stack developer from Minneapolis. I've also been doing web development as a freelancer since 2008. 
                 In 2007, I won FBLA's Web Development competition for the state of Florida.
             </p>
@@ -61,21 +74,21 @@
             <div id="projectsContainer">
                 <div class="project">
                     <a href="https://cameronlattz.github.io/Responsive-Portfolio/">
-                        <img src="images/portfolio.png" alt="Bootcamp Spot">
+                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/portfolio.png" alt="Bootcamp Spot">
                         <div class="project-name">Bootcamp portfolio</div>
                     </a>
                     <div class="project-info">Portfolio created for the University of Minnesota's Bootcamp Spot. (2019)</div>
                 </div>
                 <div class="project">
                     <a href="./remote">
-                        <img src="images/remote.png" alt="Remote Management">
+                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/remote.png" alt="Remote Management">
                         <div class="project-name">Remote Management</div>
                     </a>
                     <div class="project-info">Turns home computers on/off. (2017)</div>
                 </div>
                 <div class="project">
                     <a href="./centisearch">
-                        <img src="images/centisearch.png" alt="CentiSearch">
+                        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/centisearch.png" alt="CentiSearch">
                         <div class="project-name">CentiSearch</div>
                     </a>
                     <div class="project-info">The Internet's most popular websites, all searchable on one page. (2008)</div>
@@ -147,8 +160,8 @@
                     Full Stack
                 </div>
                 <div id="name87" class="opacity-0">
-                    <img src="images/cameron.png">
-                    <img src="images/lattz.png">
+                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/cameron.png">
+                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/lattz.png">
                 </div>
                 <div id="info87" class="opacity-0">
                     Software Developer<br>
@@ -168,7 +181,7 @@
                 </svg>
                 <span>Written in vanilla JavaScript and CSS<br>Based on Recoton VHS sleeve</span>
 			</span>
-            <img id="cutOut" class="opacity-0" src="images/cutout.png">
+            <img id="cutOut" class="opacity-0" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/cutout.png">
             <div id="bottomRainbow">
                 <div></div>
                 <div></div>
@@ -189,7 +202,7 @@
                 <div id="contentContainerTv">
                     <div id="homeTv" class="tv-content">
                         <!--<iframe src="https://www.youtube.com/embed/kdLy0fksPRo?mute=1&autoplay=1" frameborder="0"></iframe>-->
-                        <video autoplay muted loop>
+                        <video id="video71" preload="metadata" muted loop>
                             <source src="./videos/1971.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -198,17 +211,17 @@
                     <div id="contactTv" class="tv-content"></div>
                 </div>
                 <div id="contentBorderTopTv">
-                    <img src="./images/tvbordertop.png">
+                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="./images/tvbordertop.png">
                 </div>
                 <div id="contentBorderBottomTv">
-                    <img src="./images/tvborderbottom.png">
+                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="./images/tvborderbottom.png">
                 </div>
-                <img id="tv" src="images/tv.png">
+                <img id="tv" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="images/tv.png">
             </div>
             <div id="remote-wrapper">
                 <div id="navbarTv">
                     <div class="navbar-container"></div>
-                    <img src="./images/tvremote.png" id="remote">
+                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="./images/tvremote.png" id="remote">
                 </div>
             </div>
         </div>
@@ -228,5 +241,10 @@
             <h3>1996</h3>
         </div>
     </div>-->
+    <noscript>
+        <div id="noScript" style="display:none">
+            This site requires JavaScript. <a href="https://www.enable-javascript.com/">How to enable JavaScript</a>
+        </div>
+    </noscript>
 </body>
 </html>
