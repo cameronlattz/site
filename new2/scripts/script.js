@@ -99,8 +99,6 @@ const script = function() {
 		clearTimeout(this.scrollTimeout);
 		this.scrollTimeout = setTimeout(function() {
 			_getContainerIndex();
-			console.log("87: " + eightySeven.running());
-			console.log("71: " + seventyOne.running());
 			this.previousScrollY = this.scrollY;
 		}, 50);
 	}
