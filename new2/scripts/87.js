@@ -41,7 +41,6 @@ var eightySeven = function() {
 			var windowHeight = window.innerHeight;
 			_maxHorizontalLineCount = Math.ceil((windowHeight + 1) / _lineSpacing);
 			_moveNavbar();
-			console.log(windowHeight + ", " + _maxHorizontalLineCount);
 			_drawHorizontalLines(delay);
 		}
 	}
