@@ -10,8 +10,8 @@ var eightySeven = function() {
 	var _maxHorizontalLineCount = null;
 	var _verticalLineCount = 0;
 	var _maxVerticalLineCount = null;
-	var _horizontalRainbowCount = 0;
-	var _verticalRainbowCount = 0;
+	var _bottomRainbowCount = 0;
+	var _topRainbowCount = 0;
 	var _running = false;
 	var _interval = null;
 
@@ -59,7 +59,7 @@ var eightySeven = function() {
 		if (_horizontalLineCount === _maxHorizontalLineCount) {
 			setTimeout(function() {
 				if (_running) {
-					_moveHorizontalRainbowBeams(delay);
+					_moveTopRainbowBeams(delay);
 				}
 			}, _timeout);
 		}
@@ -98,36 +98,38 @@ var eightySeven = function() {
 		navbar.parentNode.classList.add("loaded");
 	}
 
-	var _moveHorizontalRainbowBeams = function (ms) {
-		if (_horizontalRainbowCount < 5) {
-			_moveHorizontalRainbowBeam(_horizontalRainbowCount);
+	var _moveTopRainbowBeams = function (ms) {
+		if (_bottomRainbowCount < 5) {
+			_moveTopRainbowBeam(_bottomRainbowCount);
 			setTimeout(function() {
 				if (_running) {
-					_horizontalRainbowCount++;
-					_moveHorizontalRainbowBeams(_delay);
+					_bottomRainbowCount++;
+					_moveTopRainbowBeams(_delay);
 				}
 			}, ms*5);
 		} else {
 			setTimeout(function() {
 				if (_running) {
-					_moveVerticalRainbowBeams();
+					_moveBottomRainbowBeams();
 				}
 			}, _timeout/2);
 		}
 	}
 
-	var _moveHorizontalRainbowBeam = function(i) {
+	var _moveTopRainbowBeam = function(i) {
 		var topRainbowContainer = _container.querySelector("#topRainbow");
 		var beam = topRainbowContainer.children[i];
 		beam.classList.add("loaded");
 	}
 
-	var _moveVerticalRainbowBeams = function (ms) {
-		if (_verticalRainbowCount < 6) {
-			_moveVerticalRainbowBeam(_verticalRainbowCount);
+	var _moveBottomRainbowBeams = function (ms) {
+		if (_topRainbowCount < 6) {
+			_moveBottomRainbowBeam(_topRainbowCount);
 			setTimeout(function() {
-				_verticalRainbowCount++;
-				_moveVerticalRainbowBeams(_delay);
+				if (_running) {
+					_topRainbowCount++;
+					_moveBottomRainbowBeams(_delay);
+				}
 			}, ms*5);
 		} else {
 			setTimeout(function() {
@@ -138,7 +140,7 @@ var eightySeven = function() {
 		}
 	}
 
-	var _moveVerticalRainbowBeam = function(i) {
+	var _moveBottomRainbowBeam = function(i) {
 		var bottomRainbowContainer = _container.querySelector("#bottomRainbow");
 		var beam = bottomRainbowContainer.children[i];
 		beam.classList.add("loaded");
@@ -168,16 +170,13 @@ var eightySeven = function() {
 			var bottomRainbowChildren = _container.querySelector("#bottomRainbow").children;
 			for (var i = 0; i < bottomRainbowChildren.length; i++) {
 				bottomRainbowChildren[i].classList.remove("loaded");
-				setTimeout(function() {
-					bottomRainbowChildren[i].classList.remove("loaded");
-				}, _timeout);
 			}
 			_horizontalLineCount = 0;
 			_maxHorizontalLineCount = null;
 			_verticalLineCount = 0;
 			_maxVerticalLineCount = null;
-			_horizontalRainbowCount = 0;
-			_verticalRainbowCount = 0;
+			_bottomRainbowCount = 0;
+			_topRainbowCount = 0;
 			return true;
 		}
 	}
